@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/thewaybackground"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+        <TextView
+            android:text="@string/username_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+
+            android:id="@+id/UserTextView" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:inputType="text"
+            android:text=""
+            android:background="@color/colorText"
+            android:ems="10"
+            android:id="@+id/editTextUser" />
+        <TextView
+            android:text="@string/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+
+            android:textSize="20sp"
+            android:textColor="@color/colorText"
+            android:textStyle="bold"
+
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+
+            android:id="@+id/PasswordTextView"
+             />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+
+            android:inputType="text"
+            android:text=""
+            android:background="@color/colorText"
+            android:ems="10"
+            android:id="@+id/editTextPwd" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+
+            android:text="@string/log_in"
+            android:textStyle="bold"
+            android:textColor="@color/colorText"
+            android:background="@android:color/holo_green_dark"
+
+            android:id="@+id/buttonLogin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+
+            android:textSize="20sp"
+            android:textColor="@color/colorText"
+            android:textStyle="bold"
+            android:text="@string/not_registered"
+
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+
+            android:id="@+id/RegisterTextView"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:text="@string/register"
+            android:textStyle="bold"
+            android:textColor="@color/colorText"
+            android:background="@android:color/holo_green_dark"
+
+            android:id="@+id/buttonRegister" />
+
+
+    </LinearLayout>

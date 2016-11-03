@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TheWay</string>
+    <string name="log_in">LOG IN!</string>
+    <string name="not_registered">Not Registered?</string>
+    <string name="password">Password</string>
+    <string name="register">REGISTER!</string>
+    <string name="username_text">Username</string>
+</resources>
