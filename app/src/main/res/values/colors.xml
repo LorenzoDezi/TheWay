@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">@android:color/holo_green_dark</color>
     <color name="colorAccent">@android:color/holo_green_light</color>
     <color name="colorText">@android:color/white</color>
+    <color name="shadowColor">@android:color/black</color>
+    <color name="buttonColor">@android:color/holo_green_dark</color>
+    <color name="editTextColor">@android:color/black</color>
 </resources>

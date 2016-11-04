@@ -4,21 +4,28 @@
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/thewaybackground"
+    android:background="@drawable/logo"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-        <TextView
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar" />
+
+    <TextView
             android:text="@string/username_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
 
-            android:textSize="20sp"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
+            style="@style/textTextViewTheme"
 
-            android:layout_marginTop="25dp"
+
+        android:layout_marginTop="25dp"
             android:layout_marginBottom="25dp"
 
             android:id="@+id/UserTextView" />
@@ -28,6 +35,7 @@
             android:layout_gravity="center_horizontal"
             android:inputType="text"
             android:text=""
+            android:textColor="@color/editTextColor"
             android:background="@color/colorText"
             android:ems="10"
             android:id="@+id/editTextUser" />
@@ -37,9 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
 
-            android:textSize="20sp"
-            android:textColor="@color/colorText"
-            android:textStyle="bold"
+            style="@style/textTextViewTheme"
 
             android:layout_marginTop="25dp"
             android:layout_marginBottom="25dp"
@@ -52,52 +58,51 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
 
-            android:inputType="text"
+            android:inputType="textPassword"
             android:text=""
+            android:textColor="@color/editTextColor"
             android:background="@color/colorText"
             android:ems="10"
             android:id="@+id/editTextPwd" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="140dp"
 
-            android:text="@string/log_in"
-            android:textStyle="bold"
-            android:textColor="@color/colorText"
-            android:background="@android:color/holo_green_dark"
 
-            android:id="@+id/buttonLogin" />
+        android:text="@string/log_in"
+        style="@style/textButtonTheme"
+        android:background="@color/buttonColor"
+        android:id="@+id/buttonLogin" />
 
-        <TextView
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
 
-            android:textSize="20sp"
-            android:textColor="@color/colorText"
-            android:textStyle="bold"
-            android:text="@string/not_registered"
 
-            android:layout_marginTop="25dp"
+            android:text="@string/not_registered"
+            style="@style/textTextViewTheme"
+
+
             android:layout_marginBottom="25dp"
+            android:layout_marginTop="25dp"
 
             android:id="@+id/RegisterTextView"
             />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
 
-            android:text="@string/register"
-            android:textStyle="bold"
-            android:textColor="@color/colorText"
-            android:background="@android:color/holo_green_dark"
+        android:text="@string/register"
+        style="@style/textButtonTheme"
+        android:background="@color/buttonColor"
 
-            android:id="@+id/buttonRegister" />
+        android:id="@+id/buttonRegister" />
 
 
-    </LinearLayout>
+</LinearLayout>
