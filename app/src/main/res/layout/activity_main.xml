@@ -74,7 +74,6 @@
 
         android:text="@string/log_in"
         style="@style/textButtonTheme"
-        android:background="@color/buttonColor"
         android:id="@+id/buttonLogin" />
 
     <TextView
@@ -100,7 +99,6 @@
 
         android:text="@string/register"
         style="@style/textButtonTheme"
-        android:background="@color/buttonColor"
 
         android:id="@+id/buttonRegister" />
 
