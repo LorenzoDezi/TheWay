@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/dezio/AndroidStudioProjects/TheWay/app/src/main/AndroidManifest.xml:2:1-20:12
+ADDED from /home/dezio/AndroidStudioProjects/TheWay/app/src/main/AndroidManifest.xml:2:1-21:12
 	package
 		ADDED from /home/dezio/AndroidStudioProjects/TheWay/app/src/main/AndroidManifest.xml:3:5-38
 		INJECTED from /home/dezio/AndroidStudioProjects/TheWay/app/src/main/AndroidManifest.xml
@@ -14,7 +14,7 @@ ADDED from /home/dezio/AndroidStudioProjects/TheWay/app/src/main/AndroidManifest
 		INJECTED from /home/dezio/AndroidStudioProjects/TheWay/app/src/main/AndroidManifest.xml
 		INJECTED from /home/dezio/AndroidStudioProjects/TheWay/app/src/main/AndroidManifest.xml
 application
-ADDED from /home/dezio/AndroidStudioProjects/TheWay/app/src/main/AndroidManifest.xml:5:5-18:19
+ADDED from /home/dezio/AndroidStudioProjects/TheWay/app/src/main/AndroidManifest.xml:5:5-19:19
 MERGED from [com.android.support:design:25.0.0] /home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/design/25.0.0/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:25.0.0] /home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.0/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-compat:25.0.0] /home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.0/AndroidManifest.xml:25:5-20
@@ -50,6 +50,10 @@ category#android.intent.category.LAUNCHER
 ADDED from /home/dezio/AndroidStudioProjects/TheWay/app/src/main/AndroidManifest.xml:15:17-77
 	android:name
 		ADDED from /home/dezio/AndroidStudioProjects/TheWay/app/src/main/AndroidManifest.xml:15:27-74
+activity#com.unicam.dezio.theway.WelcomeActivity
+ADDED from /home/dezio/AndroidStudioProjects/TheWay/app/src/main/AndroidManifest.xml:18:9-62
+	android:name
+		ADDED from /home/dezio/AndroidStudioProjects/TheWay/app/src/main/AndroidManifest.xml:18:19-50
 uses-sdk
 INJECTED from /home/dezio/AndroidStudioProjects/TheWay/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:25.0.0] /home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/design/25.0.0/AndroidManifest.xml:21:5-23:62
