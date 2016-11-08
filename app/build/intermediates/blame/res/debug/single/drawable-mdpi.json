@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_action_name.png",
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-mdpi/ic_action_name.png"
+    },
+    {
+        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-mdpi/play.png",
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-mdpi/play.png"
+    },
+    {
+        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-mdpi/search.png",
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-mdpi/search.png"
+    },
+    {
+        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_connectivity_false.png",
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-mdpi/ic_connectivity_false.png"
+    }
+]
