@@ -388,6 +388,27 @@
                         "endOffset": 12645
                     }
                 }
+            },
+            {
+                "to": {
+                    "startLine": 170,
+                    "startColumn": 4,
+                    "startOffset": 12650,
+                    "endLine": 171,
+                    "endColumn": 8,
+                    "endOffset": 12771
+                },
+                "from": {
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/9.8.0/res/values-v11/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 172,
+                        "endLine": 5,
+                        "endColumn": 8,
+                        "endOffset": 293
+                    }
+                }
             }
         ]
     }

@@ -28,7 +28,7 @@
         android:layout_marginTop="25dp"
             android:layout_marginBottom="25dp"
 
-            android:id="@+id/UserTextView" />
+            android:id="@+id/userTextView" />
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
             android:layout_marginTop="25dp"
             android:layout_marginBottom="25dp"
 
-            android:id="@+id/PasswordTextView"
+            android:id="@+id/mailTextView"
              />
 
         <EditText
@@ -63,7 +63,7 @@
             android:textColor="@color/editTextColor"
             android:background="@color/colorText"
             android:ems="10"
-            android:id="@+id/editTextPwd" />
+            android:id="@+id/editTextMail" />
 
     <Button
         android:layout_width="wrap_content"

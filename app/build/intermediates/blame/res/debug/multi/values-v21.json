@@ -2018,9 +2018,30 @@
                     "startLine": 279,
                     "startColumn": 4,
                     "startOffset": 20451,
-                    "endLine": 281,
+                    "endLine": 280,
+                    "endColumn": 8,
+                    "endOffset": 20576
+                },
+                "from": {
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/9.8.0/res/values-v21/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 172,
+                        "endLine": 5,
+                        "endColumn": 8,
+                        "endOffset": 297
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 281,
+                    "startColumn": 4,
+                    "startOffset": 20581,
+                    "endLine": 283,
                     "endColumn": 12,
-                    "endOffset": 20621
+                    "endOffset": 20751
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/values-v21/values-v21.xml",
@@ -2036,12 +2057,12 @@
             },
             {
                 "to": {
-                    "startLine": 282,
+                    "startLine": 284,
                     "startColumn": 4,
-                    "startOffset": 20626,
-                    "endLine": 286,
+                    "startOffset": 20756,
+                    "endLine": 288,
                     "endColumn": 12,
-                    "endOffset": 20962
+                    "endOffset": 21092
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/values-v21/values-v21.xml",
@@ -2057,12 +2078,12 @@
             },
             {
                 "to": {
-                    "startLine": 287,
+                    "startLine": 289,
                     "startColumn": 4,
-                    "startOffset": 20967,
-                    "endLine": 289,
+                    "startOffset": 21097,
+                    "endLine": 291,
                     "endColumn": 12,
-                    "endOffset": 21156
+                    "endOffset": 21286
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/values-v21/values-v21.xml",
