@@ -6,9 +6,5 @@
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_connectivity_false.png",
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/mipmap-xxhdpi/ic_connectivity_false.png"
-    },
-    {
-        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     }
 ]

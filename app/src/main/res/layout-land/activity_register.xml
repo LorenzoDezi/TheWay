@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/logo"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:text="@string/register"
+        style="@style/textButtonTheme"
+
+        android:id="@+id/buttonRegister2"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="64dp"
+        android:layout_marginStart="64dp" />
+
+    <TextView
+        android:text="@string/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/textTextViewTheme"
+        android:id="@+id/pwdTextView"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignLeft="@+id/mailTextView"
+        android:layout_alignStart="@+id/mailTextView"
+        android:layout_marginTop="59dp" />
+
+    <TextView
+        android:text="@string/username_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/textTextViewTheme"
+
+
+        android:id="@+id/userTextView"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignLeft="@+id/pwdTextView"
+        android:layout_alignStart="@+id/pwdTextView"
+        android:layout_marginTop="13dp" />
+
+    <TextView
+        android:text="Re-type the password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/textTextViewTheme"
+        android:id="@+id/rePwdTextView"
+        android:layout_above="@+id/buttonRegister"
+        android:layout_alignLeft="@+id/pwdTextView"
+        android:layout_alignStart="@+id/pwdTextView"
+        android:layout_marginBottom="54dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/editTextRePwd"
+        android:inputType="textPassword"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_alignTop="@+id/rePwdTextView"
+        android:layout_alignLeft="@+id/editTextPwd"
+        android:layout_alignStart="@+id/editTextPwd" />
+
+    <TextView
+        android:text="E-mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+
+
+        style="@style/textTextViewTheme"
+
+        android:id="@+id/mailTextView"
+        android:layout_below="@+id/editTextPwd"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="12dp" />
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+        android:layout_alignParentTop="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+
+        android:text=""
+        android:textColor="@color/editTextColor"
+        android:background="@color/colorText"
+        android:ems="10"
+        android:id="@+id/editTextEmail"
+        android:inputType="textWebEmailAddress"
+        android:layout_below="@+id/editTextPwd"
+        android:layout_toRightOf="@+id/rePwdTextView"
+        android:layout_toEndOf="@+id/rePwdTextView"
+        android:layout_marginLeft="42dp"
+        android:layout_marginStart="42dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/editTextPwd"
+        android:inputType="textPersonName|textPassword"
+        android:layout_alignTop="@+id/pwdTextView"
+        android:layout_alignLeft="@+id/editTextEmail"
+        android:layout_alignStart="@+id/editTextEmail" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:text=""
+        android:textColor="@color/editTextColor"
+        android:background="@color/colorText"
+        android:ems="10"
+        android:id="@+id/editTextUser"
+        android:layout_alignBottom="@+id/userTextView"
+        android:layout_alignLeft="@+id/editTextPwd"
+        android:layout_alignStart="@+id/editTextPwd" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:text="Enter with Facebook!"
+        style="@style/textButtonTheme"
+
+        android:id="@+id/buttonRegisterFB"
+        android:layout_below="@+id/rePwdTextView"
+        android:layout_alignLeft="@+id/editTextRePwd"
+        android:layout_alignStart="@+id/editTextRePwd" />
+
+
+</RelativeLayout>

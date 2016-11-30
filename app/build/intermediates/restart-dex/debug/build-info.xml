@@ -4,54 +4,40 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.0"
-    timestamp="30684772363482"
+    timestamp="5487798721167"
     token="4455078928021233926"
-    verifier="COMPATIBLE" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="81" />
+        duration="119" />
     <task
         name="instant-run-dex"
-        duration="17" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="26" />
+        duration="15" />
     <task
         name="verifier"
-        duration="0" />
+        duration="1" />
 
     <artifact
-        location="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/reload-dex/debug/classes.dex"
-        type="RELOAD_DEX" />
+        location="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
+        type="DEX" />
 
     <build
-        timestamp="29931548659988"
+        timestamp="3995821294530"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/dezio/AndroidStudioProjects/TheWay/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="30352617411206"
+        timestamp="5487798721167"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
             type="DEX" />
-    </build>
-    <build
-        timestamp="30626786212091"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_"
-            type="RESOURCES" />
-    </build>
-    <build
-        timestamp="30684772363482"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/reload-dex/debug/classes.dex"
-            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

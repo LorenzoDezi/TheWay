@@ -38,6 +38,23 @@
     <string msgid="3804878371876790270" name="cast_tracks_chooser_dialog_ok">"ಸರಿ"</string>
     <string msgid="2454147715032376208" name="cast_tracks_chooser_dialog_subtitles">"ಉಪಶೀರ್ಷಿಕೆಗಳು"</string>
     <string msgid="2913461521603516868" name="cast_unmute">"ಅನ್‌ಮ್ಯೂಟ್"</string>
+    <string name="com_facebook_device_auth_instructions">ನಿಮ್ಮ ಸ್ಮಾರ್ಟ್‌ ಫೋನ್‌ ಅಥವಾ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ &lt;b>facebook.com/device&lt;/b> ಗೆ ಭೇಟಿ ನೀಡಿ ಮತ್ತು ಈ ಕೋಡ್‌ ಅನ್ನು ನಮೂದಿಸಿ:</string>
+    <string name="com_facebook_image_download_unknown_error">ಚಿತ್ರವನ್ನು ಡೌನ್‌ಲೋಡ್‌ ಮಾಡುವಾಗ ಅನಿರೀಕ್ಷಿತ ದೋಷ ಕಂಡುಬಂದಿದೆ.</string>
+    <string name="com_facebook_internet_permission_error_message">WebView ಲಾಗಿನ್‌ಗೆ ಇಂಟರ್ನೆಟ್ ಅನುಮತಿಯ ಅಗತ್ಯವಿದೆ</string>
+    <string name="com_facebook_internet_permission_error_title">AndroidManifest ದೋಷ</string>
+    <string name="com_facebook_like_button_liked">ಇಷ್ಟಪಟ್ಟಿದ್ದಾರೆ</string>
+    <string name="com_facebook_like_button_not_liked">ಇಷ್ಟವಾಗಿದೆ</string>
+    <string name="com_facebook_loading">ಲೋಡ್‌ ಆಗುತ್ತಿದೆ…</string>
+    <string name="com_facebook_loginview_cancel_action">ರದ್ದುಮಾಡು</string>
+    <string name="com_facebook_loginview_log_in_button">ಲಾಗ್‌ ಇನ್‌</string>
+    <string name="com_facebook_loginview_log_in_button_long">Facebook ಮೂಲಕ ಲಾಗ್‌ ಇನ್‌ ಮಾಡಿ</string>
+    <string name="com_facebook_loginview_log_out_action">ಲಾಗ್‌ ಔಟ್‌</string>
+    <string name="com_facebook_loginview_log_out_button">ಲಾಗ್‌ ಔಟ್‌</string>
+    <string name="com_facebook_loginview_logged_in_as">ಇದರಂತೆ ಲಾಗಿನ್‌ ಮಾಡಲಾಗಿದೆ: %1$s</string>
+    <string name="com_facebook_loginview_logged_in_using_facebook">Facebook ಬಳಸಿಕೊಂಡು ಲಾಗಿನ್‌ ಮಾಡಲಾಗಿದೆ</string>
+    <string name="com_facebook_send_button_text">ಕಳುಹಿಸಿ</string>
+    <string name="com_facebook_share_button_text">ಹಂಚಿಕೊಳ್ಳಿ</string>
+    <string name="com_facebook_tooltip_default">ಹೊಸ! ನೀವು ನಿಯಂತ್ರಣದಲ್ಲಿರುವಿರಿ - ನೀವು ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಬಳಸಿಕೊಂಡು ಹಂಚಿಕೊಳ್ಳಲು ಬಯಸುವ ವಿಷಯವನ್ನು ಆರಿಸಿ.</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"ಸಕ್ರಿಯಗೊಳಿಸು"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"Google Play ಸೇವೆಗಳನ್ನು ನೀವು ಸಕ್ರಿಯಗೊಳಿಸದ ಹೊರತು <ns1:g id="APP_NAME">%1$s</ns1:g> ಕಾರ್ಯನಿರ್ವಹಿಸುವುದಿಲ್ಲ."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Google Play ಸೇವೆಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"</string>
@@ -62,6 +79,7 @@
     <string msgid="2039274714455389140" name="debug_menu_title">"ಡೀಬಗ್ ಮೋಡ್ ಆಯ್ಕೆಮಾಡಿ"</string>
     <string msgid="1173358804935285568" name="debug_menu_troubleshooting">"ಸಮಸ್ಯೆ ನಿವಾರಣೆ"</string>
     <string msgid="6099173376375995052" name="decline">"ನಿರಾಕರಿಸು"</string>
+    <string name="messenger_send_button_text">ಕಳುಹಿಸು</string>
     <string msgid="1303870564366209730" name="place_autocomplete_clear_button">"ಹುಡುಕಾಟ ತೆರವುಗೊಳಿಸಿ"</string>
     <string msgid="2809095107724486040" name="place_autocomplete_search_hint">"ಹುಡುಕು"</string>
     <string msgid="8020323581538738027" name="store_picture_message">"ಚಿತ್ರದ ಗ್ಯಾಲರಿಯಲ್ಲಿ ಚಿತ್ರ ಸಂಗ್ರಹಿಸಿಡಲು ಜಾಹೀರಾತಿಗೆ ಅನುಮತಿಸುವುದೇ?"</string>

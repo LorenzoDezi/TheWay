@@ -57,6 +57,23 @@
     <string msgid="3804878371876790270" name="cast_tracks_chooser_dialog_ok">"ΟΚ"</string>
     <string msgid="2454147715032376208" name="cast_tracks_chooser_dialog_subtitles">"Υπότιτλοι"</string>
     <string msgid="2913461521603516868" name="cast_unmute">"Κατάργηση σίγασης"</string>
+    <string name="com_facebook_device_auth_instructions">Επισκεφτείτε τον ιστότοπο &lt;b>facebook.com/device&lt;/b> από το smartphone ή τον υπολογιστή σας και πληκτρολογήστε αυτόν τον κωδικό:</string>
+    <string name="com_facebook_image_download_unknown_error">Προέκυψε μη αναμενόμενο σφάλμα κατά τη λήψη μιας εικόνας.</string>
+    <string name="com_facebook_internet_permission_error_message">Για τη σύνδεση στο WebView απαιτείται σύνδεση INTERNET</string>
+    <string name="com_facebook_internet_permission_error_title">Σφάλμα AndroidManifest</string>
+    <string name="com_facebook_like_button_liked">Σας αρέσει</string>
+    <string name="com_facebook_like_button_not_liked">Μου αρέσει!</string>
+    <string name="com_facebook_loading">Φόρτωση…</string>
+    <string name="com_facebook_loginview_cancel_action">Άκυρο</string>
+    <string name="com_facebook_loginview_log_in_button">Σύνδεση</string>
+    <string name="com_facebook_loginview_log_in_button_long">Σύνδεση μέσω Facebook</string>
+    <string name="com_facebook_loginview_log_out_action">Αποσύνδεση</string>
+    <string name="com_facebook_loginview_log_out_button">Αποσύνδεση</string>
+    <string name="com_facebook_loginview_logged_in_as">Έχει γίνει σύνδεση ως: %1$s</string>
+    <string name="com_facebook_loginview_logged_in_using_facebook">Έχει γίνει σύνδεση μέσω Facebook</string>
+    <string name="com_facebook_send_button_text">Αποστολή</string>
+    <string name="com_facebook_share_button_text">Κοινοποίηση</string>
+    <string name="com_facebook_tooltip_default">Νέο! Έχετε τον έλεγχο - επιλέξτε ποιες πληροφορίες θέλετε να κοινοποιούνται στις εφαρμογές.</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Ενεργοποίηση"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"Η εφαρμογή <ns1:g id="APP_NAME">%1$s</ns1:g> δεν θα λειτουργήσει εάν δεν έχετε ενεργοποιήσει τις υπηρεσίες Google Play."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Ενεργοποίηση υπηρεσιών Google Play"</string>
@@ -81,6 +98,7 @@
     <string msgid="2039274714455389140" name="debug_menu_title">"Επιλογή λειτουργίας εντοπισμού σφαλμάτων"</string>
     <string msgid="1173358804935285568" name="debug_menu_troubleshooting">"Αντιμετώπιση προβλημάτων"</string>
     <string msgid="6099173376375995052" name="decline">"Απόρριψη"</string>
+    <string name="messenger_send_button_text">Αποστολή</string>
     <string msgid="3698378085901466129" name="mr_button_content_description">"Κουμπί Cast"</string>
     <string msgid="6349900579507521956" name="mr_chooser_searching">"Εύρεση συσκευών"</string>
     <string msgid="414301941546135990" name="mr_chooser_title">"Μετάδοση σε"</string>

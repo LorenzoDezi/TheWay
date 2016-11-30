@@ -57,6 +57,23 @@
     <string msgid="3804878371876790270" name="cast_tracks_chooser_dialog_ok">"OK"</string>
     <string msgid="2454147715032376208" name="cast_tracks_chooser_dialog_subtitles">"Phụ đề"</string>
     <string msgid="2913461521603516868" name="cast_unmute">"Bật tiếng"</string>
+    <string name="com_facebook_device_auth_instructions">Truy cập &lt;b>facebook.com/device&lt;/b> trên điện thoại thông minh hoặc máy tính và nhập mã sau:</string>
+    <string name="com_facebook_image_download_unknown_error">Lỗi bất ngờ khi tải ảnh xuống.</string>
+    <string name="com_facebook_internet_permission_error_message">Đăng nhập WebView yêu cầu INTERNET cho phép</string>
+    <string name="com_facebook_internet_permission_error_title">Lỗi AndroidManifest</string>
+    <string name="com_facebook_like_button_liked">Đã thích</string>
+    <string name="com_facebook_like_button_not_liked">Thích</string>
+    <string name="com_facebook_loading">Đang tải…</string>
+    <string name="com_facebook_loginview_cancel_action">Hủy</string>
+    <string name="com_facebook_loginview_log_in_button">Đăng nhập</string>
+    <string name="com_facebook_loginview_log_in_button_long">Đăng nhập bằng Facebook</string>
+    <string name="com_facebook_loginview_log_out_action">Đăng xuất</string>
+    <string name="com_facebook_loginview_log_out_button">Đăng xuất</string>
+    <string name="com_facebook_loginview_logged_in_as">Đã đăng nhập với tư cách là: %1$s</string>
+    <string name="com_facebook_loginview_logged_in_using_facebook">Đã đăng nhập bằng Facebook</string>
+    <string name="com_facebook_send_button_text">Gửi</string>
+    <string name="com_facebook_share_button_text">Chia sẻ</string>
+    <string name="com_facebook_tooltip_default">Mới! Bạn đang có quyền kiểm soát - hãy chọn thông tin bạn muốn chia sẻ với các ứng dụng.</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Bật"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> sẽ không hoạt động nếu bạn không bật dịch vụ của Google Play."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Bật dịch vụ của Google Play"</string>
@@ -81,6 +98,7 @@
     <string msgid="2039274714455389140" name="debug_menu_title">"Chọn chế độ gỡ lỗi"</string>
     <string msgid="1173358804935285568" name="debug_menu_troubleshooting">"Khắc phục sự cố"</string>
     <string msgid="6099173376375995052" name="decline">"Từ chối"</string>
+    <string name="messenger_send_button_text">Gửi</string>
     <string msgid="3698378085901466129" name="mr_button_content_description">"Nút truyền"</string>
     <string msgid="6349900579507521956" name="mr_chooser_searching">"Tìm thiết bị"</string>
     <string msgid="414301941546135990" name="mr_chooser_title">"Truyền tới"</string>

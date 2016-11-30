@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<RelativeLayout android:layout_width="match_parent"
+<RelativeLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/logo"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/registerLayout">
 
 
     <android.support.v7.widget.Toolbar
@@ -20,7 +22,6 @@
         android:text="@string/username_text"
         android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
-        android:layout_alig="@id/toolbar"
         android:layout_height="wrap_content"
         style="@style/textTextViewTheme"
 
@@ -47,6 +48,15 @@
         android:layout_toRightOf="@+id/userTextView"
         android:layout_toEndOf="@+id/userTextView" />
 
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp"
+        android:id="@+id/progressRegister"
+        android:visibility="invisible" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,70 +66,69 @@
         android:textColor="@color/editTextColor"
         android:background="@color/colorText"
         android:ems="10"
-        android:id="@+id/editTextMail"
+        android:id="@+id/editTextEmail"
+        android:layout_marginTop="40dp"
+        android:inputType="textWebEmailAddress"
+        android:layout_below="@+id/editTextPwd"
+        android:layout_alignLeft="@+id/editTextUser"
+        android:layout_alignStart="@+id/editTextUser" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/editTextPwd"
+        android:inputType="textPersonName|textPassword"
         android:layout_below="@+id/editTextUser"
         android:layout_alignLeft="@+id/editTextUser"
         android:layout_alignStart="@+id/editTextUser"
-        android:layout_marginTop="18dp"
-        android:inputType="textWebEmailAddress" />
+        android:layout_marginTop="26dp" />
+
+    <TextView
+        android:text="@string/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/textTextViewTheme"
+        android:id="@+id/pwdTextView"
+        android:layout_alignTop="@+id/editTextPwd"
+        android:layout_alignLeft="@+id/userTextView"
+        android:layout_alignStart="@+id/userTextView" />
 
     <TextView
         android:text="E-mail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="10dp"
 
 
         style="@style/textTextViewTheme"
 
         android:id="@+id/mailTextView"
-        android:layout_alignBottom="@+id/editTextMail"
-        android:layout_toLeftOf="@+id/editTextUser"
-        android:layout_toStartOf="@+id/editTextUser" />
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_alignTop="@+id/editTextEmail"
+        android:layout_alignRight="@+id/pwdTextView"
+        android:layout_alignEnd="@+id/pwdTextView" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:layout_alignTop="@+id/pwdTextView"
-        android:layout_alignLeft="@+id/editTextMail"
-        android:layout_alignStart="@+id/editTextMail"
-        android:id="@+id/editTextPwd"
-        android:inputType="textPersonName|textPassword" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_alignTop="@+id/rePwdTextView"
-        android:layout_alignLeft="@+id/editTextPwd"
-        android:layout_alignStart="@+id/editTextPwd"
         android:id="@+id/editTextRePwd"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:layout_marginTop="28dp"
+        android:layout_below="@+id/mailTextView"
+        android:layout_alignLeft="@+id/editTextEmail"
+        android:layout_alignStart="@+id/editTextEmail" />
 
     <TextView
-        android:text="@string/password"
+        android:text="Re-type password"
         android:layout_width="wrap_content"
-        android:layout_marginLeft="10dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        style="@style/textTextViewTheme"
-        android:id="@+id/pwdTextView"
-        android:layout_below="@+id/editTextMail" />
-
-    <TextView
-        android:text="Re-type the password"
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         style="@style/textTextViewTheme"
         android:id="@+id/rePwdTextView"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/editTextPwd"
-        android:layout_toLeftOf="@+id/editTextRePwd"
-        android:layout_toStartOf="@+id/editTextRePwd" />
+        android:layout_alignBottom="@+id/editTextRePwd"
+        android:layout_alignRight="@+id/pwdTextView"
+        android:layout_alignEnd="@+id/pwdTextView" />
 
     <Button
         android:layout_width="wrap_content"
@@ -128,11 +137,10 @@
 
         android:text="@string/register"
         style="@style/textButtonTheme"
-
         android:id="@+id/buttonRegister"
-        android:layout_below="@+id/rePwdTextView"
+        android:layout_alignBottom="@+id/buttonRegisterFB"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp" />
+        android:layout_marginBottom="57dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -143,9 +151,9 @@
         style="@style/textButtonTheme"
 
         android:id="@+id/buttonRegisterFB"
-        android:layout_below="@id/buttonRegister"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp" />
+        android:layout_marginBottom="58dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

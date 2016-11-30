@@ -57,6 +57,23 @@
     <string msgid="3804878371876790270" name="cast_tracks_chooser_dialog_ok">"موافق"</string>
     <string msgid="2454147715032376208" name="cast_tracks_chooser_dialog_subtitles">"الترجمات المصاحبة"</string>
     <string msgid="2913461521603516868" name="cast_unmute">"إعادة الصوت"</string>
+    <string name="com_facebook_device_auth_instructions">زر &lt;b>facebook.com/device&lt;/b> على هاتفك الذكي أو الكمبيوتر ثم أدخل هذا الرمز:</string>
+    <string name="com_facebook_image_download_unknown_error">حدث خطأ غير متوقع أثناء تنزيل صورة.</string>
+    <string name="com_facebook_internet_permission_error_message">يتطلب تسجيل الدخول إلى WebView إذن الاتصال بالإنترنت</string>
+    <string name="com_facebook_internet_permission_error_title">خطأ AndroidManifest</string>
+    <string name="com_facebook_like_button_liked">أعجبني</string>
+    <string name="com_facebook_like_button_not_liked">إعجاب</string>
+    <string name="com_facebook_loading">جارٍ التحميل…</string>
+    <string name="com_facebook_loginview_cancel_action">إلغاء</string>
+    <string name="com_facebook_loginview_log_in_button">تسجيل الدخول</string>
+    <string name="com_facebook_loginview_log_in_button_long">تسجيل الدخول بحساب فيسبوك</string>
+    <string name="com_facebook_loginview_log_out_action">تسجيل الخروج</string>
+    <string name="com_facebook_loginview_log_out_button">تسجيل الخروج</string>
+    <string name="com_facebook_loginview_logged_in_as">تم تسجيل الدخول باسم: %1$s</string>
+    <string name="com_facebook_loginview_logged_in_using_facebook">تم تسجيل الدخول بحساب فيسبوك</string>
+    <string name="com_facebook_send_button_text">إرسال</string>
+    <string name="com_facebook_share_button_text">مشاركة</string>
+    <string name="com_facebook_tooltip_default">جديد! أنت المتحكم - اختر المعلومات التي تريد مشاركتها مع التطبيقات.</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"تمكين"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"‏لن يعمل <ns1:g id="APP_NAME">%1$s</ns1:g> ما لم يتم تمكين خدمات Google Play."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"‏تمكين خدمات Google Play"</string>
@@ -81,6 +98,7 @@
     <string msgid="2039274714455389140" name="debug_menu_title">"تحديد وضع تصحيح الأخطاء"</string>
     <string msgid="1173358804935285568" name="debug_menu_troubleshooting">"تحرّي الخلل وإصلاحه"</string>
     <string msgid="6099173376375995052" name="decline">"رفض"</string>
+    <string name="messenger_send_button_text">إرسال</string>
     <string msgid="3698378085901466129" name="mr_button_content_description">"زر الإرسال"</string>
     <string msgid="6349900579507521956" name="mr_chooser_searching">"جارٍ البحث عن أجهزة"</string>
     <string msgid="414301941546135990" name="mr_chooser_title">"إرسال إلى"</string>

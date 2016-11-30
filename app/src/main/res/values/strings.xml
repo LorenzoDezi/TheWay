@@ -8,6 +8,7 @@
     <string name="find_a_route">" FIND A ROUTE "</string>
     <string name="start_your_route">" START YOUR ROUTE "</string>
     <string name="welcome"><![CDATA[Welcome \n <username>!]]></string>
+    <string name="facebook_app_id">827196277384061</string>
     <string name="log_out">LOG OUT</string>
     <string name="title_activity_map">Map</string>
 </resources>
