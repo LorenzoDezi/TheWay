@@ -30,6 +30,7 @@
         android:required="true" />
 
     <application
+        name="io.ticofab.androidgpxparser.parser.application.ParserApplication"
         android:name="com.android.tools.fd.runtime.BootstrapApplication"
         android:allowBackup="true"
         android:icon="@drawable/logo"

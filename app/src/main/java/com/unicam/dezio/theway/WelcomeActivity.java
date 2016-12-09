@@ -35,15 +35,25 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    /**
+     * This method clear the preferences(actually deleting saved user credentials) and goes back to
+     * the main activity
+     */
+    private void logOut() {
+
+        SharedPreferences.Editor editor = pref.edit();
+        editor.clear();
+        editor.apply();
+        goToMain();
+
+    }
+
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.logOut: {
-                SharedPreferences.Editor editor = pref.edit();
-                editor.clear();
-                editor.apply();
-                goToMain();
+                logOut();
                 break;
             }
         }
@@ -52,5 +62,10 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     private void goToMain() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        logOut();
     }
 }

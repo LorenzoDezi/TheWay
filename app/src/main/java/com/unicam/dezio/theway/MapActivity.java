@@ -1,18 +1,33 @@
 package com.unicam.dezio.theway;
 
+import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
-
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.MapStyleOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
+
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+
+import io.ticofab.androidgpxparser.parser.domain.Gpx;
+import io.ticofab.androidgpxparser.parser.domain.Track;
+import io.ticofab.androidgpxparser.parser.domain.TrackPoint;
+import io.ticofab.androidgpxparser.parser.domain.TrackSegment;
 
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -51,10 +66,45 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
+        //DEBUG - OVVERO SI PROVA A VEDERE SE FUNZIONA IL PARSER
         mMap = googleMap;
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        io.ticofab.androidgpxparser.parser.GPXParser parser = new io.ticofab.androidgpxparser.parser.GPXParser();
+
+        InputStream in = null;
+        Gpx gpx = null;
+        try {
+            in = getAssets().open("casaMarchei.gpx");
+            gpx = parser.parse(in);
+        } catch (IOException | XmlPullParserException e) {
+            e.printStackTrace();
+        }
+        if(gpx != null) {
+
+            //Definiamo le opzioni per la nostra Polyline
+            PolylineOptions options = new PolylineOptions();
+            options.color(Color.RED);
+            options.width(10);
+            options.visible(true);
+
+            List<Track> tracks = gpx.getTracks();
+            //DEBUG
+            Log.d(Constants.TAG, tracks.toString());
+            for(Track track : tracks) {
+                List<TrackSegment> trackSegments =  track.getTrackSegments();
+                for(TrackSegment trackSegment : trackSegments) {
+                    List<TrackPoint> trackPoints = trackSegment.getTrackPoints();
+                    for(TrackPoint trackPoint : trackPoints) {
+                        options.add(new LatLng(trackPoint.getLatitude(), trackPoint.getLongitude()));
+                        CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(trackPoint.getLatitude(), trackPoint.getLongitude())).build();
+                        mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                    }
+                }
+            }
+            mMap.addPolyline(options);
+
+        } else {
+
+        }
     }
 }

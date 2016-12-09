@@ -19,6 +19,7 @@
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Share with"</string>
     <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Share with %s"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Collapse"</string>
+    <string name="joda_time_android_date_time">%1$s, %2$s</string>
     <string msgid="3698378085901466129" name="mr_button_content_description">"Cast button"</string>
     <string msgid="6349900579507521956" name="mr_chooser_searching">"Finding devices"</string>
     <string msgid="414301941546135990" name="mr_chooser_title">"Cast to"</string>

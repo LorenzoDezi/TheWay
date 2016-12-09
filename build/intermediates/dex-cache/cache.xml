@@ -3,12 +3,30 @@
 
     <item
         is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ca851be26ff89f5b32cc222cee98139fb3fac830">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-9.8.0_b31ae0a9688c5d961593f410d829ffabc2904474/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/9.8.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="ec9104b53aee77dfcfd2fe1c4add23ff7c4df55f">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-common-9.8.0_1f4a2455de55af1dce8646cbdc3ea5fd579eb9b4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_b917ccdb4ab5b4f0319f82c949ecd9e603a87d1b/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -30,12 +48,48 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b4671be3d1288bf4e5f527cd33e42909fbe4ecc6">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-crash-9.8.0_9b31e9f21055503afba91e1241b9cb1f76e596d3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5e497d60f0cb6ce87c458ac5420a46d0fed49bd0">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.0.0_6c7c5e3eb3b8633d1745842d127660c834196923/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9ff04cc3470178a44512624036751a803418c2ca">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-9.8.0_2819c15bdb50b8d41242a9acd14b1ac013c6a9c4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.0.0_feb98444a3ba1376727ed77b72418cb9c3d00f87/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-common/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4438b1a7848a7c571122ba618aa1304514aabee6">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-common-9.8.0_faab2ffd10ade94ff7860f127d9b6585e810bd96/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -48,12 +102,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/9.8.0/jars/classes.jar"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/9.8.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="a30aea7df545072ad3c06f56b2efc13e67222140">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-vision-9.8.0_76ce77cad98b0b59d1af34e2cc2cb8f944ec3dcf/classes.dex" />
+        sha1="0b53c4b90654b67ee3892a8e2e7b819c083ab7a6">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-drive-9.8.0_992f89ee27873fe19fa15074fd5ca49304ad4434/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -63,6 +117,24 @@
         revision="25.0.0"
         sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_6e9822cc1d351f891e513078f57d7f22f8f9af76/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a30aea7df545072ad3c06f56b2efc13e67222140">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-vision-9.8.0_76ce77cad98b0b59d1af34e2cc2cb8f944ec3dcf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_a3941f5780a7f2a109c501b05836332b8b0da6dc/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -79,8 +151,17 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="0ee80b27a3617edd493e975adc5219c425306149">
+        sha1="b50638198c2ffedf9eead3dd7ccef9b51bf3301e">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_7b0f8e71cf129eac067fba6aae8ca7bbefa53a2d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/libs/gpx_parser.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="13b608f8678d829d216670e4de01be7868068da2">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/2/gpx_parser_1eb9d43fad5157d31aef2989aed272ec82a8a0d1/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -93,12 +174,75 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="50e35ae101a679c4c8ef3dda075b1df9d5d947d9">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-impl-9.8.0_5e6c10cc892c7b480e544c2f126630ced367c991/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="bf2e1838e4428616c1aa26edf43de72b5b99bf84">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-9.8.0_ff16aed5db7686c8058ff261a7bfa0a9d433abf7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/9.8.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="a7a04d6b7c01e569a285fa627cf64f5b05295906">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-fitness-9.8.0_7a43deee6e78133fd89e0ff454333cbc85414d38/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0b8e087da59c0b062c33f49a335e59f907086da2">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wearable-9.8.0_aa3b37d5fee1591eefc23a92907e2295ad9ebd89/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/palette-v7/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-palette-v7-24.0.0_f279301ca016af0761da034429058ec74bbe711d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="20a3c4e355150c15c13dd58045d43ad0c717d916">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-safetynet-9.8.0_9d88a89a818dcf788ea84e9efc6a87a678c79fd0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7fd91ec2730fdaa82906aad32a3f3d3e574bae56">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-9.8.0_8fc825a1029a6a22ac86288fd2bce02e7df0e4b8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.0.0_36de23a9461b11c09ed5bdf06227fcf630050911/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -138,12 +282,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.8.0/jars/classes.jar"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="6b6f292b8b951dcf2ecf2b20853e3eabc7d65c48">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-9.8.0_bcc7b42a35b1b7e1629e69f47566857d32bf9685/classes.dex" />
+        sha1="7e92aadd0697922316d1395c1887a23aebec640a">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-9.8.0_3b02c39a99cedd3b1183b2a7c01c5e61d869d03f/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -153,6 +297,33 @@
         revision="25.0.0"
         sha1="266570862e5792ef3c51143a8b8593cf54fac68d">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-api-9.8.0_ee5cf5eadac2c4422f0d629342b68927bbff5ec1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6b6f292b8b951dcf2ecf2b20853e3eabc7d65c48">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-9.8.0_bcc7b42a35b1b7e1629e69f47566857d32bf9685/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="679251204de40ace98776a6f4e3a649c27e3d89f">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-places-9.8.0_2c2c82e483bd9de07976000935302ea1a1f8ad11/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="910c013c511f752c4bbe24c5f492f669f4a3ccc0">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wallet-9.8.0_7e4af3ca5f299c7e004d692c227e5abeda18afe0/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -228,15 +399,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.17.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="23c7c34bfb3cdc0599d49e581486b179bc6b2eee">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.android-facebook-android-sdk-4.17.0_73012af1314e5e02de2335c2d399b59c87991aa9/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -246,12 +408,57 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/transition/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0c6d948e6cb9ea6f535d175fb61ba2930719c0e9">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.0.0_f6a3f64a405b53b19a28b6921a8b899eaefe3963/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="280959f6da23f5bfd6c94c38407efe3c99b1ebb6">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ac292589e6384ff18c201c16cf93d2cd690013a7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.9.3/5d506d4238dd8a1d1c8a1188ffb819a2f2eb286d/joda-time-2.9.3-no-tzdb.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5d506d4238dd8a1d1c8a1188ffb819a2f2eb286d">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/joda-time-2.9.3-no-tzdb_2427451caeb3618344b3117e629290a103ac7bfc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/io.ticofab.androidgpxparser/parser/0.1.5/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f338028d56c2bd71a054bad906b1af654f4e1e8c">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/io.ticofab.androidgpxparser-parser-0.1.5_2c4e7d232a1d79f202fe4649e0dce43a0c745d78/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.8.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="f2d240dd085626f03f759c41d628a0c8b63e491f">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-9.8.0_3ef76d65b6e1c2986835aa6b9363508177f5469c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-awareness/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a2537b11ae24b42172d34e2a613fc0b903c56158">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-awareness-9.8.0_cd54fed6ce730ba18479a2c5d0adb71fed75ca1c/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -291,12 +498,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/dezio/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.0/support-annotations-25.0.0.jar"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.8.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.0.0_71d8de3fbeeedeca4d810d4e0dba3f9b2a432b78/classes.dex" />
+        sha1="122ec9237acd8a57d974b9d529987f1ee6ca5aea">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-maps-9.8.0_76dbecc0e84573a21c9a56d33a26d18df6bf7277/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8bc45ce1f63d1a391fd38b32a201be5a42f9c95d">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.0.0_17e6b44e120c3a806db026b9c56b1832577c851e/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -306,6 +522,15 @@
         revision="25.0.0"
         sha1="cef85cfc7df40e29fbea58844dd4c1e7d0b15542">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-identity-9.8.0_2a1791339966ec53cad0d51bb917cb921aae81aa/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.0/support-annotations-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.0.0_71d8de3fbeeedeca4d810d4e0dba3f9b2a432b78/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -336,6 +561,24 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_72939fced7423207112b158d9f94a8fc70eedf50/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="03df48d3713661d66ad024b1e406259a4c26fcac">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-9.8.0_3686185c33c78d9ffd64b57d38979a2357662fee/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.0.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -345,12 +588,66 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/net.danlew/android.joda/2.9.3.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1929f70024258046ae31dfeb8dec9c9188b4d9fd">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/net.danlew-android.joda-2.9.3.1_311a9a49b14ef0e70019139025d21f5648e9cee0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-module/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3f8f779a22cbb4c4d0759467a4f1011bb5252970">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-module-9.8.0_f45b89743c8b7c15e09fde56b6a4dbaca9580e47/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.0.0_ab05841d68a2a8a5cd76674d81d5d1e360515c88/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/dezio/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.0.0/5c06d197fb7fa875ad452f562e3310dd9949d066/retrofit-2.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="5c06d197fb7fa875ad452f562e3310dd9949d066">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/retrofit-2.0.0_939b725d7afa515bbeb250f17d8e931703370e7e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.6.1/b9d63507329a7178e026fc334f87587ee5070ac5/gson-2.6.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9d63507329a7178e026fc334f87587ee5070ac5">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.6.1_9e8dfe8b9123385362d28779a6af2fd95bb23ac4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.2.0/f7873a2ebde246a45c2a8d6f3247108b4c88a879/okhttp-3.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.2.0_df102aa5eea6105af7827c652a552281f8c0fc3c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2d3035050a075484cbf2e33f1ce1f779bae4d451">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-panorama-9.8.0_9fff52c601c6e081394f8139adb01292a55bef68/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -372,6 +669,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="04bbbddf868aa02dd33f9e90d8f5d908c360f638">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-location-9.8.0_92148ac2eedbca2203f922b9cc1ee343d817408c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.8.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -387,6 +693,15 @@
         revision="25.0.0"
         sha1="ee5faf4dee5b6a4364bf51587871047dde7c703a">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_9cec575873f26e8b528b5a600549c4002894f81e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="43a08f2cc1bc8e9678b5a1740f3b91b50ab50ac6">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.android-facebook-android-sdk-4.18.0_225bf153bfb7ec361aef786bbd995334dab6eaab/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -435,294 +750,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-9.8.0_faaa3122b410f0ca6aae76d7bc2df803ea3339a2/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="ca851be26ff89f5b32cc222cee98139fb3fac830">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-9.8.0_b31ae0a9688c5d961593f410d829ffabc2904474/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/jars/libs/internal_impl-24.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_b917ccdb4ab5b4f0319f82c949ecd9e603a87d1b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="b4671be3d1288bf4e5f527cd33e42909fbe4ecc6">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-crash-9.8.0_9b31e9f21055503afba91e1241b9cb1f76e596d3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="5e497d60f0cb6ce87c458ac5420a46d0fed49bd0">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.0.0_6c7c5e3eb3b8633d1745842d127660c834196923/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9ff04cc3470178a44512624036751a803418c2ca">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-9.8.0_2819c15bdb50b8d41242a9acd14b1ac013c6a9c4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-common/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="4438b1a7848a7c571122ba618aa1304514aabee6">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-common-9.8.0_faab2ffd10ade94ff7860f127d9b6585e810bd96/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0b53c4b90654b67ee3892a8e2e7b819c083ab7a6">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-drive-9.8.0_992f89ee27873fe19fa15074fd5ca49304ad4434/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.0/jars/libs/internal_impl-25.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_a3941f5780a7f2a109c501b05836332b8b0da6dc/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="50e35ae101a679c4c8ef3dda075b1df9d5d947d9">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-impl-9.8.0_5e6c10cc892c7b480e544c2f126630ced367c991/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="bf2e1838e4428616c1aa26edf43de72b5b99bf84">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-9.8.0_ff16aed5db7686c8058ff261a7bfa0a9d433abf7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/palette-v7/24.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-palette-v7-24.0.0_f279301ca016af0761da034429058ec74bbe711d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0b8e087da59c0b062c33f49a335e59f907086da2">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wearable-9.8.0_aa3b37d5fee1591eefc23a92907e2295ad9ebd89/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="20a3c4e355150c15c13dd58045d43ad0c717d916">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-safetynet-9.8.0_9d88a89a818dcf788ea84e9efc6a87a678c79fd0/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="7fd91ec2730fdaa82906aad32a3f3d3e574bae56">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-9.8.0_8fc825a1029a6a22ac86288fd2bce02e7df0e4b8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.0.0_36de23a9461b11c09ed5bdf06227fcf630050911/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="7e92aadd0697922316d1395c1887a23aebec640a">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-9.8.0_3b02c39a99cedd3b1183b2a7c01c5e61d869d03f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="679251204de40ace98776a6f4e3a649c27e3d89f">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-places-9.8.0_2c2c82e483bd9de07976000935302ea1a1f8ad11/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="910c013c511f752c4bbe24c5f492f669f4a3ccc0">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wallet-9.8.0_7e4af3ca5f299c7e004d692c227e5abeda18afe0/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/transition/25.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0c6d948e6cb9ea6f535d175fb61ba2930719c0e9">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.0.0_f6a3f64a405b53b19a28b6921a8b899eaefe3963/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9d02941d515f5c1b43eb9833858acdecce9ca357">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ac292589e6384ff18c201c16cf93d2cd690013a7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-awareness/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="a2537b11ae24b42172d34e2a613fc0b903c56158">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-awareness-9.8.0_cd54fed6ce730ba18479a2c5d0adb71fed75ca1c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="122ec9237acd8a57d974b9d529987f1ee6ca5aea">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-maps-9.8.0_76dbecc0e84573a21c9a56d33a26d18df6bf7277/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="8bc45ce1f63d1a391fd38b32a201be5a42f9c95d">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.0.0_17e6b44e120c3a806db026b9c56b1832577c851e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.0/jars/libs/internal_impl-25.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_72939fced7423207112b158d9f94a8fc70eedf50/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="03df48d3713661d66ad024b1e406259a4c26fcac">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-9.8.0_3686185c33c78d9ffd64b57d38979a2357662fee/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-module/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="3f8f779a22cbb4c4d0759467a4f1011bb5252970">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-module-9.8.0_f45b89743c8b7c15e09fde56b6a4dbaca9580e47/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.0.0_ab05841d68a2a8a5cd76674d81d5d1e360515c88/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.6.1/b9d63507329a7178e026fc334f87587ee5070ac5/gson-2.6.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="b9d63507329a7178e026fc334f87587ee5070ac5">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.6.1_9e8dfe8b9123385362d28779a6af2fd95bb23ac4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.2.0/f7873a2ebde246a45c2a8d6f3247108b4c88a879/okhttp-3.2.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.2.0_df102aa5eea6105af7827c652a552281f8c0fc3c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="2d3035050a075484cbf2e33f1ce1f779bae4d451">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-panorama-9.8.0_9fff52c601c6e081394f8139adb01292a55bef68/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="04bbbddf868aa02dd33f9e90d8f5d908c360f638">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-location-9.8.0_92148ac2eedbca2203f922b9cc1ee343d817408c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.8.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -738,6 +765,15 @@
         revision="25.0.0"
         sha1="c61641e333fa88da21758bab8cc28ee16604b05f">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-9.8.0_afb94b08a170d044d9337f63188fb733bbfb0e64/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-9.8.0_faaa3122b410f0ca6aae76d7bc2df803ea3339a2/classes.dex" />
     </item>
 
 </items>

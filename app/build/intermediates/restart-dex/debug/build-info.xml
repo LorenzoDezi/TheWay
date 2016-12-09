@@ -4,19 +4,19 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.0"
-    timestamp="5487798721167"
+    timestamp="3981583870974"
     token="4455078928021233926"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="119" />
+        duration="134" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="15" />
+        duration="18" />
     <task
         name="verifier"
         duration="1" />
@@ -26,14 +26,14 @@
         type="DEX" />
 
     <build
-        timestamp="3995821294530"
+        timestamp="3366699007187"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/dezio/AndroidStudioProjects/TheWay/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="5487798721167"
+        timestamp="3981583870974"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"

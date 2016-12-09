@@ -13,5 +13,4 @@ public interface RequestInterface {
     @POST("theWayServer/")
     Call<ServerResponse> operation(@Body ServerRequest request);
 
-
 }

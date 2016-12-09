@@ -135,6 +135,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+
+
     private void goToRegister() {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
@@ -143,7 +145,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void goToWelcome() {
         Intent intent = new Intent(this, WelcomeActivity.class);
         startActivity(intent);
-
     }
 
 

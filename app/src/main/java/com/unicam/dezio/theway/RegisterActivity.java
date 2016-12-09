@@ -1,5 +1,6 @@
 package com.unicam.dezio.theway;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.design.widget.Snackbar;
@@ -32,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        pref = getPreferences(0);
+        pref = getSharedPreferences(Constants.TAG, Context.MODE_PRIVATE);
         if(pref.getBoolean(Constants.IS_LOGGED_IN, false)) {
             //L'utente è loggato, non ha bisogno di registrarsi e va alla pagina di Welcome
             goToWelcome();
