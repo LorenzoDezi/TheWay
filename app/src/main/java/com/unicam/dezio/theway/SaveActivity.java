@@ -86,7 +86,7 @@ public class SaveActivity extends AppCompatActivity {
     }
 
     /**
-     * It checks if the external storage is available for writing n
+     * It checks if the external storage is available for writing
      * @return
      */
     private boolean isExternalStorageWritable() {
