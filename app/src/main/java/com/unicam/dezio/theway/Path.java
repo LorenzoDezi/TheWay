@@ -18,7 +18,7 @@ enum Vehicle {Feet, Bike};
 /**
  That class store the information about a particular path.
  **/
-public class Path implements Serializable {
+public class Path {
 
     private ArrayList<Location> coordinates;
     private byte difficulty;
@@ -31,15 +31,13 @@ public class Path implements Serializable {
 
 
     /**
-     Parametric constructor, that create a new object <b>Path</b> using a 
+     Parametric constructor, that create a new object <b>Path</b> using a
      .gpx file.
 
      @param gpx The <b>File</b> gpx to read
      @throws IllegalArgumentException
      **/
-    /*
-    TODO: Provare ad implementare il progetto senza utilizzare i gpx ma semplicemente con serializable
-    Path(File gpx) throws IllegalArgumentException{
+    Path(File gpx) throws IllegalArgumentException {
         if (gpx == null)
             throw new IllegalArgumentException("specify the file gpx.");
         coordinates = new ArrayList<>();
@@ -64,7 +62,7 @@ public class Path implements Serializable {
             throw new IllegalArgumentException("error on the reading of the file gpx.");
         }
     }
-    */
+
 
 
 
