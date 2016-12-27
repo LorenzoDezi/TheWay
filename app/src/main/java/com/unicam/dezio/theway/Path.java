@@ -1,6 +1,5 @@
 package com.unicam.dezio.theway;
 import java.io.File;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -21,8 +20,8 @@ enum Vehicle {Feet, Bike};
 public class Path {
 
     private ArrayList<Location> coordinates;
-    private byte difficulty;
-    private byte valutation;
+    private int difficulty;
+    private int valutation;
     private Vehicle usedVehicle;
     private String description;
     private Vehicle[] vehicle;
@@ -63,6 +62,13 @@ public class Path {
         }
     }
 
+    /**
+     * Default constructor of the path.
+     */
+    Path() {
+        coordinates = new ArrayList<>();
+    }
+
 
 
 
@@ -71,11 +77,11 @@ public class Path {
 
      @return difficulty
      **/
-    public byte getDifficulty(){
+    public int getDifficulty(){
         return difficulty;
     }
 
-    public void setDifficulty(byte difficulty) {
+    public void setDifficulty(int difficulty) throws IllegalArgumentException {
         //The difficulty must be between 1 and 5
         if (difficulty >= 1 && difficulty <= 5)
             this.difficulty = difficulty;
@@ -89,11 +95,11 @@ public class Path {
      @return valutation
      **/
 
-    public byte getValutation(){
+    public int getValutation(){
         return valutation;
     }
 
-    public void setValutation(byte valutation) {
+    public void setValutation(int valutation) throws IllegalArgumentException {
         //The valutation must be between 1 and 5
         if (valutation >= 1 && valutation <= 5)
             this.valutation = valutation;
@@ -110,7 +116,7 @@ public class Path {
         return usedVehicle;
     }
 
-    public void setUsedVehicle(Vehicle usedVehicle) {
+    public void setUsedVehicle(Vehicle usedVehicle) throws IllegalArgumentException {
         //the used vehicle must be specified
         if (usedVehicle != null)
             this.usedVehicle = usedVehicle;
@@ -127,7 +133,7 @@ public class Path {
         return Arrays.copyOf(vehicle,vehicle.length);
     }
 
-    public void setUsableVehicle(Vehicle[] usableVehicle) {
+    public void setUsableVehicle(Vehicle[] usableVehicle) throws IllegalArgumentException {
         //The list of the usable vehicle must be specified
         //In the list of the usable vehicle, there must be the vehicle used
         if (usableVehicle != null && usableVehicle.length >= 1 && usableVehicle.length <= Vehicle.values().length){
@@ -152,7 +158,7 @@ public class Path {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String description) throws IllegalArgumentException {
         //The description can be empty, but not null
         //The description can not exceed 256 characters
         if(description != null)
@@ -178,7 +184,7 @@ public class Path {
      * @param start
      * @param end
      */
-    public void setTime(Date start, Date end) {
+    public void setTime(Date start, Date end) throws IllegalArgumentException {
 
         if (end != null)
             if(start != null)
@@ -193,7 +199,7 @@ public class Path {
 
     }
 
-    public void setTime(long time) {
+    public void setTime(long time) throws IllegalArgumentException {
         this.time = time;
     }
 
@@ -224,7 +230,7 @@ public class Path {
         return new ArrayList<Location>(this.coordinates);
     }
 
-    public void setCoordinates(ArrayList<Location> coordinates) {
+    public void setCoordinates(ArrayList<Location> coordinates) throws IllegalArgumentException {
 
         //There must be at least 2 coordinatess
         if(coordinates.size() >= 2)

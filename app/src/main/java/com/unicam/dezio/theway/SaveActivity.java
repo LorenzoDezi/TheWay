@@ -2,7 +2,6 @@ package com.unicam.dezio.theway;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Environment;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -21,18 +20,17 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.OutputStream;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.unicam.dezio.theway.Vehicle.Bike;
+import static com.unicam.dezio.theway.Vehicle.Feet;
 
 public class SaveActivity extends AppCompatActivity {
 
@@ -86,7 +84,7 @@ public class SaveActivity extends AppCompatActivity {
     }
 
     /**
-     * It checks if the external storage is available for writin
+     * It checks if the external storage is available for writing
      * @return
      */
     private boolean isExternalStorageWritable() {
@@ -138,14 +136,39 @@ public class SaveActivity extends AppCompatActivity {
 
 
         int rating = (int) ratingBar.getRating();
-        String vehicleUsed = vehicleSpinner.getSelectedItem().toString();
+        String vehicleString = vehicleSpinner.getSelectedItem().toString();
         int difficulty = difficultySpinner.getSelectedItemPosition();
         Boolean isByciclePossible = bikePossible.isActivated();
         Boolean isFeetPossible = feetPossible.isActivated();
         String descriptionString = description.toString();
 
+        Vehicle vehicleUsed;
+        if(vehicleString == getString(R.string.bike_string))
+            vehicleUsed = Bike;
+        else if(vehicleString == getString(R.string.feet_string))
+            vehicleUsed = Feet;
+        else
+            vehicleUsed = null;
+        Vehicle[] vehicles;
+        if(isByciclePossible && isFeetPossible)
+            vehicles = new Vehicle[]{Feet, Bike};
+        else if(isByciclePossible)
+            vehicles = new Vehicle[]{Bike};
+        else if(isFeetPossible)
+            vehicles = new Vehicle[]{Feet};
+        else
+            vehicles = new Vehicle[]{};
 
-
+        try {
+            pathToSave.setDescription(descriptionString);
+            pathToSave.setDifficulty(difficulty);
+            pathToSave.setValutation(rating);
+            pathToSave.setUsedVehicle(vehicleUsed);
+            pathToSave.setUsableVehicle(vehicles);
+        } catch (IllegalArgumentException ex) {
+            Snackbar.make(findViewById(R.id.save_layout), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+            return;
+        }
         if (button.getId() == R.id.online_button)
             storePathOnline(pathToSave);
         else if (button.getId() == R.id.offline_button)
