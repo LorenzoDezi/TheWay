@@ -37,11 +37,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity android:name="com.unicam.dezio.theway.MainActivity" >
+
+            <!--
+            DEBUG
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            -->
         </activity>
         <activity android:name="com.unicam.dezio.theway.WelcomeActivity" />
         <!--
@@ -62,9 +66,17 @@
         <activity
             android:name="com.unicam.dezio.theway.MapActivity"
             android:label="@string/title_activity_map"
-            android:theme="@style/AppTheme" >
-        </activity>
+            android:theme="@style/AppTheme" />
         <activity android:name="com.unicam.dezio.theway.RegisterActivity" />
+        <activity android:name="com.unicam.dezio.theway.SaveActivity" >
+
+            <!-- DEBUG -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

@@ -11,4 +11,14 @@
     <string name="facebook_app_id">827196277384061</string>
     <string name="log_out">LOG OUT</string>
     <string name="title_activity_map">Map</string>
+    <string-array name="difficulty_array">
+        <item>Easy</item>
+        <item>Medium</item>
+        <item>Hard</item>
+    </string-array>
+    <string-array name="vehicles">
+        <item>Feet</item>
+        <item>Bike</item>
+    </string-array>
+
 </resources>

@@ -164,12 +164,12 @@
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable-hdpi-v4/abc_switch_track_mtrl_alpha.9.png"
     },
     {
-        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable-hdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_star_black_36dp.png",
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable-hdpi-v4/abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable-hdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_button_icon_white.png",

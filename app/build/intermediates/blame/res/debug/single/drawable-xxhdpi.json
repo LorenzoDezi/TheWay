@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-xxhdpi/stop.png",
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-xxhdpi/stop.png"
+    },
+    {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-xxhdpi/search.png",
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-xxhdpi/search.png"
     },

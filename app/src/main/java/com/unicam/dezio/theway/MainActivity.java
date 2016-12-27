@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void loginProcess(String username, String password) {
+
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
@@ -105,8 +106,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ServerRequest request = new ServerRequest();
         request.setOperation(Constants.LOGIN_OPERATION);
         request.setUser(user);
-        //DEBUG
-        Log.d(Constants.TAG, request.toString());
         Call<ServerResponse> response = requestInterface.operation(request);
         response.enqueue(new Callback<ServerResponse>() {
             @Override

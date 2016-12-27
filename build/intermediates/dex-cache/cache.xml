@@ -151,7 +151,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="b50638198c2ffedf9eead3dd7ccef9b51bf3301e">
+        sha1="25c0ef8b97293db3e89487154301cd4590a99ba7">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_7b0f8e71cf129eac067fba6aae8ca7bbefa53a2d/classes.dex" />
     </item>
     <item
@@ -270,6 +270,15 @@
         revision="25.0.0"
         sha1="190a642ba16d1421296a4d794606279b80039c59">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-9.8.0_3b90d4b04aa168f167821343e36a25560d64dae6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/multidex/1.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-multidex-1.0.1_6ffc23aea836df4dff51396c9e60e4a0d1b569f7/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -421,7 +430,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="280959f6da23f5bfd6c94c38407efe3c99b1ebb6">
+        sha1="71527509f29cdab464555c2e4e584920861f470a">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ac292589e6384ff18c201c16cf93d2cd690013a7/classes.dex" />
     </item>
     <item

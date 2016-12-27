@@ -1,5 +1,6 @@
 package com.unicam.dezio.theway;
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -8,94 +9,40 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Element;
 import java.util.Date;
+import android.location.Location;
+import android.location.LocationManager;
 
-/**
- La classe <b>Coordinate</b> permette di immagazzinare due valori <i>double</i>
- indicanti la latitudine e la longitudine di una coordinata e fornisce un metodo
- per calcolare la distance in metri tra due coordinate.
- **/
-class Coordinate {
-    double lat;
-    double lon;
-
-    /**
-     Costruttore parametrico di una coordinata.
-
-     @param lat latitudine
-     @param lon longitudine
-     **/
-    Coordinate(double lat, double lon){
-        this.lat = lat;
-        this.lon = lon;
-    }
-
-    /**
-     Ritorna la latitudine della coordinata.
-
-     @return Latitudine
-     **/
-    public double getLat(){
-        return lat;
-    }
-
-    /**
-     Ritorna la longitudine della coordinata.
-
-     @return Longitudine
-     **/
-    public double getLon(){
-        return lon;
-    }
-
-    /**
-     Ritorna la distance in metri (con un margine di errore di qualche metro)
-     tra due coordinate.
-
-     @param coord La seconda coordinata
-     @return La distance tra la coordinata attuale e la coordinata in input
-     **/
-    public double distance(Coordinate coord){
-        double LATM = 110574.61087757687;
-        double LONM = 111302.61697430261;
-        Coordinate ca = new Coordinate(lat*LATM,lon*LONM);
-        Coordinate cb = new Coordinate(coord.lat*LATM,coord.lon*LONM);
-        double a = ca.lat - cb.lat;
-        double b = ca.lon - cb.lon;
-        double c = Math.sqrt(a*a+b*b);
-        return c;
-    }
-
-    public String toString(){
-        return "("+lat+","+lon+")";
-    }
-}
 
 enum Vehicle {Feet, Bike};
 
 /**
- Classe che immagazzina le informazioni di un percorso.
+ That class store the information about a particular path.
  **/
-public class Path {
+public class Path implements Serializable {
 
-    private ArrayList<Coordinate> coordinate;
-    private byte difficolta;
-    private byte valutazione;
-    private Vehicle mezzoUsato;
-    private String descrizione;
-    private Vehicle[] mezzi;
-    private long tempo;
+    private ArrayList<Location> coordinates;
+    private byte difficulty;
+    private byte valutation;
+    private Vehicle usedVehicle;
+    private String description;
+    private Vehicle[] vehicle;
+    private long time;
+
+
 
     /**
-     Costruttore parametrico che crea un nuovo oggetto <b>Path</b> a partire
-     da un file gpx.
+     Parametric constructor, that create a new object <b>Path</b> using a 
+     .gpx file.
 
-     @param gpx il <b>File</b> gpx da leggere
+     @param gpx The <b>File</b> gpx to read
      @throws IllegalArgumentException
      **/
+    /*
+    TODO: Provare ad implementare il progetto senza utilizzare i gpx ma semplicemente con serializable
     Path(File gpx) throws IllegalArgumentException{
         if (gpx == null)
-            throw new IllegalArgumentException("Specificare il file gpx.");
-        coordinate = new ArrayList<>();
+            throw new IllegalArgumentException("specify the file gpx.");
+        coordinates = new ArrayList<>();
         try{
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -108,240 +55,220 @@ public class Path {
                 Element e = (Element) nList.item(i);
                 double lat = Double.parseDouble(e.getAttribute("lat"));
                 double lon = Double.parseDouble(e.getAttribute("lon"));
-                coordinate.add(new Coordinate(lat,lon));
+                Location coordinate = new Location(LocationManager.GPS_PROVIDER);
+                coordinate.setLatitude(lat);
+                coordinate.setLongitude(lon);
+                coordinates.add(coordinate);
             }
         }catch(Exception e){
-            throw new IllegalArgumentException("Errore nella lettura del file gpx.");
+            throw new IllegalArgumentException("error on the reading of the file gpx.");
         }
     }
+    */
+
+
 
     /**
-     Costruttore parametrico che crea un nuovo oggetto <b>Path</b> a partire
-     da un <b>ArrayList</b> di <b>Coordinata</b>.
+     return the difficulty of the path.
 
-     @param coordinate l' <b>ArrayList</b> di <b>Coordinata</b>
-     @throws IllegalArgumentException
+     @return difficulty
      **/
-    Path(ArrayList<Coordinate> coordinate)throws IllegalArgumentException{
-        if(coordinate.size() >= 2)
-            this.coordinate = new ArrayList<Coordinate>(coordinate);
+    public byte getDifficulty(){
+        return difficulty;
+    }
+
+    public void setDifficulty(byte difficulty) {
+        //The difficulty must be between 1 and 5
+        if (difficulty >= 1 && difficulty <= 5)
+            this.difficulty = difficulty;
         else
-            throw new IllegalArgumentException("Ci vogliono almeno 2 coordinate");
+            throw  new IllegalArgumentException("The difficulty must be between 1 and 5.");
     }
 
     /**
-     Costruttore parametrico che crea un nuovo oggetto <b>Path</b> a partire
-     da diversi parametri.
+     return the valutation of the path.
 
-     @param coordinate l' <b>ArrayList</b> di <b>Coordinata</b>
-     @param inizio il tempo iniziale del percorso
-     @param fine il tempo di fine del percorso
-     @param difficolta difficoltà del percorso
-     @param valutazione valutazione del percorso
-     @param mezzoUsato il mezzo usato per il percorso
-     @param mezziUsabili un array di mezzi usabili sul percorso
-     @param descrizione la descrizione del percorso
-     @throws IllegalArgumentException
+     @return valutation
      **/
-    Path(ArrayList<Coordinate> coordinate, Date inizio, Date fine, byte difficolta, byte valutazione,
-         Vehicle mezzoUsato, Vehicle[] mezziUsabili, String descrizione)throws IllegalArgumentException{
 
-        //Ci devono essere almeno due coordinate
-        if(coordinate.size() >= 2)
-            this.coordinate = new ArrayList<Coordinate>(coordinate);
+    public byte getValutation(){
+        return valutation;
+    }
+
+    public void setValutation(byte valutation) {
+        //The valutation must be between 1 and 5
+        if (valutation >= 1 && valutation <= 5)
+            this.valutation = valutation;
         else
-            throw new IllegalArgumentException("Ci vogliono almeno 2 coordinate.");
+            throw  new IllegalArgumentException("The valutation must be between 1 and 5.");
+    }
 
-        //La difficoltà deve essere compresa tra 1 e 5
-        if (difficolta >= 1 && difficolta <= 5)
-            this.difficolta = difficolta;
+    /**
+     Return the used vehicle.
+
+     @return usedVehicle
+     **/
+    public Vehicle getUsedVehicle(){
+        return usedVehicle;
+    }
+
+    public void setUsedVehicle(Vehicle usedVehicle) {
+        //the used vehicle must be specified
+        if (usedVehicle != null)
+            this.usedVehicle = usedVehicle;
         else
-            throw  new IllegalArgumentException("La difficoltà deve essere tra 1 e 5.");
+            throw new IllegalArgumentException("the used vehicle must be specified.");
+    }
 
-        //La valutazione deve essere compresa tra 1 e 5
-        if (valutazione >= 1 && valutazione <= 5)
-            this.valutazione = valutazione;
-        else
-            throw  new IllegalArgumentException("La valutazione deve essere tra 1 e 5.");
+    /**
+     Return the usable vehicle
 
-        //Il mezzo usato deve essere specificato
-        if (mezzoUsato != null)
-            this.mezzoUsato = mezzoUsato;
-        else
-            throw new IllegalArgumentException("Specificare il mezzo usato.");
+     @return UsableVehicle
+     **/
+    public Vehicle[] getUsableVehicle(){
+        return Arrays.copyOf(vehicle,vehicle.length);
+    }
 
-        //La lista dei mezzi usabili deve essere specificata
-        //Nella lista dei mezzi usabili, ci deve essere il mezzo usato
-        if (mezziUsabili != null && mezziUsabili.length >= 1 && mezziUsabili.length <= Vehicle.values().length){
+    public void setUsableVehicle(Vehicle[] usableVehicle) {
+        //The list of the usable vehicle must be specified
+        //In the list of the usable vehicle, there must be the vehicle used
+        if (usableVehicle != null && usableVehicle.length >= 1 && usableVehicle.length <= Vehicle.values().length){
             boolean b = false;
-            for (int i = 0; i < mezziUsabili.length && !b; i++)
-                b = mezziUsabili[i] == mezzoUsato;
+            for (int i = 0; i < usableVehicle.length && !b; i++)
+                b = usableVehicle[i] == usedVehicle;
             if (b)
-                mezzi = Arrays.copyOf(mezziUsabili,mezziUsabili.length);
+                vehicle = Arrays.copyOf(usableVehicle,usableVehicle.length);
             else
-                throw new IllegalArgumentException("Immettere il mezzo usato nella lista dei mezzi usabili.");
+                throw new IllegalArgumentException("insert the vehicle used in the list of usable vehicles");
         }
         else
-            throw new IllegalArgumentException("Specificare i mezzi che è possibilie usare.");
+            throw new IllegalArgumentException("Specify the vehicles that are usable.");
+    }
 
-        //La descrizione può essere vuota, ma non nulla
-        //La descrizione non può suprare i 256 caratteri
-        if(descrizione != null)
-            if(descrizione.length() <= 256)
-                this.descrizione = descrizione;
+    /**
+     Return the description of the path.
+
+     @return description
+     **/
+    public String getDescription(){
+        return description;
+    }
+
+    public void setDescription(String description) {
+        //The description can be empty, but not null
+        //The description can not exceed 256 characters
+        if(description != null)
+            if(description.length() <= 256)
+                this.description = description;
             else
-                throw new IllegalArgumentException("Descrizione troppo lunga");
+                throw new IllegalArgumentException("description too long");
         else
-            this.descrizione = "";
+            this.description = "";
+    }
 
-        //Il tempo di inizio e fine percorso devono essere specificati
-        //Il tempo di fine deve essere maggiore del tempo di inizio
-        //Il tempo trascorso è espresso in minuti
-        if (fine != null)
-            if(inizio != null)
-                if(fine.getTime() > inizio.getTime())
-                    this.tempo = (fine.getTime() - inizio.getTime()) * 60000;
+    /**
+    Return the time taken to travel the Path
+
+     @return time
+     **/
+    public long getTime(){
+        return time;
+    }
+
+    /**
+     * It sets the time employed to complete the path
+     * @param start
+     * @param end
+     */
+    public void setTime(Date start, Date end) {
+
+        if (end != null)
+            if(start != null)
+                if(end.getTime() > start.getTime())
+                    this.time = (end.getTime() - start.getTime()) * 60000;
                 else
-                    throw new IllegalArgumentException("Il tempo di fine deve essere maggiore del tempo di inizio.");
+                    throw new IllegalArgumentException("the time of end must be higher then start.");
             else
-                throw new IllegalArgumentException("Il tempo di inizio non deve essere nullo");
+                throw new IllegalArgumentException("the time of start must not be a null value");
         else
-            throw new IllegalArgumentException("Il tempo di fine non deve essere nullo");
+            throw new IllegalArgumentException("the time of end must not be a null value");
+
+    }
+
+    public void setTime(long time) {
+        this.time = time;
     }
 
     /**
-     Costruttore parametrico che clona un <b>Path</b>
+     Return the frist coordinate of the path
 
-     @param p il <b>Path</b> da clonare
+     @return the frist coordinate
      **/
-    Path(Path p){
-        this.coordinate = p.getCoordinate();
-        this.difficolta = p.getDifficolta();
-        this.valutazione = p.getValutazione();
-        this.mezzoUsato = p.getmezzoUsato();
-        this.mezzi = p.getmezziUsabili();
-        this.descrizione = p.getDescrizione();
-        this.tempo = p.getTempo();
+    public Location getStart(){
+        return this.coordinates.get(0);
     }
 
     /**
-     Ritorna la difficoltà del percorso.
+     Return the last coordinate of the path
 
-     @return difficolta
+     @return the last coordinate
      **/
-    public byte getDifficolta(){
-        return difficolta;
+    public Location getEnd(){
+        return this.coordinates.get(this.coordinates.size()-1);
     }
 
     /**
-     Ritorna la valutazione del percorso.
+     Return the list og coordinates of the path.
 
-     @return valutazione
+     @return <b>ArrayList</b> of <b>Coordinata</b>
      **/
+    public ArrayList<Location> getCoordinates(){
+        return new ArrayList<Location>(this.coordinates);
+    }
 
-    public byte getValutazione(){
-        return valutazione;
+    public void setCoordinates(ArrayList<Location> coordinates) {
+
+        //There must be at least 2 coordinatess
+        if(coordinates.size() >= 2)
+            this.coordinates = new ArrayList<Location>(coordinates);
+        else
+            throw new IllegalArgumentException("there's the need of 2 coordinates.");
+
+    }
+
+    public void addCoordinate(Location coordinate) {
+        coordinates.add(coordinate);
     }
 
     /**
-     Ritorna il mezzo usato.
-
-     @return mezzoUsato
-     **/
-    public Vehicle getmezzoUsato(){
-        return mezzoUsato;
-    }
-
-    /**
-     Ritorna i mezzi usabili.
-
-     @return mezziUsabili
-     **/
-    public Vehicle[] getmezziUsabili(){
-        return Arrays.copyOf(mezzi,mezzi.length);
-    }
-
-    /**
-     Ritorna la descrizione del percorso.
-
-     @return descrizione
-     **/
-    public String getDescrizione(){
-        return descrizione;
-    }
-
-    /**
-     Ritorna il tempo impiegato a percorrere il percorso
-
-     @return tempo
-     **/
-    public long getTempo(){
-        return tempo;
-    }
-
-    /**
-     Ritorna la prima coordinata del percorso.
-
-     @return la prima coordinata
-     **/
-    public Coordinate getInizio(){
-        return this.coordinate.get(0);
-    }
-
-    /**
-     Ritorna l'ultima coordinata del percorso.
-
-     @return l'ultima coordinata
-     **/
-    public Coordinate getFine(){
-        return this.coordinate.get(this.coordinate.size()-1);
-    }
-
-    /**
-     Ritorna la lista delle coordinate del percorso.
-
-     @return <b>ArrayList</b> di <b>Coordinata</b>
-     **/
-    public ArrayList<Coordinate> getCoordinate(){
-        return new ArrayList<Coordinate>(this.coordinate);
-    }
-
-    /**
-     Ritorna una stringa in GPX relativa al percorso.
+     return a GPX in string format to the relative path.
 
      @return GPX
      **/
     public String getGPX(){
-        String contenitore = "<?xml version='1.0'><gpx version='1.1' creator='TheWay'><rte>%s</rte></gpx>";
+        String container = "<?xml version='1.0'><gpx version='1.1' creator='TheWay'><rte>%s</rte></gpx>";
         String body = "";
         String append = "<rtept lat='%s' lon='%s' />";
-        for(Coordinate coor : coordinate){
-            body += String.format(append,coor.getLat(),coor.getLon());
+        for(Location coor : coordinates){
+            body += String.format(append,coor.getLatitude(), coor.getLongitude());
         }
-        String gpxString = String.format(contenitore,body);
+        String gpxString = String.format(container,body);
 
         return gpxString;
     }
 
     /**
-     Ritorna la lunghezza del percorso in metri (con un margine di errore di
-     qualche metro).
+    Return the path length in meters (with a margin of error of
+    Some meters).
 
-     @return lunghezza
+     @return length
      **/
-    public double getLunghezza(){
+    public double getLength(){
         double length = 0;
-        for (int i = 0; i < coordinate.size()-1; i++){
-            length += coordinate.get(i).distance(coordinate.get(i+1));
+        for (int i = 0; i < coordinates.size()-1; i++){
+            length += coordinates.get(i).distanceTo(coordinates.get(i+1));
         }
         return length;
     }
 
-    public String toString(){
-        String s = "";
-        for (Coordinate l : coordinate){
-            s += l.toString()+"\n";
-        }
-        return s;
-    }
 }

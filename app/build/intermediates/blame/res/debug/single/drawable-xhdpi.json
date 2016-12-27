@@ -8,6 +8,10 @@
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-xhdpi/ic_connectivity_false.png"
     },
     {
+        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-xhdpi/stop.png",
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-xhdpi/stop.png"
+    },
+    {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_name.png",
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-xhdpi/ic_action_name.png"
     },

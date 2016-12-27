@@ -208,6 +208,10 @@
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/layout/design_navigation_item_subheader.xml"
     },
     {
+        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/activity_save.xml",
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/layout/activity_save.xml"
+    },
+    {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/place_autocomplete_fragment.xml",
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.8.0/res/layout/place_autocomplete_fragment.xml"
     },

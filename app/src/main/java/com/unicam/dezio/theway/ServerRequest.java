@@ -8,6 +8,7 @@ public class ServerRequest {
 
     private String operation;
     private User user;
+    private Path path;
 
     public void setOperation(String operation) {
         this.operation = operation;
@@ -16,6 +17,8 @@ public class ServerRequest {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public void setPath(Path path) {this.path = path; }
 
     @Override
     //DEBUG

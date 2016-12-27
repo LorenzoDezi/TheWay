@@ -8,6 +8,10 @@
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-hdpi/ic_connectivity_false.png"
     },
     {
+        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-hdpi/stop.png",
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-hdpi/stop.png"
+    },
+    {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-hdpi/play.png",
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-hdpi/play.png"
     },
