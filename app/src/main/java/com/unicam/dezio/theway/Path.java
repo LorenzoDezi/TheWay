@@ -1,18 +1,22 @@
 package com.unicam.dezio.theway;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Element;
+import org.xml.sax.SAXException;
+
 import java.util.Date;
 import android.location.Location;
 import android.location.LocationManager;
 
 
-enum Vehicle {Feet, Bike};
 
 /**
  That class store the information about a particular path.
@@ -25,53 +29,41 @@ public class Path {
     private Vehicle usedVehicle;
     private String description;
     private Vehicle[] vehicle;
+    private File gpx;
     private long time;
 
-
-
     /**
-     Parametric constructor, that create a new object <b>Path</b> using a
-     .gpx file.
-
-     @param gpx The <b>File</b> gpx to read
-     @throws IllegalArgumentException
-     **/
-    Path(File gpx) throws IllegalArgumentException {
+     * This method set the gpx file as an attribute and defines
+     * the list of coordinates as it is specificied in the input file (using
+     * gpx notation)
+     * @param gpx
+     */
+    public void setGPX(File gpx) throws ParserConfigurationException, IOException,
+            SAXException, IllegalArgumentException {
         if (gpx == null)
             throw new IllegalArgumentException("specify the file gpx.");
         coordinates = new ArrayList<>();
-        try{
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(gpx);
-            doc.getDocumentElement().normalize();
-
-            NodeList nList = doc.getElementsByTagName("rtept");
-
-            for (int i = 0; i < nList.getLength(); i++){
-                Element e = (Element) nList.item(i);
-                double lat = Double.parseDouble(e.getAttribute("lat"));
-                double lon = Double.parseDouble(e.getAttribute("lon"));
-                Location coordinate = new Location(LocationManager.GPS_PROVIDER);
-                coordinate.setLatitude(lat);
-                coordinate.setLongitude(lon);
-                coordinates.add(coordinate);
-            }
-        }catch(Exception e){
-            throw new IllegalArgumentException("error on the reading of the file gpx.");
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Document doc = dBuilder.parse(gpx);
+        doc.getDocumentElement().normalize();
+        NodeList nList = doc.getElementsByTagName("rtept");
+        if (nList.getLength() < 2)
+            throw new IllegalArgumentException("We need at least two coordinates");
+        for (int i = 0; i < nList.getLength(); i++) {
+            Element e = (Element) nList.item(i);
+            double lat = Double.parseDouble(e.getAttribute("lat"));
+            double lon = Double.parseDouble(e.getAttribute("lon"));
+            Location coordinate = new Location(LocationManager.GPS_PROVIDER);
+            coordinate.setLatitude(lat);
+            coordinate.setLongitude(lon);
+            coordinates.add(coordinate);
         }
     }
 
-    /**
-     * Default constructor of the path.
-     */
-    Path() {
-        coordinates = new ArrayList<>();
+    public File getGpx() {
+        return gpx;
     }
-
-
-
-
     /**
      return the difficulty of the path.
 
@@ -217,7 +209,7 @@ public class Path {
 
      @return the last coordinate
      **/
-    public Location getEnd(){
+    public Location getEnd() {
         return this.coordinates.get(this.coordinates.size()-1);
     }
 
