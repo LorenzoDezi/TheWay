@@ -34,31 +34,34 @@ public class Path {
     private long time;
 
     /**
-     * This method set the gpx file as an attribute and defines
+     * This method sets the gpx file as an attribute and defines
      * the list of coordinates as it is specificied in the input file (using
-     * gpx notation)
+     * gpx notation) if it is not already done in the path. This is the case when you
+     * create the path for the first time, otherwise coordinates need to be set.
      * @param gpx
      */
-    public void setGPX(File gpx) throws ParserConfigurationException, IOException,
+    public void setGPX(File gpx, Boolean areCoordinatesSet) throws ParserConfigurationException, IOException,
             SAXException, IllegalArgumentException {
         if (gpx == null)
             throw new IllegalArgumentException("specify the file gpx.");
-        coordinates = new ArrayList<>();
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document doc = dBuilder.parse(gpx);
-        doc.getDocumentElement().normalize();
-        NodeList nList = doc.getElementsByTagName("rtept");
-        if (nList.getLength() < 2)
-            throw new IllegalArgumentException("We need at least two coordinates");
-        for (int i = 0; i < nList.getLength(); i++) {
-            Element e = (Element) nList.item(i);
-            double lat = Double.parseDouble(e.getAttribute("lat"));
-            double lon = Double.parseDouble(e.getAttribute("lon"));
-            Location coordinate = new Location(LocationManager.GPS_PROVIDER);
-            coordinate.setLatitude(lat);
-            coordinate.setLongitude(lon);
-            coordinates.add(coordinate);
+        if(!areCoordinatesSet) {
+            coordinates = new ArrayList<>();
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(gpx);
+            doc.getDocumentElement().normalize();
+            NodeList nList = doc.getElementsByTagName("rtept");
+            if (nList.getLength() < 2)
+                throw new IllegalArgumentException("We need at least two coordinates");
+            for (int i = 0; i < nList.getLength(); i++) {
+                Element e = (Element) nList.item(i);
+                double lat = Double.parseDouble(e.getAttribute("lat"));
+                double lon = Double.parseDouble(e.getAttribute("lon"));
+                Location coordinate = new Location(LocationManager.GPS_PROVIDER);
+                coordinate.setLatitude(lat);
+                coordinate.setLongitude(lon);
+                coordinates.add(coordinate);
+            }
         }
         this.gpx = gpx;
     }

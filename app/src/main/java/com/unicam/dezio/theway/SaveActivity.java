@@ -187,6 +187,21 @@ public class SaveActivity extends AppCompatActivity {
      */
     private void storePathOnline(Path path)  {
 
+        String gpx = path.getGPXString();
+        String filename = path.hashCode()+".gpx";
+        FileOutputStream outputStream;
+        File currentGPXFile = new File(filename);
+        try {
+            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+            outputStream.write(gpx.getBytes());
+            outputStream.close();
+            path.setGPX(currentGPXFile, true);
+        } catch (Exception ex) {
+            Snackbar.make(findViewById(R.id.mainLayout), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+            SaveActivity.saveResult = false;
+            return;
+        }
+
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
@@ -251,6 +266,7 @@ public class SaveActivity extends AppCompatActivity {
 
             Snackbar.make(findViewById(R.id.mainLayout), ex.getMessage(), Snackbar.LENGTH_LONG).show();
             SaveActivity.saveResult = false;
+            return;
         }
         SaveActivity.saveResult = true;
     }
