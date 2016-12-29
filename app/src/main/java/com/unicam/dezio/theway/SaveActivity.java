@@ -228,10 +228,10 @@ public class SaveActivity extends AppCompatActivity {
      */
     private void storePathOffline(Path path) {
 
-        String gpx = path.getGPX();
+        String gpx = path.getGPXString();
         String filename = path.hashCode()+".gpx";
         FileOutputStream outputStream;
-        
+
         try {
 
             File mainDirectory;

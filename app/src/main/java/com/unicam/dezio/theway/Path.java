@@ -1,5 +1,6 @@
 package com.unicam.dezio.theway;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,9 +60,10 @@ public class Path {
             coordinate.setLongitude(lon);
             coordinates.add(coordinate);
         }
+        this.gpx = gpx;
     }
 
-    public File getGpx() {
+    public File getGPX() {
         return gpx;
     }
     /**
@@ -236,21 +238,20 @@ public class Path {
         coordinates.add(coordinate);
     }
 
+
     /**
      return a GPX in string format to the relative path.
 
      @return GPX
      **/
-    public String getGPX(){
+    public String getGPXString() {
         String container = "<?xml version='1.0'><gpx version='1.1' creator='TheWay'><rte>%s</rte></gpx>";
         String body = "";
         String append = "<rtept lat='%s' lon='%s' />";
         for(Location coor : coordinates){
             body += String.format(append,coor.getLatitude(), coor.getLongitude());
         }
-        String gpxString = String.format(container,body);
-
-        return gpxString;
+        return String.format(container,body);
     }
 
     /**
