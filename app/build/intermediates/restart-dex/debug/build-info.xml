@@ -1,50 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    api-level="22"
+    api-level="21"
     density="xhdpi"
     format="8"
     plugin-version="2.2.0"
-    timestamp="886502475034"
+    timestamp="4244865156070"
     token="4455078928021233926"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="165" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="27" />
+        duration="0" />
     <task
         name="verifier"
-        duration="2" />
-
-    <artifact
-        location="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
-        type="DEX" />
+        duration="0" />
 
     <build
-        timestamp="798749970859"
+        timestamp="3367971073853"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/dezio/AndroidStudioProjects/TheWay/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="886502475034"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
-            type="DEX" />
-    </build>
-    <build
-        timestamp="8509004080896"
-        verifier="COLD_SWAP_REQUESTED" >
+        timestamp="3560754123585"
+        verifier="COMPATIBLE" >
         <artifact
             location="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_"
             type="RESOURCES" />
+        <artifact
+            location="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/reload-dex/debug/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="4244865156070"
+        verifier="COLD_SWAP_REQUESTED" />
+    <build
+        timestamp="11270502828600"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="/home/dezio/AndroidStudioProjects/TheWay/app/build/outputs/apk/app-debug.apk"
+            type="MAIN" />
     </build>
 
 </instant-run>

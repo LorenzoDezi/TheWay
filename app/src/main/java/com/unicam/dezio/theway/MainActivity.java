@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ServerRequest request = new ServerRequest();
         request.setOperation(Constants.LOGIN_OPERATION);
         request.setUser(user);
+        Log.d(Constants.TAG, request.toString());
         Call<ServerResponse> response = requestInterface.operation(request);
         response.enqueue(new Callback<ServerResponse>() {
             @Override
@@ -127,8 +128,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onFailure(Call<ServerResponse> call, Throwable t) {
                 progress.setVisibility(View.INVISIBLE);
+                //DEBUG
                 Log.d(Constants.TAG,"failed");
                 Log.d(Constants.TAG, t.getLocalizedMessage());
+                Log.d(Constants.TAG, t.getCause().getLocalizedMessage());
                 Snackbar.make(findViewById(R.id.mainLayout), t.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
             }
         });

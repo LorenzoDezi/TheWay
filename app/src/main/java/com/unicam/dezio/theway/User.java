@@ -1,7 +1,7 @@
 package com.unicam.dezio.theway;
 
 /**
- * Created by dezio on 22/11/16.
+ * The user is a registered app user
  */
 
 public class User {

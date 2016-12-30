@@ -1,7 +1,7 @@
 package com.unicam.dezio.theway;
 
 /**
- * Created by dezio on 22/11/16.
+ * It's a response that encapsulates the json-encoded response made by the server
  */
 
 public class ServerResponse {

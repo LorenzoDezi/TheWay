@@ -34,6 +34,13 @@ public class Path {
     private long time;
 
     /**
+     * The default constructor for the class Path
+     */
+    public Path() {
+        this.coordinates = new ArrayList<>();
+    }
+
+    /**
      * This method sets the gpx file as an attribute and defines
      * the list of coordinates as it is specificied in the input file (using
      * gpx notation) if it is not already done in the path. This is the case when you
@@ -80,10 +87,10 @@ public class Path {
 
     public void setDifficulty(int difficulty) throws IllegalArgumentException {
         //The difficulty must be between 1 and 5
-        if (difficulty >= 1 && difficulty <= 5)
+        if (difficulty >= 0 && difficulty <= 2)
             this.difficulty = difficulty;
         else
-            throw  new IllegalArgumentException("The difficulty must be between 1 and 5.");
+            throw  new IllegalArgumentException("The difficulty must be between 0 and 2.");
     }
 
     /**

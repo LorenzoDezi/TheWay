@@ -2,6 +2,7 @@ package com.unicam.dezio.theway;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Environment;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,7 @@ import com.google.gson.GsonBuilder;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import retrofit2.Call;
@@ -48,39 +50,50 @@ public class SaveActivity extends AppCompatActivity {
     private EditText description;
     private RatingBar ratingBar;
     private RelativeLayout mainLayout;
+    private SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_save);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        difficultySpinner = (Spinner) findViewById(R.id.difficulty_spinner);
-        vehicleSpinner = (Spinner) findViewById(R.id.vehicle_spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.difficulty_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        difficultySpinner.setAdapter(adapter);
-        adapter = ArrayAdapter.createFromResource(this,
-                R.array.vehicles, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        vehicleSpinner.setAdapter(adapter);
-        bikePossible = (CheckBox) findViewById(R.id.bike_check);
-        feetPossible = (CheckBox) findViewById(R.id.feet_check);
-        description = (EditText) findViewById(R.id.description_area);
-        ratingBar = (RatingBar) findViewById(R.id.valutation_rating);
-        mainLayout = (RelativeLayout) findViewById(R.id.save_layout);
+        pref = getSharedPreferences(Constants.TAG, Context.MODE_PRIVATE);
+        if (pref.getBoolean(Constants.IS_LOGGED_IN, false)) {
+            setContentView(R.layout.activity_save);
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            difficultySpinner = (Spinner) findViewById(R.id.difficulty_spinner);
+            vehicleSpinner = (Spinner) findViewById(R.id.vehicle_spinner);
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                    R.array.difficulty_array, android.R.layout.simple_spinner_item);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            difficultySpinner.setAdapter(adapter);
+            adapter = ArrayAdapter.createFromResource(this,
+                    R.array.vehicles, android.R.layout.simple_spinner_item);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            vehicleSpinner.setAdapter(adapter);
+            bikePossible = (CheckBox) findViewById(R.id.bike_check);
+            feetPossible = (CheckBox) findViewById(R.id.feet_check);
+            description = (EditText) findViewById(R.id.description_area);
+            ratingBar = (RatingBar) findViewById(R.id.valutation_rating);
+            mainLayout = (RelativeLayout) findViewById(R.id.save_layout);
 
-        //DEBUG
-        Intent intent = getIntent();
-        String pathJson = intent.getExtras().getString("path", "noExtra");
-        if(pathJson != "noExtra")
-            pathToSave = new Gson().fromJson(pathJson, Path.class);
-        context = this.getApplicationContext();
+            //DEBUG
+            Intent intent = getIntent();
+            String pathJson = intent.getExtras().getString("path", "noExtra");
+            if (pathJson != "noExtra")
+                pathToSave = new Gson().fromJson(pathJson, Path.class);
+            context = this.getApplicationContext();
+        } else {
+            goToLogin();
+        }
 
+    }
+
+    private void goToLogin() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     /**
@@ -106,7 +119,7 @@ public class SaveActivity extends AppCompatActivity {
     private File getFileStorageDir(File dir, String dirName) throws IOException {
         File file = new File(dir, dirName);
         if (file.exists()) {
-            return null;
+            return file;
         } else {
             if(!file.mkdirs()) {
                 throw new IOException("Directory can't be created!");
@@ -138,8 +151,8 @@ public class SaveActivity extends AppCompatActivity {
         int rating = (int) ratingBar.getRating();
         String vehicleString = vehicleSpinner.getSelectedItem().toString();
         int difficulty = difficultySpinner.getSelectedItemPosition();
-        Boolean isByciclePossible = bikePossible.isActivated();
-        Boolean isFeetPossible = feetPossible.isActivated();
+        Boolean isByciclePossible = bikePossible.isChecked();
+        Boolean isFeetPossible = feetPossible.isChecked();
         String descriptionString = description.toString();
 
         Vehicle vehicleUsed;
@@ -175,10 +188,11 @@ public class SaveActivity extends AppCompatActivity {
             storePathOffline(pathToSave);
         if(saveResult) {
             //the button disappear from the layout
+            Snackbar.make(findViewById(R.id.save_layout), "The path is correctly saved!", Snackbar.LENGTH_LONG).show();
             mainLayout.removeView(button);
             saveResult = false;
         }
-
+        return;
     }
 
     /**
@@ -187,6 +201,7 @@ public class SaveActivity extends AppCompatActivity {
      */
     private void storePathOnline(Path path)  {
 
+        //Preparing the gpx file
         String gpx = path.getGPXString();
         String filename = path.hashCode()+".gpx";
         FileOutputStream outputStream;
@@ -202,6 +217,7 @@ public class SaveActivity extends AppCompatActivity {
             return;
         }
 
+        //Preparing the server comunication
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
@@ -209,9 +225,16 @@ public class SaveActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
         RequestInterface requestInterface = retrofit.create(RequestInterface.class);
+
+        //Preparing the request
         ServerRequest request = new ServerRequest();
         request.setOperation(Constants.SAVE_OPERATION);
         request.setPath(path);
+        User pathOwner = new User();
+        pathOwner.setUsername(pref.getString(Constants.USERNAME, "none"));
+        request.setUser(pathOwner);
+
+        //Calling the server and processing the response
         Call<ServerResponse> response = requestInterface.operation(request);
         response.enqueue(new Callback<ServerResponse>() {
             @Override
@@ -220,7 +243,6 @@ public class SaveActivity extends AppCompatActivity {
                 ServerResponse resp = response.body();
                 if (resp.getResult().equals(Constants.SUCCESS)) {
                     SaveActivity.saveResult = true;
-                    Snackbar.make(findViewById(R.id.save_layout), "The path is correctly saved!", Snackbar.LENGTH_LONG).show();
                 }
             }
 
@@ -230,7 +252,7 @@ public class SaveActivity extends AppCompatActivity {
                 Log.d(Constants.TAG,"failed");
                 Log.d(Constants.TAG, t.getLocalizedMessage());
 
-                Snackbar.make(findViewById(R.id.mainLayout), t.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
+                Snackbar.make(findViewById(R.id.save_layout), t.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
                 SaveActivity.saveResult = false;
             }
         });
@@ -243,9 +265,10 @@ public class SaveActivity extends AppCompatActivity {
      */
     private void storePathOffline(Path path) {
 
+        //Preparing the gpx file
         String gpx = path.getGPXString();
         String filename = path.hashCode()+".gpx";
-        FileOutputStream outputStream;
+        FileOutputStream writer;
 
         try {
 
@@ -256,15 +279,17 @@ public class SaveActivity extends AppCompatActivity {
             } else {
                 mainDirectory = getFileStorageDir(context.getFilesDir(), "GPXs");
             }
+            //LA DIRECTORY È NULL!!!
             File currentGPXfile = new File(mainDirectory, filename);
+            //Creating phisically the gpx file
             currentGPXfile.createNewFile();
-            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-            outputStream.write(gpx.getBytes());
-            outputStream.close();
+            writer = new FileOutputStream(currentGPXfile);
+            writer.write(gpx.getBytes());
+            writer.close();
 
         } catch (IOException ex) {
 
-            Snackbar.make(findViewById(R.id.mainLayout), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+            Snackbar.make(findViewById(R.id.save_layout), ex.getMessage(), Snackbar.LENGTH_LONG).show();
             SaveActivity.saveResult = false;
             return;
         }

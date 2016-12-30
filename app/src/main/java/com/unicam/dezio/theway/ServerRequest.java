@@ -1,7 +1,8 @@
 package com.unicam.dezio.theway;
 
 /**
- * Created by dezio on 22/11/16.
+ *The object is a request made by the client for the server, and it will
+ * be encoded in Json format.
  */
 
 public class ServerRequest {
