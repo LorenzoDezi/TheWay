@@ -25,6 +25,6 @@ public class ServerResponse {
     @Override
     //DEBUG
     public String toString() {
-        return result+message+user.toString();
+        return result+message;
     }
 }

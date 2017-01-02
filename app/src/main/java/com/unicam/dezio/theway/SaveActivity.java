@@ -153,7 +153,7 @@ public class SaveActivity extends AppCompatActivity {
         int difficulty = difficultySpinner.getSelectedItemPosition();
         Boolean isByciclePossible = bikePossible.isChecked();
         Boolean isFeetPossible = feetPossible.isChecked();
-        String descriptionString = description.toString();
+        String descriptionString = description.getText().toString();
 
         Vehicle vehicleUsed;
         if(vehicleString == getString(R.string.bike_string))
@@ -241,6 +241,7 @@ public class SaveActivity extends AppCompatActivity {
             public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
                 Log.d(Constants.TAG, response.toString());
                 ServerResponse resp = response.body();
+                Log.d(Constants.TAG, resp.toString());
                 if (resp.getResult().equals(Constants.SUCCESS)) {
                     SaveActivity.saveResult = true;
                 }
@@ -279,7 +280,6 @@ public class SaveActivity extends AppCompatActivity {
             } else {
                 mainDirectory = getFileStorageDir(context.getFilesDir(), "GPXs");
             }
-            //LA DIRECTORY È NULL!!!
             File currentGPXfile = new File(mainDirectory, filename);
             //Creating phisically the gpx file
             currentGPXfile.createNewFile();
