@@ -4,33 +4,33 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.0"
-    timestamp="13004397102975"
+    timestamp="830811205516"
     token="4455078928021233926"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="3559" />
+        duration="3938" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="237" />
+        duration="446" />
     <task
         name="verifier"
-        duration="74" />
+        duration="69" />
 
     <artifact
         location="/home/dezio/AndroidStudioProjects/TheWay/app/build/outputs/apk/app-debug.apk"
         type="MAIN" />
 
     <build
-        timestamp="13004397102975"
-        verifier="FULL_BUILD_REQUESTED" >
+        timestamp="6367439171951"
+        verifier="COMPATIBLE" >
         <artifact
-            location="/home/dezio/AndroidStudioProjects/TheWay/app/build/outputs/apk/app-debug.apk"
-            type="MAIN" />
+            location="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/builds/debug/6367439171951/classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

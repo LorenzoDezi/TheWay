@@ -173,6 +173,7 @@ public class SaveActivity extends AppCompatActivity {
             vehicles = new Vehicle[]{};
 
         try {
+            pathToSave.setStart();
             pathToSave.setDescription(descriptionString);
             pathToSave.setDifficulty(difficulty);
             pathToSave.setValutation(rating);
@@ -252,7 +253,6 @@ public class SaveActivity extends AppCompatActivity {
                 //DEBUG
                 Log.d(Constants.TAG,"failed");
                 Log.d(Constants.TAG, t.getLocalizedMessage());
-
                 Snackbar.make(findViewById(R.id.save_layout), t.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
                 SaveActivity.saveResult = false;
             }

@@ -892,12 +892,12 @@
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/drawable-xhdpi-v4/com_facebook_button_send_icon_blue.png"
     },
     {
-        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_plusone_small_off_client.png",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/9.8.0/res/drawable-xhdpi-v4/ic_plusone_small_off_client.png"
-    },
-    {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/quantum_ic_skip_next_grey600_36.png",
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.8.0/res/drawable-xhdpi-v4/quantum_ic_skip_next_grey600_36.png"
+    },
+    {
+        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_plusone_small_off_client.png",
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/9.8.0/res/drawable-xhdpi-v4/ic_plusone_small_off_client.png"
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_media_route_on_15_dark.png",

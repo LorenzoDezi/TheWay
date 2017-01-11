@@ -47,7 +47,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_gps_true"
+                android:src="@drawable/ic_gps_true"
                 android:contentDescription="GPS"
                 android:id="@+id/GPS_PNG"/>
 

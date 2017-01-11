@@ -67,8 +67,8 @@
             android:label="@string/title_activity_map"
             android:theme="@style/AppTheme" />
         <activity android:name="com.unicam.dezio.theway.RegisterActivity" />
-        <activity android:name="com.unicam.dezio.theway.SaveActivity" >
-        </activity>
+        <activity android:name="com.unicam.dezio.theway.SaveActivity" />
+        <activity android:name="com.unicam.dezio.theway.BaseActivity" />
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

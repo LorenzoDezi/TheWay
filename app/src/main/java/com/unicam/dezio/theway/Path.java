@@ -2,6 +2,8 @@ package com.unicam.dezio.theway;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -30,8 +32,10 @@ public class Path {
     private Vehicle usedVehicle;
     private String description;
     private Vehicle[] vehicle;
-    private File gpx;
-    private long time;
+    private byte[] gpx;
+    private Time time;
+    private float length;
+    private Location start;
 
     /**
      * The default constructor for the class Path
@@ -70,10 +74,12 @@ public class Path {
                 coordinates.add(coordinate);
             }
         }
-        this.gpx = gpx;
+        String gpxString = this.getGPXString();
+        this.gpx = gpxString.getBytes();
+
     }
 
-    public File getGPX() {
+    public byte[] getGPX() {
         return gpx;
     }
     /**
@@ -91,6 +97,27 @@ public class Path {
             this.difficulty = difficulty;
         else
             throw  new IllegalArgumentException("The difficulty must be between 0 and 2.");
+    }
+
+    public void setLength() {
+
+        if(coordinates == null)
+            throw new NullPointerException("You must first set coordinates, and then you can set" +
+                    "the lenght!");
+
+        int length = 0;
+        int i;
+        for (i=0; i < coordinates.size() - 1; i++) {
+            length += coordinates.get(i).distanceTo(coordinates.get(i+1));
+        }
+        this.length = length;
+
+    }
+
+    public float getLenght() {
+
+        return length;
+
     }
 
     /**
@@ -179,7 +206,7 @@ public class Path {
 
      @return time
      **/
-    public long getTime(){
+    public Time getTime(){
         return time;
     }
 
@@ -190,30 +217,48 @@ public class Path {
      */
     public void setTime(Date start, Date end) throws IllegalArgumentException {
 
+        long time;
         if (end != null)
             if(start != null)
                 if(end.getTime() > start.getTime())
-                    this.time = (end.getTime() - start.getTime()) * 60000;
+                    time = (end.getTime() - start.getTime()) * 60000;
                 else
                     throw new IllegalArgumentException("the time of end must be higher then start.");
             else
                 throw new IllegalArgumentException("the time of start must not be a null value");
         else
             throw new IllegalArgumentException("the time of end must not be a null value");
+        this.time = new Time(time);
 
-    }
-
-    public void setTime(long time) throws IllegalArgumentException {
-        this.time = time;
     }
 
     /**
-     Return the frist coordinate of the path
+     * It sets the time employed to complete the path
+     * @param time
+     * @throws IllegalArgumentException
+     */
+    public void setTime(long time) throws IllegalArgumentException {
+        this.time = new Time(time);
+    }
 
+    /**
+     Return the frist coordinate of the path,
+     the start point
      @return the frist coordinate
      **/
     public Location getStart(){
-        return this.coordinates.get(0);
+        return start;
+    }
+
+    /**
+     * It sets the first coordinate of the path, the
+     * start point.
+     */
+    public void setStart() {
+        if(coordinates == null)
+            throw new NullPointerException("You must first set the coordinates to retrieve" +
+                    "the start point");
+        this.start = this.coordinates.get(0);
     }
 
     /**

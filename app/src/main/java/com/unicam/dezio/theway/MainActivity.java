@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText editTextPwd;
     private Button buttonLogin;
     private Button buttonRegister;
-    private ProgressBar progress;
     private SharedPreferences pref;
 
     @Override
@@ -53,9 +52,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             editTextPwd = (EditText) findViewById(R.id.editTextPwd);
             buttonLogin = (Button) findViewById(R.id.buttonLogin);
             buttonRegister = (Button) findViewById(R.id.buttonRegister);
-            progress = (ProgressBar) findViewById(R.id.progressLogin);
             buttonLogin.setOnClickListener(this);
             buttonRegister.setOnClickListener(this);
+
         }
     }
 
@@ -81,7 +80,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String username = editTextUser.getText().toString();
                 String password = editTextPwd.getText().toString();
                 if (!username.isEmpty() && !password.isEmpty()) {
-                    progress.setVisibility(View.VISIBLE);
                     loginProcess(username, password);
                 } else {
                     Snackbar.make(findViewById(R.id.mainLayout), "Fields are empty!", Snackbar.LENGTH_LONG).show();
@@ -122,20 +120,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     editor.apply();
                     goToWelcome();
                 }
-                progress.setVisibility(View.INVISIBLE);
             }
 
             @Override
             public void onFailure(Call<ServerResponse> call, Throwable t) {
-                progress.setVisibility(View.INVISIBLE);
                 //DEBUG
                 Log.d(Constants.TAG,"failed");
                 Log.d(Constants.TAG, t.getLocalizedMessage());
-                Log.d(Constants.TAG, t.getCause().getLocalizedMessage());
                 Snackbar.make(findViewById(R.id.mainLayout), t.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
             }
         });
     }
+
+
 
 
 

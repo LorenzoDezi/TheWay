@@ -1516,12 +1516,12 @@
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/net.danlew/android.joda/2.9.3.1/res/raw/joda_asia_dhaka"
     },
     {
-        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/raw/joda_antarctica_dumontdurville",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/net.danlew/android.joda/2.9.3.1/res/raw/joda_antarctica_dumontdurville"
-    },
-    {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/raw/joda_america_tegucigalpa",
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/net.danlew/android.joda/2.9.3.1/res/raw/joda_america_tegucigalpa"
+    },
+    {
+        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/raw/joda_antarctica_dumontdurville",
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/net.danlew/android.joda/2.9.3.1/res/raw/joda_antarctica_dumontdurville"
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/raw/joda_met",

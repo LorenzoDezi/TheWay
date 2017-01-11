@@ -1,10 +1,1 @@
-[
-    {
-        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/mipmap-hdpi/ic_connectivity_false.png",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/mipmap-hdpi/ic_connectivity_false.png"
-    },
-    {
-        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/mipmap-hdpi/ic_gps_true.png",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/mipmap-hdpi/ic_gps_true.png"
-    }
-]
+[]
