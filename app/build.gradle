@@ -27,6 +27,10 @@ android {
     }
 }
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -39,7 +43,7 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.0.0'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
-    compile 'io.ticofab.androidgpxparser:parser:0.1.5'
+//    compile 'io.ticofab.androidgpxparser:parser:0.1.5'
     compile 'com.android.support:multidex:1.0.0'
     testCompile 'junit:junit:4.12'
 

@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,7 +26,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText editTextRePwd;
     private Button buttonRegister;
     private Button buttonRegisterFB;
-    private ProgressBar progress;
+
     private SharedPreferences pref;
 
     @Override
@@ -48,10 +47,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             editTextPwd = (EditText) findViewById(R.id.editTextPwd);
             editTextRePwd = (EditText) findViewById(R.id.editTextRePwd);
             buttonRegister = (Button) findViewById(R.id.buttonRegister);
-            buttonRegisterFB = (Button) findViewById(R.id.buttonRegisterFB);
             buttonRegister.setOnClickListener(this);
-            buttonRegisterFB.setOnClickListener(this);
-            progress = (ProgressBar) findViewById(R.id.progressRegister);
         }
     }
 
@@ -82,7 +78,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 String repwd = editTextRePwd.getText().toString();
                 if(!username.isEmpty() && !email.isEmpty() && !pwd.isEmpty()) {
                     if(pwd.equals(repwd)) {
-                        progress.setVisibility(View.VISIBLE);
                         registerProcess(username, email, pwd);
                     } else {
                         Snackbar.make(findViewById(R.id.registerLayout),"Fields are empty", Snackbar.LENGTH_LONG).show();
@@ -93,8 +88,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 }
                 break;
             }
-            case R.id.buttonRegisterFB:
-                break;
+
+
         }
     }
 
@@ -126,12 +121,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     editor.apply();
                     goToWelcome();
                 }
-                progress.setVisibility(View.INVISIBLE);
+
             }
 
             @Override
             public void onFailure(Call<ServerResponse> call, Throwable t) {
-                progress.setVisibility(View.INVISIBLE);
+
                 Log.d(Constants.TAG,"failed");
                 Snackbar.make(findViewById(R.id.registerLayout), t.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
             }

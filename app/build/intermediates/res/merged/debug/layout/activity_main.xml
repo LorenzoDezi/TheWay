@@ -90,13 +90,14 @@
                 android:id="@+id/buttonRegister"
                  />
 
-            <ProgressBar
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
+            <com.facebook.login.widget.LoginButton
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/progressLogin"
-                android:visibility="invisible" />
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:id="@+id/FBLogin"
+                />
 
 
         </LinearLayout>
-        </RelativeLayout>
+</RelativeLayout>

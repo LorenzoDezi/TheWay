@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.facebook.AccessToken;
+import com.facebook.login.LoginManager;
+
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener{
 
     private TextView logOut;
@@ -52,7 +55,10 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
      * the main activity
      */
     private void logOut() {
-
+        //if the user logged in with facebook
+        if(AccessToken.getCurrentAccessToken() != null) {
+            LoginManager.getInstance().logOut();
+        }
         SharedPreferences.Editor editor = pref.edit();
         editor.clear();
         editor.apply();

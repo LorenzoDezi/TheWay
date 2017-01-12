@@ -30,22 +30,18 @@
         android:required="true" />
 
     <application
-        android:name="io.ticofab.androidgpxparser.parser.application.ParserApplication"
+        android:name="com.unicam.dezio.theway.StarterClass"
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity android:name="com.unicam.dezio.theway.MainActivity" >
-
-            <!--
-            DEBUG
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
         </activity>
         <activity android:name="com.unicam.dezio.theway.WelcomeActivity" />
         <!--
@@ -68,15 +64,14 @@
             android:label="@string/title_activity_map"
             android:theme="@style/AppTheme" />
         <activity android:name="com.unicam.dezio.theway.RegisterActivity" />
-        <activity android:name="com.unicam.dezio.theway.SaveActivity" >
+        <activity android:name="com.unicam.dezio.theway.SaveActivity" />
+        <!-- DEBUG -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
 
-            <!-- DEBUG -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

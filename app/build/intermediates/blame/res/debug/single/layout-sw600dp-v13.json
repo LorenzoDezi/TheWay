@@ -1,6 +1,10 @@
 [
     {
-        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/design_layout_snackbar.xml",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/layout-sw600dp-v13/design_layout_snackbar.xml"
+        "merged": "C:\\Users\\Daniele\\Documents\\TheWay\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\design_layout_snackbar.xml",
+        "source": "C:\\Users\\Daniele\\Documents\\TheWay\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.0\\res\\layout-sw600dp-v13\\design_layout_snackbar.xml"
+    },
+    {
+        "merged": "C:\\home\\dezio\\AndroidStudioProjects\\TheWay\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\design_layout_snackbar.xml",
+        "source": "C:\\home\\dezio\\AndroidStudioProjects\\TheWay\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.0\\res\\layout-sw600dp-v13\\design_layout_snackbar.xml"
     }
 ]

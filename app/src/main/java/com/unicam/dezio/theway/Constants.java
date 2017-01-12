@@ -6,10 +6,11 @@ package com.unicam.dezio.theway;
 
 public class Constants {
 
-    public static final String BASE_URL = "http://192.168.1.15/";
+    public static final String BASE_URL = "http://192.168.1.103";
     public static final String REGISTER_OPERATION = "register";
     public static final String LOGIN_OPERATION = "login";
     public static final String SAVE_OPERATION = "save_path";
+
 
     public static final String SUCCESS = "success";
     public static final String FAILURE = "failure";

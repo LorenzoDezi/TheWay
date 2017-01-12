@@ -15,16 +15,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -34,8 +49,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText editTextPwd;
     private Button buttonLogin;
     private Button buttonRegister;
-    private ProgressBar progress;
+
     private SharedPreferences pref;
+
+    private CallbackManager cbm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +70,70 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             editTextPwd = (EditText) findViewById(R.id.editTextPwd);
             buttonLogin = (Button) findViewById(R.id.buttonLogin);
             buttonRegister = (Button) findViewById(R.id.buttonRegister);
-            progress = (ProgressBar) findViewById(R.id.progressLogin);
             buttonLogin.setOnClickListener(this);
             buttonRegister.setOnClickListener(this);
+
+            //set fb button things
+            LoginButton lb = (LoginButton) this.findViewById(R.id.FBLogin);
+            List<String> permissions = new ArrayList<>();
+            permissions.add("email");
+            lb.setReadPermissions(permissions);
+
+            cbm = CallbackManager.Factory.create();
+            lb.registerCallback(cbm, new FacebookCallback<LoginResult>() {
+                @Override
+                public void onSuccess(LoginResult loginResult) {
+                    Log.println(Log.DEBUG,"Token",loginResult.getAccessToken().getToken());
+                    GraphRequest request = GraphRequest.newMeRequest(
+                            loginResult.getAccessToken(),
+                            new GraphRequest.GraphJSONObjectCallback() {
+                                @Override
+                                public void onCompleted(JSONObject object, GraphResponse response){
+                                    String email, name;
+                                    try {
+                                        email = object.getString("email");
+                                        name = object.getString("name");
+                                        SharedPreferences.Editor editor = pref.edit();
+                                        editor.putBoolean(Constants.IS_LOGGED_IN, true);
+                                        editor.putString(Constants.EMAIL, email);
+                                        editor.putString(Constants.USERNAME, name);
+                                        editor.apply();
+                                        goToWelcome();
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                }
+
+                            }
+                    );
+                    Bundle parameters = new Bundle();
+                    parameters.putString("fields", "name,email");
+                    request.setParameters(parameters);
+                    request.executeAsync();
+
+                }
+
+                @Override
+                public void onCancel() {
+                    Snackbar.make(findViewById(R.id.mainLayout),"Login aborted", Snackbar.LENGTH_LONG).show();
+                    LoginManager.getInstance().logOut();
+                }
+
+                @Override
+                public void onError(FacebookException error) {
+                    Snackbar.make(findViewById(R.id.mainLayout),"Oops! Error occurred! :(", Snackbar.LENGTH_LONG).show();
+                    LoginManager.getInstance().logOut();
+                }
+            });
+
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+        cbm.onActivityResult(requestCode,resultCode,data);
     }
 
     @Override
@@ -73,20 +150,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
 
-            case R.id.buttonRegister:
+            case R.id.buttonRegister:{
                 goToRegister();
                 break;
+            }
 
-            case R.id.buttonLogin:
+            case R.id.buttonLogin: {
                 String username = editTextUser.getText().toString();
                 String password = editTextPwd.getText().toString();
                 if (!username.isEmpty() && !password.isEmpty()) {
-                    progress.setVisibility(View.VISIBLE);
                     loginProcess(username, password);
                 } else {
                     Snackbar.make(findViewById(R.id.mainLayout), "Fields are empty!", Snackbar.LENGTH_LONG).show();
                 }
                 break;
+            }
         }
     }
 
@@ -121,12 +199,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     editor.apply();
                     goToWelcome();
                 }
-                progress.setVisibility(View.INVISIBLE);
             }
 
             @Override
             public void onFailure(Call<ServerResponse> call, Throwable t) {
-                progress.setVisibility(View.INVISIBLE);
                 Log.d(Constants.TAG,"failed");
                 Log.d(Constants.TAG, t.getLocalizedMessage());
                 Snackbar.make(findViewById(R.id.mainLayout), t.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();

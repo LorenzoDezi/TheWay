@@ -1,22 +1,42 @@
 [
     {
-        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_action_name.png",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-hdpi/ic_action_name.png"
+        "merged": "C:\\Users\\Daniele\\Documents\\TheWay\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\search.png",
+        "source": "C:\\Users\\Daniele\\Documents\\TheWay\\app\\src\\main\\res\\drawable-hdpi\\search.png"
     },
     {
-        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_connectivity_false.png",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-hdpi/ic_connectivity_false.png"
+        "merged": "C:\\Users\\Daniele\\Documents\\TheWay\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_connectivity_false.png",
+        "source": "C:\\Users\\Daniele\\Documents\\TheWay\\app\\src\\main\\res\\drawable-hdpi\\ic_connectivity_false.png"
     },
     {
-        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-hdpi/stop.png",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-hdpi/stop.png"
+        "merged": "C:\\home\\dezio\\AndroidStudioProjects\\TheWay\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_connectivity_false.png",
+        "source": "C:\\home\\dezio\\AndroidStudioProjects\\TheWay\\app\\src\\main\\res\\drawable-hdpi\\ic_connectivity_false.png"
     },
     {
-        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-hdpi/play.png",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-hdpi/play.png"
+        "merged": "C:\\Users\\Daniele\\Documents\\TheWay\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\play.png",
+        "source": "C:\\Users\\Daniele\\Documents\\TheWay\\app\\src\\main\\res\\drawable-hdpi\\play.png"
     },
     {
-        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-hdpi/search.png",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-hdpi/search.png"
+        "merged": "C:\\home\\dezio\\AndroidStudioProjects\\TheWay\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\search.png",
+        "source": "C:\\home\\dezio\\AndroidStudioProjects\\TheWay\\app\\src\\main\\res\\drawable-hdpi\\search.png"
+    },
+    {
+        "merged": "C:\\Users\\Daniele\\Documents\\TheWay\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_name.png",
+        "source": "C:\\Users\\Daniele\\Documents\\TheWay\\app\\src\\main\\res\\drawable-hdpi\\ic_action_name.png"
+    },
+    {
+        "merged": "C:\\Users\\Daniele\\Documents\\TheWay\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\stop.png",
+        "source": "C:\\Users\\Daniele\\Documents\\TheWay\\app\\src\\main\\res\\drawable-hdpi\\stop.png"
+    },
+    {
+        "merged": "C:\\home\\dezio\\AndroidStudioProjects\\TheWay\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_name.png",
+        "source": "C:\\home\\dezio\\AndroidStudioProjects\\TheWay\\app\\src\\main\\res\\drawable-hdpi\\ic_action_name.png"
+    },
+    {
+        "merged": "C:\\home\\dezio\\AndroidStudioProjects\\TheWay\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\stop.png",
+        "source": "C:\\home\\dezio\\AndroidStudioProjects\\TheWay\\app\\src\\main\\res\\drawable-hdpi\\stop.png"
+    },
+    {
+        "merged": "C:\\home\\dezio\\AndroidStudioProjects\\TheWay\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\play.png",
+        "source": "C:\\home\\dezio\\AndroidStudioProjects\\TheWay\\app\\src\\main\\res\\drawable-hdpi\\play.png"
     }
 ]
