@@ -144,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void goToWelcome() {
         Intent intent = new Intent(this, WelcomeActivity.class);
         startActivity(intent);
+        finish();
     }
 
 

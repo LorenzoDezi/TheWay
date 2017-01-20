@@ -4,33 +4,40 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.0"
-    timestamp="830811205516"
+    timestamp="17090506756049"
     token="4455078928021233926"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="METHOD_ADDED" >
 
     <task
         name="javac"
-        duration="3938" />
+        duration="1296" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="446" />
+        duration="128" />
     <task
         name="verifier"
-        duration="69" />
+        duration="76" />
 
     <artifact
-        location="/home/dezio/AndroidStudioProjects/TheWay/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
+        location="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
+        type="DEX" />
 
     <build
-        timestamp="6367439171951"
-        verifier="COMPATIBLE" >
+        timestamp="14514036011626"
+        verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/builds/debug/6367439171951/classes.dex"
-            type="RELOAD_DEX" />
+            location="/home/dezio/AndroidStudioProjects/TheWay/app/build/outputs/apk/app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build
+        timestamp="17090506756049"
+        verifier="METHOD_ADDED" >
+        <artifact
+            location="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>

@@ -168,6 +168,20 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
     public void onRequestPermissionsResult(int requestCode, String permissions[],
                                            int[] grantResults) {
 
+        if(requestCode == Constants.MY_PERMISSIONS_REQUEST_LOCATION) {
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                Toast.makeText(this.getApplicationContext(),"Permission granted!", Toast.LENGTH_SHORT).show();
+
+            } else {
+
+                Toast.makeText(this.getApplicationContext(), "Permission denied! You can't do nothing!" , Toast.LENGTH_SHORT).show();
+
+            }
+
+        }
+
     }
 
 
@@ -201,16 +215,22 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
     }
 
     private void requestLocationUpdates() {
+
         //DEBUG
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)) {
+                //The explanation is needed because the user block in some way the permission
+                //for location for this app
+                Toast.makeText(this.getApplicationContext(), "Location permission needed!", Toast.LENGTH_SHORT).show();
+
+            } else {
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        Constants.MY_PERMISSIONS_REQUEST_LOCATION);
+            }
+
         }
         locationProvider.requestLocationUpdates(googleApiClient,
                 locationRequest,  this);

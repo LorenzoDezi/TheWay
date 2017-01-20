@@ -1,8 +1,6 @@
 package com.unicam.dezio.theway;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,8 +29,8 @@ public class Path {
     private int valutation;
     private Vehicle usedVehicle;
     private String description;
-    private Vehicle[] vehicle;
-    private byte[] gpx;
+    private Vehicle[] possibleVehicles;
+    private String gpxName;
     private Time time;
     private float length;
     private Location start;
@@ -45,17 +43,16 @@ public class Path {
     }
 
     /**
-     * This method sets the gpx file as an attribute and defines
-     * the list of coordinates as it is specificied in the input file (using
-     * gpx notation) if it is not already done in the path. This is the case when you
-     * create the path for the first time, otherwise coordinates need to be set.
+     * The constructor with a gpx file, building coordinates and the filename
      * @param gpx
+     *
      */
-    public void setGPX(File gpx, Boolean areCoordinatesSet) throws ParserConfigurationException, IOException,
+
+    public Path(File gpx) throws ParserConfigurationException, IOException,
             SAXException, IllegalArgumentException {
+
         if (gpx == null)
             throw new IllegalArgumentException("specify the file gpx.");
-        if(!areCoordinatesSet) {
             coordinates = new ArrayList<>();
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -73,15 +70,27 @@ public class Path {
                 coordinate.setLongitude(lon);
                 coordinates.add(coordinate);
             }
-        }
-        String gpxString = this.getGPXString();
-        this.gpx = gpxString.getBytes();
+        this.gpxName = gpx.getName();
 
     }
 
-    public byte[] getGPX() {
-        return gpx;
+    /**
+     * It returns the gpx filename
+     * @return
+     */
+    public String getGpxName() {
+        return gpxName;
     }
+
+    /**
+     * It sets the name of the gpx file associated with the path in the server
+     * @param gpxName
+     */
+    public void setGpxName(String gpxName)  {
+        this.gpxName = gpxName;
+    }
+
+
     /**
      return the difficulty of the path.
 
@@ -139,7 +148,7 @@ public class Path {
     }
 
     /**
-     Return the used vehicle.
+     Return the used possibleVehicles.
 
      @return usedVehicle
      **/
@@ -148,33 +157,33 @@ public class Path {
     }
 
     public void setUsedVehicle(Vehicle usedVehicle) throws IllegalArgumentException {
-        //the used vehicle must be specified
+        //the used possibleVehicles must be specified
         if (usedVehicle != null)
             this.usedVehicle = usedVehicle;
         else
-            throw new IllegalArgumentException("the used vehicle must be specified.");
+            throw new IllegalArgumentException("the used possibleVehicles must be specified.");
     }
 
     /**
-     Return the usable vehicle
+     Return the usable possibleVehicles
 
      @return UsableVehicle
      **/
     public Vehicle[] getUsableVehicle(){
-        return Arrays.copyOf(vehicle,vehicle.length);
+        return Arrays.copyOf(possibleVehicles, possibleVehicles.length);
     }
 
     public void setUsableVehicle(Vehicle[] usableVehicle) throws IllegalArgumentException {
-        //The list of the usable vehicle must be specified
-        //In the list of the usable vehicle, there must be the vehicle used
+        //The list of the usable possibleVehicles must be specified
+        //In the list of the usable possibleVehicles, there must be the possibleVehicles used
         if (usableVehicle != null && usableVehicle.length >= 1 && usableVehicle.length <= Vehicle.values().length){
             boolean b = false;
             for (int i = 0; i < usableVehicle.length && !b; i++)
                 b = usableVehicle[i] == usedVehicle;
             if (b)
-                vehicle = Arrays.copyOf(usableVehicle,usableVehicle.length);
+                possibleVehicles = Arrays.copyOf(usableVehicle,usableVehicle.length);
             else
-                throw new IllegalArgumentException("insert the vehicle used in the list of usable vehicles");
+                throw new IllegalArgumentException("insert the possibleVehicles used in the list of usable vehicles");
         }
         else
             throw new IllegalArgumentException("Specify the vehicles that are usable.");

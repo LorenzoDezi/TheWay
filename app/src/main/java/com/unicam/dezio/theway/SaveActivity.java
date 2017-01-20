@@ -25,6 +25,10 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,6 +41,8 @@ import static com.unicam.dezio.theway.Vehicle.Feet;
 public class SaveActivity extends AppCompatActivity {
 
     private Path pathToSave;
+
+    private File currentGPXFile;
 
     private Context context;
 
@@ -137,6 +143,7 @@ public class SaveActivity extends AppCompatActivity {
 
         Intent intent = new Intent(context, WelcomeActivity.class);
         startActivity(intent);
+        finish();
 
     }
 
@@ -148,6 +155,7 @@ public class SaveActivity extends AppCompatActivity {
     public void save(View button) {
 
 
+        SaveActivity.saveResult = false;
         int rating = (int) ratingBar.getRating();
         String vehicleString = vehicleSpinner.getSelectedItem().toString();
         int difficulty = difficultySpinner.getSelectedItemPosition();
@@ -183,88 +191,149 @@ public class SaveActivity extends AppCompatActivity {
             Snackbar.make(findViewById(R.id.save_layout), ex.getMessage(), Snackbar.LENGTH_LONG).show();
             return;
         }
+        createFile(pathToSave);
         if (button.getId() == R.id.online_button)
-            storePathOnline(pathToSave);
+            storePathOnline();
         else if (button.getId() == R.id.offline_button)
-            storePathOffline(pathToSave);
-        if(saveResult) {
-            //the button disappear from the layout
-            Snackbar.make(findViewById(R.id.save_layout), "The path is correctly saved!", Snackbar.LENGTH_LONG).show();
-            mainLayout.removeView(button);
-            saveResult = false;
-        }
+            storePathOffline();
         return;
     }
 
     /**
      * It sends the path to the server, that will store it to the db
-     * @param path
      */
-    private void storePathOnline(Path path)  {
+    private void storePathOnline()  {
 
-        //Preparing the gpx file
-        String gpx = path.getGPXString();
-        String filename = path.hashCode()+".gpx";
-        FileOutputStream outputStream;
-        File currentGPXFile = new File(filename);
-        try {
-            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-            outputStream.write(gpx.getBytes());
-            outputStream.close();
-            path.setGPX(currentGPXFile, true);
-        } catch (Exception ex) {
-            Snackbar.make(findViewById(R.id.mainLayout), ex.getMessage(), Snackbar.LENGTH_LONG).show();
-            SaveActivity.saveResult = false;
-            return;
-        }
+        if(currentGPXFile != null) {
 
-        //Preparing the server comunication
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(Constants.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
-        RequestInterface requestInterface = retrofit.create(RequestInterface.class);
+            pathToSave.setGpxName(currentGPXFile.getName());
 
-        //Preparing the request
-        ServerRequest request = new ServerRequest();
-        request.setOperation(Constants.SAVE_OPERATION);
-        request.setPath(path);
-        User pathOwner = new User();
-        pathOwner.setUsername(pref.getString(Constants.USERNAME, "none"));
-        request.setUser(pathOwner);
+            Retrofit retrofit = new Retrofit.Builder().baseUrl(Constants.BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            RequestInterface requestInterface = retrofit.create(RequestInterface.class);
+            // create RequestBody instance from file
+            RequestBody requestFile =
+                    RequestBody.create(MediaType.parse("multipart/form-data"), currentGPXFile);
 
-        //Calling the server and processing the response
-        Call<ServerResponse> response = requestInterface.operation(request);
-        response.enqueue(new Callback<ServerResponse>() {
-            @Override
-            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
-                Log.d(Constants.TAG, response.toString());
-                ServerResponse resp = response.body();
-                Log.d(Constants.TAG, resp.toString());
-                if (resp.getResult().equals(Constants.SUCCESS)) {
-                    SaveActivity.saveResult = true;
+            // MultipartBody.Part is used to send also the actual file name
+            MultipartBody.Part body =
+                    MultipartBody.Part.createFormData("gpx", currentGPXFile.getName(), requestFile);
+
+            // add another part within the multipart request
+            String descriptionString = currentGPXFile.getName();
+            RequestBody description =
+                    RequestBody.create(
+                            MediaType.parse("multipart/form-data"), descriptionString);
+
+            // finally, execute the request
+            Call<ResponseBody> call = requestInterface.upload(description, body);
+            call.enqueue(new Callback<ResponseBody>() {
+
+
+                @Override
+                public void onResponse(Call<ResponseBody> call,
+                                       Response<ResponseBody> response) {
+
+
+                    //DEBUG
+                    try {
+                        String Result = response.body().string();
+                        if (Result.equals("OK")) {
+                            SaveActivity.saveResult = true;
+                        } else {
+                            SaveActivity.saveResult = false;
+                            Snackbar.make(findViewById(R.id.save_layout), "Error uploading the file!", Snackbar.LENGTH_LONG).show();
+                        }
+                    } catch (IOException ex) {
+
+                        SaveActivity.saveResult = false;
+                        Snackbar.make(findViewById(R.id.save_layout), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+
+                    }
+
+                    if (saveResult) {
+                        //Preparing the server comunication
+                        Gson gson = new GsonBuilder()
+                                .setLenient()
+                                .create();
+                        Retrofit retrofit2 = new Retrofit.Builder().baseUrl(Constants.BASE_URL)
+                                .addConverterFactory(GsonConverterFactory.create(gson))
+                                .build();
+                        RequestInterface requestInterface2 = retrofit2.create(RequestInterface.class);
+                        //Preparing the request
+                        ServerRequest request = new ServerRequest();
+                        request.setOperation(Constants.SAVE_OPERATION);
+                        request.setPath(pathToSave);
+                        User pathOwner = new User();
+                        pathOwner.setUsername(pref.getString(Constants.USERNAME, "none"));
+                        request.setUser(pathOwner);
+                        //Calling the server and processing the response
+                        Call<ServerResponse> response2 = requestInterface2.operation(request);
+                        response2.enqueue(new Callback<ServerResponse>() {
+                            @Override
+                            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
+                                Log.d(Constants.TAG, response.toString());
+                                ServerResponse resp = response.body();
+                                Log.d(Constants.TAG, resp.toString());
+                                if (resp.getResult().equals(Constants.SUCCESS)) {
+                                    SaveActivity.saveResult = true;
+                                    mainLayout.removeView(findViewById(R.id.online_button));
+                                } else {
+                                    SaveActivity.saveResult = false;
+                                }
+                                Snackbar.make(findViewById(R.id.save_layout), resp.getMessage(),
+                                        Snackbar.LENGTH_LONG).show();
+                            }
+
+                            @Override
+                            public void onFailure(Call<ServerResponse> call, Throwable t) {
+                                //DEBUG
+                                Log.d(Constants.TAG, "failed");
+                                Log.d(Constants.TAG, t.getLocalizedMessage());
+                                Snackbar.make(findViewById(R.id.save_layout), t.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
+                                SaveActivity.saveResult = false;
+                            }
+                        });
+                    }
+
+
                 }
-            }
 
-            @Override
-            public void onFailure(Call<ServerResponse> call, Throwable t) {
-                //DEBUG
-                Log.d(Constants.TAG,"failed");
-                Log.d(Constants.TAG, t.getLocalizedMessage());
-                Snackbar.make(findViewById(R.id.save_layout), t.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
-                SaveActivity.saveResult = false;
-            }
-        });
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+                    SaveActivity.saveResult = false;
+                    //DEBUG
+                    Log.d(Constants.TAG, t.getLocalizedMessage());
+                    Snackbar.make(findViewById(R.id.save_layout), t.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
+
+
+                }
+            });
+        }
     }
 
     /**
      * It stores the path in the external storage if present, else
      * it uses the main directory
+     */
+    private void storePathOffline() {
+
+        if(currentGPXFile != null) {
+            SaveActivity.saveResult = true;
+            mainLayout.removeView(findViewById(R.id.offline_button));
+        } else
+            SaveActivity.saveResult = false;
+
+    }
+
+    /**
+     * Creates a file and returns its pointer, used both
+     * in offline and online saving
      * @param path
      */
-    private void storePathOffline(Path path) {
+    private void createFile(Path path) {
 
         //Preparing the gpx file
         String gpx = path.getGPXString();
@@ -280,20 +349,20 @@ public class SaveActivity extends AppCompatActivity {
             } else {
                 mainDirectory = getFileStorageDir(context.getFilesDir(), "GPXs");
             }
-            File currentGPXfile = new File(mainDirectory, filename);
+            currentGPXFile = new File(mainDirectory, filename);
             //Creating phisically the gpx file
-            currentGPXfile.createNewFile();
-            writer = new FileOutputStream(currentGPXfile);
+            currentGPXFile.createNewFile();
+            writer = new FileOutputStream(currentGPXFile);
             writer.write(gpx.getBytes());
             writer.close();
 
         } catch (IOException ex) {
 
             Snackbar.make(findViewById(R.id.save_layout), ex.getMessage(), Snackbar.LENGTH_LONG).show();
-            SaveActivity.saveResult = false;
-            return;
+            currentGPXFile = null;
         }
-        SaveActivity.saveResult = true;
     }
+
+
 
 }

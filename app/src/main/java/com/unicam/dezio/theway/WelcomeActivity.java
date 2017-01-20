@@ -98,6 +98,7 @@ public class WelcomeActivity extends BaseActivity {
     private void goToMain() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void goToMap(int choice) {
