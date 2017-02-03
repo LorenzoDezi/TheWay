@@ -7,37 +7,39 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * This activity shows a form in which the user prompt its data, and registers himself
+ */
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
+    //fields of views retrived from the layout
     private EditText editTextUser;
     private EditText editTextMail;
     private EditText editTextPwd;
     private EditText editTextRePwd;
     private Button buttonRegister;
     private Button buttonRegisterFB;
-    private ProgressBar progress;
     private SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        pref = getSharedPreferences(Constants.TAG, Context.MODE_PRIVATE);
-        if(pref.getBoolean(Constants.IS_LOGGED_IN, false)) {
-            //L'utente è loggato, non ha bisogno di registrarsi e va alla pagina di Welcome
+        //checking the fatal case in which the user is logged
+        pref = getSharedPreferences(Utility.TAG, Context.MODE_PRIVATE);
+        if(pref.getBoolean(Utility.IS_LOGGED_IN, false)) {
             goToWelcome();
         } else {
+
+            //setting the layout
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_register);
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -51,14 +53,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             buttonRegisterFB = (Button) findViewById(R.id.buttonRegisterFB);
             buttonRegister.setOnClickListener(this);
             buttonRegisterFB.setOnClickListener(this);
-            progress = (ProgressBar) findViewById(R.id.progressRegister);
+
         }
     }
 
     @Override
     protected void onResume() {
-        if (pref.getBoolean(Constants.IS_LOGGED_IN, false)) {
-            //L'utente è loggato, non ha bisogno di registrarsi e va alla pagina di Welcome
+        if (pref.getBoolean(Utility.IS_LOGGED_IN, false)) {
             goToWelcome();
         } else {
             super.onResume();
@@ -66,6 +67,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
 
+    /**
+     * Sends the user to the welcome activity as a logged user ({@link WelcomeActivity})
+     */
     private void goToWelcome() {
         Intent intent = new Intent(this, WelcomeActivity.class);
         startActivity(intent);
@@ -76,13 +80,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonRegister: {
+
                 String username = editTextUser.getText().toString();
                 String email = editTextMail.getText().toString();
                 String pwd = editTextPwd.getText().toString();
                 String repwd = editTextRePwd.getText().toString();
                 if(!username.isEmpty() && !email.isEmpty() && !pwd.isEmpty()) {
                     if(pwd.equals(repwd)) {
-                        progress.setVisibility(View.VISIBLE);
                         registerProcess(username, email, pwd);
                     } else {
                         Snackbar.make(findViewById(R.id.registerLayout),"Fields are empty", Snackbar.LENGTH_LONG).show();
@@ -92,15 +96,22 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     Snackbar.make(findViewById(R.id.registerLayout), "One of the fields is empty", Snackbar.LENGTH_LONG).show();
                 }
                 break;
+
             }
             case R.id.buttonRegisterFB:
                 break;
         }
     }
 
+    /**
+     * This method register a user, starting the communication with the server
+     * @param username
+     * @param mail
+     * @param pwd as the password
+     */
     private void registerProcess(String username, String mail, String pwd) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.BASE_URL)
+                .baseUrl(Utility.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         RequestInterface requestInterface = retrofit.create(RequestInterface.class);
@@ -109,31 +120,32 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         user.setEmail(mail);
         user.setPassword(pwd);
         ServerRequest request = new ServerRequest();
-        request.setOperation(Constants.REGISTER_OPERATION);
+        request.setOperation(Utility.REGISTER_OPERATION);
         request.setUser(user);
-        Log.d(Constants.TAG, request.toString());
         Call<ServerResponse> response = requestInterface.operation(request);
         response.enqueue(new Callback<ServerResponse>() {
+
             @Override
             public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
+
                 ServerResponse resp = response.body();
                 Snackbar.make(findViewById(R.id.registerLayout), resp.getMessage(), Snackbar.LENGTH_LONG).show();
-                if(resp.getResult().equals(Constants.SUCCESS)) {
+                if(resp.getResult().equals(Utility.SUCCESS)) {
                     SharedPreferences.Editor editor = pref.edit();
-                    editor.putBoolean(Constants.IS_LOGGED_IN, true);
-                    editor.putString(Constants.EMAIL, user.getEmail());
-                    editor.putString(Constants.USERNAME, user.getUsername());
+                    editor.putBoolean(Utility.IS_LOGGED_IN, true);
+                    editor.putString(Utility.EMAIL, user.getEmail());
+                    editor.putString(Utility.USERNAME, user.getUsername());
                     editor.apply();
                     goToWelcome();
                 }
-                progress.setVisibility(View.INVISIBLE);
+
             }
 
             @Override
             public void onFailure(Call<ServerResponse> call, Throwable t) {
-                progress.setVisibility(View.INVISIBLE);
-                Log.d(Constants.TAG,"failed");
+
                 Snackbar.make(findViewById(R.id.registerLayout), t.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
+
             }
         });
     }

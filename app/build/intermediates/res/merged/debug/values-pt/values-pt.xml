@@ -104,6 +104,7 @@
     <string name="com_facebook_loading">Carregando…</string>
     <string name="com_facebook_loginview_cancel_action">Cancelar</string>
     <string name="com_facebook_loginview_log_in_button">Entrar</string>
+    <string name="com_facebook_loginview_log_in_button_continue">Continuar com o Facebook</string>
     <string name="com_facebook_loginview_log_in_button_long">Entrar com o Facebook</string>
     <string name="com_facebook_loginview_log_out_action">Sair</string>
     <string name="com_facebook_loginview_log_out_button">Sair</string>
@@ -111,7 +112,7 @@
     <string name="com_facebook_loginview_logged_in_using_facebook">Você entrou usando o Facebook</string>
     <string name="com_facebook_send_button_text">Envio</string>
     <string name="com_facebook_share_button_text">Compartilhar</string>
-    <string name="com_facebook_tooltip_default">Novidade! Você está no controle - escolha quais informações quer compartilhar com os aplicativos.</string>
+    <string name="com_facebook_tooltip_default">Você é quem controla — escolha quais informações você quer compartilhar com os aplicativos.</string>
     <string name="joda_time_android_date_time">%2$s %1$s</string>
     <string msgid="9093949757757445117" name="joda_time_android_preposition_for_date">"em <ns1:g id="DATE">%s</ns1:g>"</string>
     <string msgid="5506831244263083793" name="joda_time_android_preposition_for_time">"às <ns1:g id="TIME">%s</ns1:g>"</string>

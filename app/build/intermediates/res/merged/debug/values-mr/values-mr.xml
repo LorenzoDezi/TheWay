@@ -47,6 +47,7 @@
     <string name="com_facebook_loading">लोड होत आहे…</string>
     <string name="com_facebook_loginview_cancel_action">रद्द करा</string>
     <string name="com_facebook_loginview_log_in_button">लॉग इन करा</string>
+    <string name="com_facebook_loginview_log_in_button_continue">Facebook सह चालू ठेवा</string>
     <string name="com_facebook_loginview_log_in_button_long">फेसबुकसह लॉग इन करा</string>
     <string name="com_facebook_loginview_log_out_action">लॉग आउट करा</string>
     <string name="com_facebook_loginview_log_out_button">लॉग आउट करा</string>
@@ -54,7 +55,7 @@
     <string name="com_facebook_loginview_logged_in_using_facebook">फेसबुक वापरून लॉग इन केले</string>
     <string name="com_facebook_send_button_text">पाठवा</string>
     <string name="com_facebook_share_button_text">सामायिक करा</string>
-    <string name="com_facebook_tooltip_default">नवीन! आपण नियंत्रणात आहात - आपण कोणती माहिती अनुप्रयोगांसह शेअर करू इच्छिता ते निवडा.</string>
+    <string name="com_facebook_tooltip_default">तुम्ही नियंत्रणात आहात - तुम्ही कोणती माहिती अॅपसह सामायिक करू इच्छिता ते निवडा.</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"सक्षम करा"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"आपण Google Play सेवा सक्षम केल्याशिवाय <ns1:g id="APP_NAME">%1$s</ns1:g> हा अॅप कार्य करणार नाही."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Google Play सेवा सक्षम करा"</string>

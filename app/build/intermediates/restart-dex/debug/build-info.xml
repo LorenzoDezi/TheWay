@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
+    abi="x86,armeabi-v7a,armeabi"
     api-level="21"
     density="xhdpi"
     format="8"
-    plugin-version="2.2.0"
-    timestamp="17090506756049"
+    plugin-version="2.2.3"
+    timestamp="19521192165243"
     token="4455078928021233926"
-    verifier="METHOD_ADDED" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="1296" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="128" />
+        duration="0" />
     <task
         name="verifier"
-        duration="76" />
+        duration="0" />
 
     <artifact
         location="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
         type="DEX" />
 
     <build
-        timestamp="14514036011626"
+        timestamp="13742077239383"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/dezio/AndroidStudioProjects/TheWay/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="17090506756049"
-        verifier="METHOD_ADDED" >
+        timestamp="19521192165243"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
             type="DEX" />

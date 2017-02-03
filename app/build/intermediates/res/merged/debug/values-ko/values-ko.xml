@@ -142,6 +142,7 @@
     <string name="com_facebook_loading">읽어들이는 중…</string>
     <string name="com_facebook_loginview_cancel_action">취소</string>
     <string name="com_facebook_loginview_log_in_button">로그인</string>
+    <string name="com_facebook_loginview_log_in_button_continue">Facebook으로 계속</string>
     <string name="com_facebook_loginview_log_in_button_long">Facebook으로 로그인</string>
     <string name="com_facebook_loginview_log_out_action">로그아웃</string>
     <string name="com_facebook_loginview_log_out_button">로그아웃</string>
@@ -149,7 +150,7 @@
     <string name="com_facebook_loginview_logged_in_using_facebook">Facebook 계정으로 로그인함</string>
     <string name="com_facebook_send_button_text">보내기</string>
     <string name="com_facebook_share_button_text">공유하기</string>
-    <string name="com_facebook_tooltip_default">새로운 기능! 이제 앱과 어떤 정보를 공유할지 자유롭게 선택할 수 있습니다.</string>
+    <string name="com_facebook_tooltip_default">원하는 정보를 선택하여 앱에 공유할 수 있습니다.</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"사용 설정"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"Google Play 서비스를 사용하도록 설정해야 <ns1:g id="APP_NAME">%1$s</ns1:g>이(가) 작동합니다."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Google Play 서비스 사용"</string>

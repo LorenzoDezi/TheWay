@@ -47,7 +47,12 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".SaveActivity" />
-        <activity android:name=".BaseActivity"></activity>
+        <activity
+            android:name=".WayDialogActivity"
+            android:label="@string/title_activity_path_info"
+            android:theme="@style/Theme.AppCompat.Dialog">
+
+        </activity>
     </application>
 
 </manifest>

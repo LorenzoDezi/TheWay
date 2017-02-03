@@ -122,6 +122,7 @@
     <string name="com_facebook_loading">Memuatkan…</string>
     <string name="com_facebook_loginview_cancel_action">Batal</string>
     <string name="com_facebook_loginview_log_in_button">Log masuk</string>
+    <string name="com_facebook_loginview_log_in_button_continue">Teruskan dengan Facebook</string>
     <string name="com_facebook_loginview_log_in_button_long">Log masuk dengan Facebook</string>
     <string name="com_facebook_loginview_log_out_action">Log keluar</string>
     <string name="com_facebook_loginview_log_out_button">Log keluar</string>
@@ -129,7 +130,7 @@
     <string name="com_facebook_loginview_logged_in_using_facebook">Dilog masuk menggunakan Facebook</string>
     <string name="com_facebook_send_button_text">Hantar</string>
     <string name="com_facebook_share_button_text">Kongsi</string>
-    <string name="com_facebook_tooltip_default">Baru! Anda yang mengawal - pilih maklumat yang anda ingin kongsi dengan aplikasi.</string>
+    <string name="com_facebook_tooltip_default">Anda yang mengawal - pilih maklumat yang anda ingin kongsi dengan apl.</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Dayakan"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> tidak akan berfungsi melainkan anda mendayakan perkhidmatan Google Play."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Dayakan perkhidmatan Google Play"</string>

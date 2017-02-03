@@ -32,8 +32,8 @@
                 android:layout_marginTop="25dp"
                 android:inputType="text"
                     android:text=""
-                    android:textColor="@color/editTextColor"
-                    android:background="@color/colorText"
+                    android:textColor="@color/editText"
+                    android:background="@color/Text"
                     android:ems="10"
                     android:id="@+id/editTextUser" />
             <TextView
@@ -54,8 +54,8 @@
                 android:layout_marginTop="25dp"
 
                 android:text=""
-                    android:textColor="@color/editTextColor"
-                    android:background="@color/colorText"
+                    android:textColor="@color/editText"
+                    android:background="@color/Text"
                     android:ems="10"
                     android:id="@+id/editTextPwd" />
 

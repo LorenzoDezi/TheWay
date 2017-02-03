@@ -29,8 +29,8 @@
                     android:layout_gravity="center_horizontal"
                 android:inputType="text"
                     android:text=""
-                    android:textColor="@color/editTextColor"
-                    android:background="@color/colorText"
+                    android:textColor="@color/editText"
+                    android:background="@color/Text"
                     android:ems="10"
                     android:id="@+id/editTextUser" />
             <TextView
@@ -49,8 +49,8 @@
                     android:inputType="textPassword"
 
                 android:text=""
-                    android:textColor="@color/editTextColor"
-                    android:background="@color/colorText"
+                    android:textColor="@color/editText"
+                    android:background="@color/Text"
                     android:ems="10"
                     android:id="@+id/editTextPwd" />
 

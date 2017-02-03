@@ -21,6 +21,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c6047a34af07d6ec4e950ba1dc70ce23ac65ecaa">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.android-facebook-android-sdk-4.19.0_cfe0f3cf7889c6b5fb641447663671867cf972af/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/jars/libs/internal_impl-24.0.0.jar"
         jumboMode="true"
         optimize="true"
@@ -151,7 +160,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="acdc806842c311b65fb7935457d87625f8e5db02">
+        sha1="c08e45ef68b81f37a51d1fcff83cef1b236e8bab">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_7b0f8e71cf129eac067fba6aae8ca7bbefa53a2d/classes.dex" />
     </item>
     <item
@@ -430,7 +439,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="c8ccc85c4adf5f47d581128e6b034a719f5c2c7c">
+        sha1="9f6330c8386bd8a8d7d0e0b4e1478f3770353e2d">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ac292589e6384ff18c201c16cf93d2cd690013a7/classes.dex" />
     </item>
     <item
@@ -441,6 +450,15 @@
         revision="25.0.0"
         sha1="5d506d4238dd8a1d1c8a1188ffb819a2f2eb286d">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/joda-time-2.9.3-no-tzdb_2427451caeb3618344b3117e629290a103ac7bfc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.maps.android/android-maps-utils/0.4.4/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6f57b76211a1d7b0c1f18873af59faad95664681">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.maps.android-android-maps-utils-0.4.4_c6f443f4ed7a2f52ebb13df807e0fe7ed1d85cef/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -702,15 +720,6 @@
         revision="25.0.0"
         sha1="ee5faf4dee5b6a4364bf51587871047dde7c703a">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_9cec575873f26e8b528b5a600549c4002894f81e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="43a08f2cc1bc8e9678b5a1740f3b91b50ab50ac6">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.android-facebook-android-sdk-4.18.0_225bf153bfb7ec361aef786bbd995334dab6eaab/classes.dex" />
     </item>
     <item
         is-multidex="true"

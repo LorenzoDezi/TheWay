@@ -1,6 +1,7 @@
 package com.unicam.dezio.theway;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,24 +17,81 @@ import org.xml.sax.SAXException;
 import java.util.Date;
 import android.location.Location;
 import android.location.LocationManager;
-
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 
 /**
  That class store the information about a particular path.
  **/
-public class Path {
+public class Path implements Parcelable {
 
+    /** ArrayList of coordinates representing the path **/
     private ArrayList<Location> coordinates;
+
+    /** the difficulty. 0 is for easy, 1 is for medium, 2 is for hard **/
     private int difficulty;
+
+    /** the valutation is a five star rating going from 0 to 5 **/
     private int valutation;
+
+    /** the vehicle used to make this path **/
     private Vehicle usedVehicle;
+
+    /** a description made by the user who creates the path **/
     private String description;
+
+    /** possible vehicles you can travel this path with **/
     private Vehicle[] possibleVehicles;
+
+    /** the gpxName of the path, used to retrieve the corresponding
+     * gpx file in the database/sd card **/
     private String gpxName;
+
+    /** the time employed to complete the path **/
     private Time time;
+
+    /** path length in meters **/
     private float length;
+
+    /** the first coordinate of the path, also the starting point **/
     private Location start;
+
+    /** the creator used to parcel this object **/
+    public static final Parcelable.Creator<Path> CREATOR
+            = new Parcelable.Creator<Path>() {
+
+
+        @Override
+        public Path createFromParcel(Parcel source) {
+            return new Path(source);
+        }
+
+        @Override
+        public Path[] newArray(int size) {
+            return new Path[0];
+        }
+    };
+
+    /**
+     * private constructor used to reconstruct a parceled path
+     * **/
+    private Path(Parcel source) {
+
+        Bundle bundle = source.readBundle();
+        difficulty = bundle.getInt("difficulty");
+        valutation = bundle.getInt("valutation");
+        gpxName = bundle.getString("gpxName");
+        time = (Time) bundle.getSerializable("time");
+        length = bundle.getFloat("length");
+        start = bundle.getParcelable("start");
+        usedVehicle = (Vehicle) bundle.getSerializable("usedVehicle");
+        possibleVehicles = (Vehicle[]) bundle.getSerializable("possibleVehicles");
+        coordinates = bundle.getParcelableArrayList("coordinates");
+        description = bundle.getString("description");
+
+    }
 
     /**
      * The default constructor for the class Path
@@ -43,40 +101,8 @@ public class Path {
     }
 
     /**
-     * The constructor with a gpx file, building coordinates and the filename
-     * @param gpx
-     *
-     */
-
-    public Path(File gpx) throws ParserConfigurationException, IOException,
-            SAXException, IllegalArgumentException {
-
-        if (gpx == null)
-            throw new IllegalArgumentException("specify the file gpx.");
-            coordinates = new ArrayList<>();
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(gpx);
-            doc.getDocumentElement().normalize();
-            NodeList nList = doc.getElementsByTagName("rtept");
-            if (nList.getLength() < 2)
-                throw new IllegalArgumentException("We need at least two coordinates");
-            for (int i = 0; i < nList.getLength(); i++) {
-                Element e = (Element) nList.item(i);
-                double lat = Double.parseDouble(e.getAttribute("lat"));
-                double lon = Double.parseDouble(e.getAttribute("lon"));
-                Location coordinate = new Location(LocationManager.GPS_PROVIDER);
-                coordinate.setLatitude(lat);
-                coordinate.setLongitude(lon);
-                coordinates.add(coordinate);
-            }
-        this.gpxName = gpx.getName();
-
-    }
-
-    /**
      * It returns the gpx filename
-     * @return
+     * @return the gpx filename as a string
      */
     public String getGpxName() {
         return gpxName;
@@ -84,7 +110,7 @@ public class Path {
 
     /**
      * It sets the name of the gpx file associated with the path in the server
-     * @param gpxName
+     * @param gpxName as the name of the gpx file
      */
     public void setGpxName(String gpxName)  {
         this.gpxName = gpxName;
@@ -100,6 +126,11 @@ public class Path {
         return difficulty;
     }
 
+    /**
+     * sets the difficulty of the path
+     * @param difficulty as the integer difficulty of the path
+     * @throws IllegalArgumentException
+     */
     public void setDifficulty(int difficulty) throws IllegalArgumentException {
         //The difficulty must be between 1 and 5
         if (difficulty >= 0 && difficulty <= 2)
@@ -108,6 +139,20 @@ public class Path {
             throw  new IllegalArgumentException("The difficulty must be between 0 and 2.");
     }
 
+    /**
+     * return the length of the path
+     * @return the length as a float, in meters
+     */
+    public float getLenght() {
+
+        return length;
+
+    }
+
+    /**
+     * sets the length of the path, it has a little margin error of some
+     * meters
+     */
     public void setLength() {
 
         if(coordinates == null)
@@ -123,39 +168,40 @@ public class Path {
 
     }
 
-    public float getLenght() {
-
-        return length;
-
-    }
-
     /**
      return the valutation of the path.
-
-     @return valutation
+     @return valutation as an integer between 0 and 5
      **/
-
     public int getValutation(){
         return valutation;
     }
 
+    /**
+     * sets the valutation of the path
+     * @param valutation
+     * @throws IllegalArgumentException
+     */
     public void setValutation(int valutation) throws IllegalArgumentException {
         //The valutation must be between 1 and 5
-        if (valutation >= 1 && valutation <= 5)
+        if (valutation >= 0 && valutation <= 5)
             this.valutation = valutation;
         else
-            throw  new IllegalArgumentException("The valutation must be between 1 and 5.");
+            throw  new IllegalArgumentException("The valutation must be between 0 and 5.");
     }
 
     /**
      Return the used possibleVehicles.
-
      @return usedVehicle
      **/
     public Vehicle getUsedVehicle(){
         return usedVehicle;
     }
 
+    /**
+     * Sets the vehicle used to cross the path
+     * @param usedVehicle as the used vehicle
+     * @throws IllegalArgumentException
+     */
     public void setUsedVehicle(Vehicle usedVehicle) throws IllegalArgumentException {
         //the used possibleVehicles must be specified
         if (usedVehicle != null)
@@ -173,6 +219,11 @@ public class Path {
         return Arrays.copyOf(possibleVehicles, possibleVehicles.length);
     }
 
+    /**
+     * sets the vehicles that can be used to travel this path
+     * @param usableVehicle as an array of vehicles
+     * @throws IllegalArgumentException
+     */
     public void setUsableVehicle(Vehicle[] usableVehicle) throws IllegalArgumentException {
         //The list of the usable possibleVehicles must be specified
         //In the list of the usable possibleVehicles, there must be the possibleVehicles used
@@ -191,7 +242,6 @@ public class Path {
 
     /**
      Return the description of the path.
-
      @return description
      **/
     public String getDescription(){
@@ -212,7 +262,6 @@ public class Path {
 
     /**
     Return the time taken to travel the Path
-
      @return time
      **/
     public Time getTime(){
@@ -221,8 +270,8 @@ public class Path {
 
     /**
      * It sets the time employed to complete the path
-     * @param start
-     * @param end
+     * @param start, as the time of beginning
+     * @param end, as the time of end
      */
     public void setTime(Date start, Date end) throws IllegalArgumentException {
 
@@ -243,7 +292,7 @@ public class Path {
 
     /**
      * It sets the time employed to complete the path
-     * @param time
+     * @param time, as the time employed
      * @throws IllegalArgumentException
      */
     public void setTime(long time) throws IllegalArgumentException {
@@ -251,9 +300,9 @@ public class Path {
     }
 
     /**
-     Return the frist coordinate of the path,
+     Return the first coordinate of the path,
      the start point
-     @return the frist coordinate
+     @return the first coordinate
      **/
     public Location getStart(){
         return start;
@@ -280,14 +329,20 @@ public class Path {
     }
 
     /**
-     Return the list og coordinates of the path.
+     Returns path's coordinates
 
-     @return <b>ArrayList</b> of <b>Coordinata</b>
+     @return coordinates of path as an ArrayList of Location objects
      **/
     public ArrayList<Location> getCoordinates(){
         return new ArrayList<Location>(this.coordinates);
     }
 
+
+    /**
+     * set path coordinates using an ArrayList of coordinates
+     * @param coordinates, as an ArrayList of Location objects
+     * @throws IllegalArgumentException
+     */
     public void setCoordinates(ArrayList<Location> coordinates) throws IllegalArgumentException {
 
         //There must be at least 2 coordinatess
@@ -298,6 +353,39 @@ public class Path {
 
     }
 
+    /**
+     * This method takes as input a gpx file and uses it to set the path's coordinates
+     * @param gpx
+     *
+     */
+    public void setCoordinates(File gpx) throws ParserConfigurationException, IOException,
+            SAXException, IllegalArgumentException {
+
+        if (gpx == null)
+            throw new IllegalArgumentException("specify the file gpx.");
+        coordinates = new ArrayList<>();
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Document doc = dBuilder.parse(gpx);
+        doc.getDocumentElement().normalize();
+        NodeList nList = doc.getElementsByTagName("rtept");
+        if (nList.getLength() < 2)
+            throw new IllegalArgumentException("We need at least two coordinates");
+        for (int i = 0; i < nList.getLength(); i++) {
+            Element e = (Element) nList.item(i);
+            double lat = Double.parseDouble(e.getAttribute("lat"));
+            double lon = Double.parseDouble(e.getAttribute("lon"));
+            Location coordinate = new Location(LocationManager.GPS_PROVIDER);
+            coordinate.setLatitude(lat);
+            coordinate.setLongitude(lon);
+            coordinates.add(coordinate);
+        }
+    }
+
+    /**
+     * Add a single coordinate to the path's list
+     * @param coordinate, as a Location object
+     */
     public void addCoordinate(Location coordinate) {
         coordinates.add(coordinate);
     }
@@ -309,7 +397,7 @@ public class Path {
      @return GPX
      **/
     public String getGPXString() {
-        String container = "<?xml version='1.0'><gpx version='1.1' creator='TheWay'><rte>%s</rte></gpx>";
+        String container = "<?xml  version='1.0'?><gpx xmlns='http://www.topografix.com/GPX/1/1' version='1.1' creator='TheWay'><rte>%s</rte></gpx>";
         String body = "";
         String append = "<rtept lat='%s' lon='%s' />";
         for(Location coor : coordinates){
@@ -319,17 +407,35 @@ public class Path {
     }
 
     /**
-    Return the path length in meters (with a margin of error of
-    Some meters).
-
+    Return the path length in meters
      @return length
      **/
     public double getLength(){
-        double length = 0;
-        for (int i = 0; i < coordinates.size()-1; i++){
-            length += coordinates.get(i).distanceTo(coordinates.get(i+1));
-        }
+
         return length;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("difficulty", difficulty);
+        bundle.putInt("valutation", valutation);
+        bundle.putFloat("length", length);
+        bundle.putSerializable("usedVehicle", usedVehicle);
+        bundle.putSerializable("possibleVehicles",possibleVehicles);
+        bundle.putSerializable("description", description);
+        bundle.putSerializable("time", time);
+        bundle.putParcelable("start", start);
+        bundle.putSerializable("gpxName", gpxName);
+        bundle.putParcelableArrayList("coordinates", coordinates);
+        dest.writeBundle(bundle);
+
     }
 
 }

@@ -47,6 +47,7 @@
     <string name="com_facebook_loading">ಲೋಡ್‌ ಆಗುತ್ತಿದೆ…</string>
     <string name="com_facebook_loginview_cancel_action">ರದ್ದುಮಾಡು</string>
     <string name="com_facebook_loginview_log_in_button">ಲಾಗ್‌ ಇನ್‌</string>
+    <string name="com_facebook_loginview_log_in_button_continue">Facebook ಅನ್ನು ಮುಂದುವರಿಸಿ</string>
     <string name="com_facebook_loginview_log_in_button_long">Facebook ಮೂಲಕ ಲಾಗ್‌ ಇನ್‌ ಮಾಡಿ</string>
     <string name="com_facebook_loginview_log_out_action">ಲಾಗ್‌ ಔಟ್‌</string>
     <string name="com_facebook_loginview_log_out_button">ಲಾಗ್‌ ಔಟ್‌</string>
@@ -54,7 +55,7 @@
     <string name="com_facebook_loginview_logged_in_using_facebook">Facebook ಬಳಸಿಕೊಂಡು ಲಾಗಿನ್‌ ಮಾಡಲಾಗಿದೆ</string>
     <string name="com_facebook_send_button_text">ಕಳುಹಿಸಿ</string>
     <string name="com_facebook_share_button_text">ಹಂಚಿಕೊಳ್ಳಿ</string>
-    <string name="com_facebook_tooltip_default">ಹೊಸ! ನೀವು ನಿಯಂತ್ರಣದಲ್ಲಿರುವಿರಿ - ನೀವು ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಬಳಸಿಕೊಂಡು ಹಂಚಿಕೊಳ್ಳಲು ಬಯಸುವ ವಿಷಯವನ್ನು ಆರಿಸಿ.</string>
+    <string name="com_facebook_tooltip_default">ನೀವು ನಿಯಂತ್ರಣದಲ್ಲಿರುವಿರಿ - ನೀವು ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಬಳಸಿಕೊಂಡು ಹಂಚಿಕೊಳ್ಳಲು ಬಯಸುವ ವಿಷಯವನ್ನು ಆರಿಸಿ.</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"ಸಕ್ರಿಯಗೊಳಿಸು"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"Google Play ಸೇವೆಗಳನ್ನು ನೀವು ಸಕ್ರಿಯಗೊಳಿಸದ ಹೊರತು <ns1:g id="APP_NAME">%1$s</ns1:g> ಕಾರ್ಯನಿರ್ವಹಿಸುವುದಿಲ್ಲ."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Google Play ಸೇವೆಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"</string>

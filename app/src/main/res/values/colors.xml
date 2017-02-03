@@ -3,8 +3,11 @@
     <color name="colorPrimary">@android:color/holo_green_dark</color>
     <color name="colorPrimaryDark">@android:color/holo_green_dark</color>
     <color name="colorAccent">@android:color/holo_green_light</color>
-    <color name="colorText">@android:color/white</color>
-    <color name="shadowColor">@android:color/black</color>
-    <color name="buttonColor">@android:color/holo_green_dark</color>
-    <color name="editTextColor">@android:color/black</color>
+    <color name="Text">@android:color/white</color>
+    <color name="shadow">@android:color/black</color>
+    <color name="button">@android:color/holo_green_dark</color>
+    <color name="editText">@android:color/black</color>
+    <color name="easyPath">@android:color/holo_green_dark</color>
+    <color name="mediumPath">#FFFF00</color>
+    <color name="hardPath">@android:color/holo_red_light</color>
 </resources>

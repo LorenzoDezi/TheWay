@@ -25,32 +25,41 @@ import java.util.Date;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * The BaseActivity class is a super class extended by MapActivity and SaveActivity, comprending
+ * some shared functions, like checking GPS or connectivity
+ */
 public abstract class BaseActivity extends AppCompatActivity  implements
         Observer, View.OnClickListener {
 
-    //The receiver used to intercept connectivity/gps change
+    /** The receiver used to intercept connectivity/gps change **/
     protected BroadcastReceiver receiver;
+
+    /** connectivityManager used to check connection **/
     protected ConnectivityManager connectivityManager;
+
+    /** locationManager used to check GPS **/
     protected LocationManager locationManager;
+
+    /** connectivity ImageView, used to change the icon of connectivity **/
     protected ImageView connectivity;
+
+    /** gps ImageView, used to change the icon of gps **/
     protected ImageView gps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        if(this instanceof MapActivity) {
-
-        }
-
+        //Initializing various fields
         connectivity = (ImageView) findViewById(R.id.connect_PNG);
         connectivity.setOnClickListener(this);
         gps = (ImageView) findViewById(R.id.GPS_PNG);
         gps.setOnClickListener(this);
-
-        //Preparing the receiver and setting the observable object
         connectivityManager = (ConnectivityManager)this.getApplicationContext().
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
+
+        //Preparing the receiver and setting the observable object
         ObservableObject.getInstance().addObserver(this);
         IntentFilter filter = new IntentFilter();
         filter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
@@ -80,13 +89,10 @@ public abstract class BaseActivity extends AppCompatActivity  implements
 
     @Override
     public void onClick(View view) {
-        //DEBUG
-        Log.d(Constants.TAG, "onClick called");
+
         switch (view.getId()) {
 
             case R.id.connect_PNG: {
-                //DEBUG
-                Log.d(Constants.TAG, "connect_PNG is there");
                 NetworkInfo ni = connectivityManager.getActiveNetworkInfo();
                 if(ni != null && ni.isConnectedOrConnecting()) {
                     Toast.makeText(this.getApplicationContext(), "Connection ok!",
@@ -99,7 +105,6 @@ public abstract class BaseActivity extends AppCompatActivity  implements
             }
 
             case R.id.GPS_PNG: {
-                //C'è il gps
                 if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
                     Toast.makeText(this.getApplicationContext(), "GPS Ok!",
                             Toast.LENGTH_SHORT).show();
@@ -111,13 +116,35 @@ public abstract class BaseActivity extends AppCompatActivity  implements
         }
     }
 
+    /**
+     * check if the connection is enabled
+     * @return a boolean value representing the connection
+     */
+    protected boolean isConnected() {
+        NetworkInfo ni = connectivityManager.getActiveNetworkInfo();
+        return ni != null && ni.isConnectedOrConnecting();
+    }
+
+    /**
+     *  check if the gps is enabled
+     *  @return a boolean value representing the gps
+     * **/
+    protected boolean isGPSEnabled() {
+
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+    }
+
     @Override
+    /**
+     * this method updates the activity every time the networkChangeReceiver updates the observable
+     * object, changing its state and causing this method to be called. Image resources
+     * corresponding to connectivity and gps are changed
+     */
     public void update(Observable observable, Object o) {
 
-        final ConnectivityManager connectivityManager = (ConnectivityManager)this.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        final NetworkInfo ni = connectivityManager.getActiveNetworkInfo();
         //C'è connessione
-        if (ni != null && ni.isConnectedOrConnecting()) {
+        if (this.isConnected()) {
             connectivity.setImageResource(R.drawable.ic_connectivity_true);
         }
         //Non c'è connessione
@@ -125,11 +152,15 @@ public abstract class BaseActivity extends AppCompatActivity  implements
             connectivity.setImageResource(R.drawable.ic_connectivity_false);
         }
 
-        LocationManager locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
-        if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
+        if(isGPSEnabled())
             gps.setImageResource(R.drawable.ic_gps_true);
-        else
+        else {
             gps.setImageResource(R.drawable.ic_gps_false);
+            if(this instanceof MapActivity) {
+                Toast.makeText(this.getApplicationContext(), "Your GPS is missing!", Toast.LENGTH_SHORT).show();
+            }
+
+        }
     }
 
 

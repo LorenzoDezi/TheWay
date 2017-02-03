@@ -3,12 +3,10 @@ package com.unicam.dezio.theway;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Environment;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -16,13 +14,13 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 
 import okhttp3.MediaType;
@@ -38,17 +36,25 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static com.unicam.dezio.theway.Vehicle.Bike;
 import static com.unicam.dezio.theway.Vehicle.Feet;
 
+/**
+ * This activity is used to set path infos and to save it online, offline or
+ * both.
+ */
 public class SaveActivity extends AppCompatActivity {
 
+    /** the path to be saved **/
     private Path pathToSave;
 
+    /** the gpx file used to save the path **/
     private File currentGPXFile;
 
+    /** the activity context **/
     private Context context;
 
+    /** a flag used to store the result of the save **/
     private static boolean saveResult;
 
-
+    //Some fields used to get views from the layout
     private Spinner difficultySpinner;
     private Spinner vehicleSpinner;
     private CheckBox bikePossible;
@@ -57,14 +63,18 @@ public class SaveActivity extends AppCompatActivity {
     private RatingBar ratingBar;
     private RelativeLayout mainLayout;
     private SharedPreferences pref;
+    private TextView timeTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
 
-        pref = getSharedPreferences(Constants.TAG, Context.MODE_PRIVATE);
-        if (pref.getBoolean(Constants.IS_LOGGED_IN, false)) {
+        //if the user is logged, than the path can be saved
+        pref = getSharedPreferences(Utility.TAG, Context.MODE_PRIVATE);
+        if (pref.getBoolean(Utility.IS_LOGGED_IN, false)) {
+
+            //setting the layout
             setContentView(R.layout.activity_save);
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
@@ -84,66 +94,38 @@ public class SaveActivity extends AppCompatActivity {
             description = (EditText) findViewById(R.id.description_area);
             ratingBar = (RatingBar) findViewById(R.id.valutation_rating);
             mainLayout = (RelativeLayout) findViewById(R.id.save_layout);
+            timeTextView = (TextView) findViewById(R.id.personal_time);
 
-            //DEBUG
+            //Retrieving the path to be saved from the intent
             Intent intent = getIntent();
-            String pathJson = intent.getExtras().getString("path", "noExtra");
-            if (pathJson != "noExtra")
-                pathToSave = new Gson().fromJson(pathJson, Path.class);
-            context = this.getApplicationContext();
-        } else {
-            goToLogin();
-        }
-
-    }
-
-    private void goToLogin() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    /**
-     * It checks if the external storage is available for writing
-     * @return
-     */
-    private boolean isExternalStorageWritable() {
-        String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * It returns the directory in which the path will be stored. It creates the directory
-     * if it is not already there
-     * @param dir, as the upper directory of the new directory
-     * @param dirName, as the name of the new directory
-     * @return the new directory itself as a File object
-     * @throws IOException
-     */
-    private File getFileStorageDir(File dir, String dirName) throws IOException {
-        File file = new File(dir, dirName);
-        if (file.exists()) {
-            return file;
-        } else {
-            if(!file.mkdirs()) {
-                throw new IOException("Directory can't be created!");
+            pathToSave = intent.getExtras().getParcelable("path");
+            if(pathToSave == null) {
+                //FATAL ERROR
+                Utility.goToActivity(this, MainActivity.class, true);
             }
+            timeTextView.setText(pathToSave.getTime().toString());
+            context = this.getApplicationContext();
+
+        } else {
+
+            //the user is not logged
+            Utility.goToActivity(this, MainActivity.class, true);
         }
-        return file;
+
     }
+
+
+
+
 
     /**
      * The method called when the button "GET BACK!" is clicked. It returns to
-     * the main page of the application (the WelcomeActivity).
+     * {@link MainActivity}
      * @param button
      */
     public void getBack(View button) {
 
-        Intent intent = new Intent(context, WelcomeActivity.class);
-        startActivity(intent);
-        finish();
+        Utility.goToActivity(this, WelcomeActivity.class, true);
 
     }
 
@@ -164,9 +146,9 @@ public class SaveActivity extends AppCompatActivity {
         String descriptionString = description.getText().toString();
 
         Vehicle vehicleUsed;
-        if(vehicleString == getString(R.string.bike_string))
+        if(vehicleString.equals(getString(R.string.bike_string)))
             vehicleUsed = Bike;
-        else if(vehicleString == getString(R.string.feet_string))
+        else if(vehicleString.equals(getString(R.string.feet_string)))
             vehicleUsed = Feet;
         else
             vehicleUsed = null;
@@ -181,12 +163,15 @@ public class SaveActivity extends AppCompatActivity {
             vehicles = new Vehicle[]{};
 
         try {
+
             pathToSave.setStart();
             pathToSave.setDescription(descriptionString);
             pathToSave.setDifficulty(difficulty);
+            pathToSave.setLength();
             pathToSave.setValutation(rating);
             pathToSave.setUsedVehicle(vehicleUsed);
             pathToSave.setUsableVehicle(vehicles);
+
         } catch (IllegalArgumentException ex) {
             Snackbar.make(findViewById(R.id.save_layout), ex.getMessage(), Snackbar.LENGTH_LONG).show();
             return;
@@ -196,7 +181,6 @@ public class SaveActivity extends AppCompatActivity {
             storePathOnline();
         else if (button.getId() == R.id.offline_button)
             storePathOffline();
-        return;
     }
 
     /**
@@ -207,8 +191,7 @@ public class SaveActivity extends AppCompatActivity {
         if(currentGPXFile != null) {
 
             pathToSave.setGpxName(currentGPXFile.getName());
-
-            Retrofit retrofit = new Retrofit.Builder().baseUrl(Constants.BASE_URL)
+            Retrofit retrofit = new Retrofit.Builder().baseUrl(Utility.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             RequestInterface requestInterface = retrofit.create(RequestInterface.class);
@@ -235,7 +218,6 @@ public class SaveActivity extends AppCompatActivity {
                 public void onResponse(Call<ResponseBody> call,
                                        Response<ResponseBody> response) {
 
-
                     //DEBUG
                     try {
                         String Result = response.body().string();
@@ -253,30 +235,30 @@ public class SaveActivity extends AppCompatActivity {
                     }
 
                     if (saveResult) {
+
                         //Preparing the server comunication
                         Gson gson = new GsonBuilder()
                                 .setLenient()
                                 .create();
-                        Retrofit retrofit2 = new Retrofit.Builder().baseUrl(Constants.BASE_URL)
+                        Retrofit retrofit2 = new Retrofit.Builder().baseUrl(Utility.BASE_URL)
                                 .addConverterFactory(GsonConverterFactory.create(gson))
                                 .build();
                         RequestInterface requestInterface2 = retrofit2.create(RequestInterface.class);
                         //Preparing the request
                         ServerRequest request = new ServerRequest();
-                        request.setOperation(Constants.SAVE_OPERATION);
+                        request.setOperation(Utility.SAVE_OPERATION);
                         request.setPath(pathToSave);
                         User pathOwner = new User();
-                        pathOwner.setUsername(pref.getString(Constants.USERNAME, "none"));
+                        pathOwner.setUsername(pref.getString(Utility.USERNAME, "none"));
                         request.setUser(pathOwner);
                         //Calling the server and processing the response
                         Call<ServerResponse> response2 = requestInterface2.operation(request);
                         response2.enqueue(new Callback<ServerResponse>() {
                             @Override
                             public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
-                                Log.d(Constants.TAG, response.toString());
+
                                 ServerResponse resp = response.body();
-                                Log.d(Constants.TAG, resp.toString());
-                                if (resp.getResult().equals(Constants.SUCCESS)) {
+                                if (resp.getResult().equals(Utility.SUCCESS)) {
                                     SaveActivity.saveResult = true;
                                     mainLayout.removeView(findViewById(R.id.online_button));
                                 } else {
@@ -288,9 +270,6 @@ public class SaveActivity extends AppCompatActivity {
 
                             @Override
                             public void onFailure(Call<ServerResponse> call, Throwable t) {
-                                //DEBUG
-                                Log.d(Constants.TAG, "failed");
-                                Log.d(Constants.TAG, t.getLocalizedMessage());
                                 Snackbar.make(findViewById(R.id.save_layout), t.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
                                 SaveActivity.saveResult = false;
                             }
@@ -304,8 +283,6 @@ public class SaveActivity extends AppCompatActivity {
                 public void onFailure(Call<ResponseBody> call, Throwable t) {
 
                     SaveActivity.saveResult = false;
-                    //DEBUG
-                    Log.d(Constants.TAG, t.getLocalizedMessage());
                     Snackbar.make(findViewById(R.id.save_layout), t.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
 
 
@@ -344,10 +321,10 @@ public class SaveActivity extends AppCompatActivity {
 
             File mainDirectory;
             //Priority is saving to the external storage
-            if(isExternalStorageWritable()) {
-                mainDirectory = getFileStorageDir(context.getExternalFilesDir(null), "GPXs");
+            if(Utility.isExternalStorageWritable()) {
+                mainDirectory = Utility.getFileStorageDir(context.getExternalFilesDir(null), "GPXs");
             } else {
-                mainDirectory = getFileStorageDir(context.getFilesDir(), "GPXs");
+                mainDirectory = Utility.getFileStorageDir(context.getFilesDir(), "GPXs");
             }
             currentGPXFile = new File(mainDirectory, filename);
             //Creating phisically the gpx file

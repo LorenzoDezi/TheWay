@@ -142,6 +142,7 @@
     <string name="com_facebook_loading">Cargando…</string>
     <string name="com_facebook_loginview_cancel_action">Cancelar</string>
     <string name="com_facebook_loginview_log_in_button">Inicio de sesión</string>
+    <string name="com_facebook_loginview_log_in_button_continue">Continuar con Facebook</string>
     <string name="com_facebook_loginview_log_in_button_long">Iniciar sesión con Facebook</string>
     <string name="com_facebook_loginview_log_out_action">Salir</string>
     <string name="com_facebook_loginview_log_out_button">Salir</string>
@@ -149,7 +150,7 @@
     <string name="com_facebook_loginview_logged_in_using_facebook">Sesión iniciada con Facebook</string>
     <string name="com_facebook_send_button_text">Enviar</string>
     <string name="com_facebook_share_button_text">Compartir</string>
-    <string name="com_facebook_tooltip_default">¡Nuevo! Tú tienes el control: elige qué información quieres compartir con las aplicaciones.</string>
+    <string name="com_facebook_tooltip_default">Tú decides: elige qué información quieres compartir con las aplicaciones.</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Habilitar"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> no funcionará hasta que no habilites Servicios de Google Play."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Habilita Servicios de Google Play"</string>

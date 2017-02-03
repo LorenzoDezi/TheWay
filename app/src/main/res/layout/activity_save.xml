@@ -149,7 +149,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="INSERT TIME HERE"
                 style="@style/textTextViewTheme"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
@@ -178,8 +177,8 @@
                 android:layout_gravity="left"
                 android:layout_marginTop="30dp"
                 android:layout_below="@id/personal_time"
-                android:layout_alignRight="@id/personal_time"
-                android:layout_alignEnd="@id/personal_time"
+                android:layout_alignRight="@id/feet_check"
+                android:layout_alignEnd="@id/feet_check"
                 android:text="Save online!"
                 android:onClick="save"
                 style="@style/textButtonTheme"

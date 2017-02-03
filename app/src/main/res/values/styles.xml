@@ -10,8 +10,8 @@
 
     <style name="textTextViewTheme">
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">@color/colorText</item>
-        <item name="android:shadowColor">@color/shadowColor</item>
+        <item name="android:textColor">@color/Text</item>
+        <item name="android:shadowColor">@color/shadow</item>
         <item name="android:shadowRadius">2.0</item>
         <item name="android:shadowDx">2.0</item>
         <item name="android:shadowDy">2.0</item>
@@ -20,7 +20,7 @@
     <style name="TitleTheme">
         <item name="android:textSize">40sp</item>
         <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:shadowColor">@color/shadowColor</item>
+        <item name="android:shadowColor">@color/shadow</item>
         <item name="android:textStyle">bold</item>
         <item name="android:shadowRadius">2.0</item>
         <item name="android:shadowDx">2.0</item>
@@ -29,15 +29,17 @@
 
     <style name="textButtonTheme">
         <item name="android:textSize">15sp</item>
-        <item name="android:background">@color/buttonColor</item>
-        <item name="android:textColor">@color/colorText</item>
-        <item name="android:shadowColor">@color/shadowColor</item>
+        <item name="android:background">@color/button</item>
+        <item name="android:textColor">@color/Text</item>
+        <item name="android:shadowColor">@color/shadow</item>
         <item name="android:shadowRadius">2.0</item>
         <item name="android:shadowDx">2.0</item>
         <item name="android:shadowDy">2.0</item>
     </style>
 
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>

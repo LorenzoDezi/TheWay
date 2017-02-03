@@ -47,6 +47,7 @@
     <string name="com_facebook_loading">લોડ કરી રહ્યાં છે…</string>
     <string name="com_facebook_loginview_cancel_action">રદ કરો</string>
     <string name="com_facebook_loginview_log_in_button">લૉગ ઇન કરો</string>
+    <string name="com_facebook_loginview_log_in_button_continue">Facebook સાથે ચાલુ રાખો</string>
     <string name="com_facebook_loginview_log_in_button_long">ફેસબુક સાથે લૉગ ઇન કરો</string>
     <string name="com_facebook_loginview_log_out_action">લૉગ આઉટ કરો</string>
     <string name="com_facebook_loginview_log_out_button">લૉગ આઉટ કરો</string>
@@ -54,7 +55,7 @@
     <string name="com_facebook_loginview_logged_in_using_facebook">ફેસબુકનો ઉપયોગ કરીને લૉગ ઇન કરો</string>
     <string name="com_facebook_send_button_text">મોકલો</string>
     <string name="com_facebook_share_button_text">શેર કરો</string>
-    <string name="com_facebook_tooltip_default">નવું! તમે નિયંત્રણ કરો છો - તમે એપ્લિકેશન્સ સાથે કઈ માહિતી શેર કરવા માંગો છો તે પસંદ કરો.</string>
+    <string name="com_facebook_tooltip_default">તમે નિયંત્રણ કરો છો - તમે એપ્લિકેશન્સ સાથે કઈ માહિતી શેર કરવા માંગો છો તે પસંદ કરો.</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"સક્ષમ કરો"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"તમે Google Play સેવાઓ સક્ષમ કરશો નહીં ત્યાં સુધી <ns1:g id="APP_NAME">%1$s</ns1:g> કાર્ય કરશે નહીં."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Google Play સેવાઓ સક્ષમ કરો"</string>
