@@ -21,15 +21,8 @@ public class ServerResponse {
         return message;
     }
 
-    public User getUser() {
-        return user;
-    }
+    public User getUser() { return user; }
 
     public Path[] getPaths() { return paths; }
 
-    @Override
-    //DEBUG
-    public String toString() {
-        return result+message;
-    }
 }

@@ -49,6 +49,11 @@ public class Path implements Parcelable {
      * gpx file in the database/sd card **/
     private String gpxName;
 
+    /**
+     * the name of the user who created it
+     */
+    private String author;
+
     /** the time employed to complete the path **/
     private Time time;
 
@@ -90,6 +95,7 @@ public class Path implements Parcelable {
         possibleVehicles = (Vehicle[]) bundle.getSerializable("possibleVehicles");
         coordinates = bundle.getParcelableArrayList("coordinates");
         description = bundle.getString("description");
+        author = bundle.getString("author");
 
     }
 
@@ -148,6 +154,22 @@ public class Path implements Parcelable {
         return length;
 
     }
+
+    /**
+     * @return the author's name
+     */
+    public String getAuthor() {
+        return author;
+    }
+
+    /**
+     * Sets the author's name
+     * @param author as the author's name
+     */
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
 
     /**
      * sets the length of the path, it has a little margin error of some
@@ -433,6 +455,7 @@ public class Path implements Parcelable {
         bundle.putSerializable("time", time);
         bundle.putParcelable("start", start);
         bundle.putSerializable("gpxName", gpxName);
+        bundle.putString("author", author);
         bundle.putParcelableArrayList("coordinates", coordinates);
         dest.writeBundle(bundle);
 

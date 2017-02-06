@@ -1,16 +1,31 @@
 package com.unicam.dezio.theway;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Rating;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import okhttp3.internal.Util;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * The class used to show a Dialog to the user, that shows information about the path clicked on
@@ -44,7 +59,12 @@ public class WayDialogActivity extends AppCompatActivity {
             TextView timeTextView = (TextView) findViewById(R.id.time_spec);
             TextView vehicleUsedTextView = (TextView) findViewById(R.id.vehicle_used_spec);
             TextView vehiclesPossibleTextView = (TextView) findViewById(R.id.vehicles_possible_spec);
-
+            Button deleteButton = (Button) findViewById(R.id.removeButton);
+            SharedPreferences pref = getSharedPreferences(Utility.TAG, Context.MODE_PRIVATE);
+            if(!pref.getString(Utility.USERNAME, "no").equals(selectedPath.getAuthor())) {
+                LinearLayout layout = (LinearLayout) findViewById(R.id.info_layout);
+                layout.removeView(deleteButton);
+            }
             //Setting all views properly to the input path
             this.setTitle("Path infos");
             String difficultyText = "Difficulty: ";
@@ -94,6 +114,43 @@ public class WayDialogActivity extends AppCompatActivity {
         intent.putExtra("Path", this.selectedPath);
         this.setResult(RESULT_OK, intent);
         finish();
+
+    }
+
+    /**
+     * This method remove a path from the server
+     * @param v
+     */
+    public void removePath(View v) {
+
+        //Preparing the server communication
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(Utility.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+        RequestInterface requestInterface = retrofit.create(RequestInterface.class);
+        ServerRequest request = new ServerRequest();
+        request.setOperation(Utility.DELETE_OPERATION);
+        request.setPath(selectedPath);
+        Call<ServerResponse> response = requestInterface.operation(request);
+        response.enqueue(new Callback<ServerResponse>() {
+
+            @Override
+            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
+                ServerResponse resp = response.body();
+                Snackbar.make(findViewById(R.id.mainLayout), resp.getMessage(), Snackbar.LENGTH_LONG).show();
+                if(resp.getResult().equals(Utility.SUCCESS)) {
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ServerResponse> call, Throwable t) {
+                Snackbar.make(findViewById(R.id.info_layout), t.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
+            }
+        });
 
     }
 

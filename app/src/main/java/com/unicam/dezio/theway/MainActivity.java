@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
-                Log.d(Utility.TAG, response.toString());
+                Log.d(Utility.TAG, response.body().toString());
                 ServerResponse resp = response.body();
                 Snackbar.make(findViewById(R.id.mainLayout), resp.getMessage(), Snackbar.LENGTH_LONG).show();
                 if(resp.getResult().equals(Utility.SUCCESS)) {

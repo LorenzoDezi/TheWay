@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:id="@+id/info_layout"
     android:layout_height="match_parent">
 
     <RatingBar
@@ -56,4 +57,16 @@
         android:onClick="startPath"
         android:layout_marginBottom="20dp"
         style="@style/textButtonTheme"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="DELETE ROUTE"
+        android:textSize="20sp"
+        android:id="@+id/removeButton"
+        android:onClick="removePath"
+        android:layout_marginBottom="20dp"
+        style="@style/textButtonTheme"/>
+
 </LinearLayout>
