@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/marker_user.png",
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/mipmap-xxhdpi/marker_user.png"
+    },
+    {
+        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/path_marker.png",
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/mipmap-xxhdpi/path_marker.png"
+    }
+]

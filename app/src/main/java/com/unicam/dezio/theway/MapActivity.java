@@ -112,6 +112,8 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
     private SharedPreferences pref;
     private Context context;
 
+    //user's location
+    private Location userLocation;
 
 
 
@@ -140,8 +142,8 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
         transaction.commit();
 
         //set the layout and retrieving all necessary objects
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+        super.onCreate(savedInstanceState);
         context = this.getApplicationContext();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarTop);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -247,8 +249,9 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
 
 
     @Override
-    public void onLocationChanged(final Location location) {
+    public void onLocationChanged(Location location) {
 
+        userLocation = location;
         CameraUpdate update = CameraUpdateFactory.newCameraPosition(new CameraPosition(new LatLng(location.getLatitude(), location.getLongitude()), 15,
                 0,0));
         mMap.animateCamera(update);
@@ -374,7 +377,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
                                 mMap.addPolyline(currentPolyline);
                             }
                             mMap.addCircle(new CircleOptions().radius(coveredArea.getRadius())
-                                    .center(new LatLng(location.getLatitude(), location.getLongitude())));
+                                    .center(new LatLng(userLocation.getLatitude(), userLocation.getLongitude())));
                         }
                     }
 
@@ -391,7 +394,14 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
 
         } else if (state == Utility.IS_TRAVELLING) {
 
+            mMap.clear();
             mMap.addMarker(userMarker.position(new LatLng(location.getLatitude(), location.getLongitude())));
+            PolylineOptions currentPolyline = polylines[currentPath.getDifficulty()];
+            for(Location coordinate : currentPath.getCoordinates()) {
+                LatLng currentLatLng = new LatLng(coordinate.getLatitude(), coordinate.getLongitude());
+                currentPolyline.add(currentLatLng);
+            }
+            mMap.addPolyline(currentPolyline);
             if(!userInside(currentPath, location)) {
                 Snackbar.make(findViewById(R.id.mapLayout), "You're off the path!", Snackbar.LENGTH_LONG).show();
             }
@@ -527,12 +537,15 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
             } catch (SecurityException ex) {
                 Toast.makeText(this.getApplicationContext(), ex.getMessage(), Toast.LENGTH_SHORT).show();
             }
+            mMap.clear();
             PolylineOptions currentPolyline = polylines[currentPath.getDifficulty()];
             for(Location coordinate : currentPath.getCoordinates()) {
                 LatLng currentLatLng = new LatLng(coordinate.getLatitude(), coordinate.getLongitude());
                 currentPolyline.add(currentLatLng);
             }
             mMap.addPolyline(currentPolyline);
+            mMap.addMarker(userMarker.position(new LatLng(userLocation.getLatitude(), userLocation.getLongitude())));
+            requestLocationUpdates();
 
         }
     }

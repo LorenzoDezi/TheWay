@@ -63,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="140dp"
+                android:layout_marginTop="100dp"
 
                 android:text="@string/log_in"
                 style="@style/textButtonTheme"
@@ -72,7 +72,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center_horizontal"
                     android:text="@string/not_registered"
                     style="@style/textTextViewTheme"
@@ -83,13 +83,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="10dp"
 
                 android:text="@string/register"
                 style="@style/textButtonTheme"
                 android:id="@+id/buttonRegister"
                  />
 
+            <com.facebook.login.widget.LoginButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:id="@+id/FBLogin"
+                />
 
         </LinearLayout>
-        </RelativeLayout>
+</RelativeLayout>

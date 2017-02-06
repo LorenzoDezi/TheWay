@@ -50,10 +50,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             editTextPwd = (EditText) findViewById(R.id.editTextPwd);
             editTextRePwd = (EditText) findViewById(R.id.editTextRePwd);
             buttonRegister = (Button) findViewById(R.id.buttonRegister);
-            buttonRegisterFB = (Button) findViewById(R.id.buttonRegisterFB);
             buttonRegister.setOnClickListener(this);
-            buttonRegisterFB.setOnClickListener(this);
-
+            //buttonRegisterFB.setOnClickListener(this);
         }
     }
 
@@ -98,8 +96,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 break;
 
             }
-            case R.id.buttonRegisterFB:
-                break;
+
+
         }
     }
 
@@ -143,7 +141,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             @Override
             public void onFailure(Call<ServerResponse> call, Throwable t) {
-
                 Snackbar.make(findViewById(R.id.registerLayout), t.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
 
             }

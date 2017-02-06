@@ -81,6 +81,13 @@
                 style="@style/textButtonTheme"
 
                 android:id="@+id/buttonRegister" />
+            <com.facebook.login.widget.LoginButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:id="@+id/FBLogin"
+                />
 
 
         </LinearLayout>
