@@ -13,16 +13,28 @@ public class ServerResponse {
     private User user;
     private Path[] paths;
 
+    /**
+     * @return the result string that defines the success or the failure of the request
+     */
     public String getResult() {
         return result;
     }
 
+    /**
+     * @return the message of the response
+     */
     public String getMessage() {
         return message;
     }
 
+    /**
+     * @return the user associated with the request, it can be NULL
+     */
     public User getUser() { return user; }
 
+    /**
+     * @return the paths associated with the requests they can be NULL
+     */
     public Path[] getPaths() { return paths; }
 
 }

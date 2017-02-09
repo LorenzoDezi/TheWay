@@ -10586,12 +10586,12 @@
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/src/debug/res/values/google_maps_api.xml",
                     "position": {
-                        "startLine": 17,
+                        "startLine": 1,
                         "startColumn": 4,
-                        "startOffset": 793,
-                        "endLine": 19,
+                        "startOffset": 16,
+                        "endLine": 3,
                         "endColumn": 13,
-                        "endOffset": 941
+                        "endOffset": 164
                     }
                 }
             },

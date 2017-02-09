@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.StrictMode;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,6 +41,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -57,6 +59,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Used to permit the single-thread retrieving of paths. Considering the small size of the area
+        //and various tests, it doesn't impact on performance
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         //Checking if the user is already logged
         pref = getSharedPreferences(Utility.TAG, Context.MODE_PRIVATE);
         if (pref.getBoolean(Utility.IS_LOGGED_IN, false)) {
@@ -93,12 +99,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     try {
                                         email = object.getString("email");
                                         name = object.getString("name");
-                                        SharedPreferences.Editor editor = pref.edit();
-                                        editor.putBoolean(Utility.IS_LOGGED_IN, true);
-                                        editor.putString(Utility.EMAIL, email);
-                                        editor.putString(Utility.USERNAME, name);
-                                        editor.apply();
-                                        Utility.goToActivity(activityInstance, WelcomeActivity.class, false);
+                                        boolean registerResult = false;
+                                        boolean userExist = Utility.checkUserExist(name);
+                                        if(!userExist) {
+                                            String password = UUID.randomUUID().toString();
+                                            registerResult = Utility.registerProcess(name, email,
+                                                    password, activityInstance);
+                                        }
+                                        if(registerResult || userExist) {
+                                            SharedPreferences.Editor editor = pref.edit();
+                                            editor.putBoolean(Utility.IS_LOGGED_IN, true);
+                                            editor.putString(Utility.EMAIL, email);
+                                            editor.putString(Utility.USERNAME, name);
+                                            editor.apply();
+                                            Utility.goToActivity(activityInstance, WelcomeActivity.class, false);
+                                        } else {
+                                            Snackbar.make(findViewById(R.id.mainLayout),"Problem with the database, try again", Snackbar.LENGTH_LONG).show();
+                                        }
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }

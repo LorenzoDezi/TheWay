@@ -238,7 +238,10 @@ public class Path implements Parcelable {
      @return UsableVehicle
      **/
     public Vehicle[] getUsableVehicle(){
-        return Arrays.copyOf(possibleVehicles, possibleVehicles.length);
+        if(possibleVehicles != null)
+            return Arrays.copyOf(possibleVehicles, possibleVehicles.length);
+        else
+            return null;
     }
 
     /**
@@ -385,7 +388,7 @@ public class Path implements Parcelable {
 
         if (gpx == null)
             throw new IllegalArgumentException("specify the file gpx.");
-        coordinates = new ArrayList<>();
+        this.coordinates = new ArrayList<>();
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(gpx);
@@ -400,8 +403,9 @@ public class Path implements Parcelable {
             Location coordinate = new Location(LocationManager.GPS_PROVIDER);
             coordinate.setLatitude(lat);
             coordinate.setLongitude(lon);
-            coordinates.add(coordinate);
+            this.coordinates.add(coordinate);
         }
+        this.gpxName = gpx.getName();
     }
 
     /**
@@ -419,7 +423,8 @@ public class Path implements Parcelable {
      @return GPX
      **/
     public String getGPXString() {
-        String container = "<?xml  version='1.0'?><gpx xmlns='http://www.topografix.com/GPX/1/1' version='1.1' creator='TheWay'><rte>%s</rte></gpx>";
+        String container = "<?xml  version='1.0'?><gpx xmlns='http://www.topografix.com/GPX/1/1'" +
+                " version='1.1' creator='TheWay'><rte>%s</rte></gpx>";
         String body = "";
         String append = "<rtept lat='%s' lon='%s' />";
         for(Location coor : coordinates){
@@ -461,4 +466,19 @@ public class Path implements Parcelable {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Path path = (Path) o;
+
+        return gpxName != null ? gpxName.equals(path.gpxName) : path.gpxName == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return gpxName != null ? gpxName.hashCode() : 0;
+    }
 }

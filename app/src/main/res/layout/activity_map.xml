@@ -62,7 +62,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="80dp"
                 android:src="@drawable/play"
-                android:contentDescription="Action"
+                android:contentDescription="Start"
                 android:id="@+id/play_PNG"
                 android:layout_weight="0.15"/>
 
@@ -71,8 +71,17 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="80dp"
                 android:src="@drawable/search"
-                android:contentDescription="Action"
+                android:contentDescription="Search"
                 android:id="@+id/search_PNG"
+                android:layout_weight="0.15" />
+
+            <ImageView
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:src="@drawable/ic_search_gps"
+                android:contentDescription="Search around you"
+                android:id="@+id/search_gps_PNG"
                 android:layout_weight="0.15" />
 
 

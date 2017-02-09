@@ -6,7 +6,8 @@ import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 
 /**
- * Created by Daniele on 03/01/2017.
+ * This class extends Application in order to initialize the SDK
+ * before executing any other operations
  */
 public class StarterClass extends Application {
 

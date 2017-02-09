@@ -1,72 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:id="@+id/info_layout"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:fillViewport="true"
+    >
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:id="@+id/info_layout"
+        android:layout_height="wrap_content">
 
-    <RatingBar
-        android:layout_width="wrap_content"
-        android:numStars="5"
-        android:layout_height="wrap_content"
-        android:id="@+id/review_spec" />
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:numStars="5"
+            android:layout_height="wrap_content"
+            android:id="@+id/review_spec" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/textTextViewTheme"
-        android:id="@+id/difficulty_spec" />
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/textTextViewTheme"
+            android:id="@+id/difficulty_spec" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/textTextViewTheme"
-        android:id="@+id/length_spec" />
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/textTextViewTheme"
+            android:id="@+id/length_spec" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/textTextViewTheme"
-        android:id="@+id/time_spec" />
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/textTextViewTheme"
+            android:id="@+id/time_spec" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/vehicle_used_spec"
-        style="@style/textTextViewTheme"
-        />
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/vehicle_used_spec"
+            style="@style/textTextViewTheme"
+            />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/vehicles_possible_spec"
-        style="@style/textTextViewTheme"
-        />
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/vehicles_possible_spec"
+            style="@style/textTextViewTheme"
+            />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="START ROUTE!"
-        android:textSize="20sp"
-        android:id="@+id/startButton"
-        android:onClick="startPath"
-        android:layout_marginBottom="20dp"
-        style="@style/textButtonTheme"/>
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/description_spec"
+            style="@style/textTextViewTheme"
+            />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="DELETE ROUTE"
-        android:textSize="20sp"
-        android:id="@+id/removeButton"
-        android:onClick="removePath"
-        android:layout_marginBottom="20dp"
-        style="@style/textButtonTheme"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="START ROUTE!"
+            android:textSize="20sp"
+            android:id="@+id/startButton"
+            android:onClick="startPath"
+            android:layout_marginBottom="20dp"
+            style="@style/textButtonTheme"/>
 
-</LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="DELETE ROUTE"
+            android:textSize="20sp"
+            android:id="@+id/removeButton"
+            android:onClick="removePath"
+            android:layout_marginBottom="20dp"
+            style="@style/textButtonTheme"/>
+
+    </LinearLayout>
+</ScrollView>

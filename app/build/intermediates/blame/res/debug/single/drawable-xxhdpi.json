@@ -8,6 +8,10 @@
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-xxhdpi/search.png"
     },
     {
+        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_search_gps.png",
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-xxhdpi/ic_search_gps.png"
+    },
+    {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-xxhdpi/play.png",
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-xxhdpi/play.png"
     },

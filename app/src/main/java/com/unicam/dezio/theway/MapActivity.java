@@ -47,18 +47,24 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import com.google.maps.android.PolyUtil;
 
+import org.xml.sax.SAXException;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import javax.xml.parsers.ParserConfigurationException;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -88,6 +94,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
 
     //View objects from the layout
     private ImageView searchIcon;
+    private ImageView searchGPSIcon;
     private ImageView startIcon;
     private LinearLayout toolbarLayout;
 
@@ -100,13 +107,13 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
     //the property in which the created/travelled path will be stored,
     //the PolylineOptions/MarkerOptions objects used to draw on the map
     private Path currentPath;
-    private PolylineOptions[] polylines;
+    private PolylineOptions[] searchPolylines;
+    private PolylineOptions newPolyline;
     private MarkerOptions userMarker;
     private MarkerOptions pathMarker;
 
-    //the list of paths found inside the area defined by the Area object
+    //the list of paths founds during searching
     private List<Path> pathsFound;
-    private Area coveredArea;
 
     //Various fields
     private SharedPreferences pref;
@@ -158,7 +165,9 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
         fragment.getMapAsync(this);
         startIcon = (ImageView) findViewById(R.id.play_PNG);
         searchIcon = (ImageView) findViewById(R.id.search_PNG);
+        searchGPSIcon = (ImageView) findViewById(R.id.search_gps_PNG);
         searchIcon.setOnClickListener(this);
+        searchGPSIcon.setOnClickListener(this);
         startIcon.setOnClickListener(this);
         toolbarLayout = (LinearLayout) findViewById(R.id.toolbarLayout);
 
@@ -166,29 +175,20 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
         Intent intent = getIntent();
         if (intent.getExtras().getInt("choice") == R.id.startButton) {
             toolbarLayout.removeView(searchIcon);
+            toolbarLayout.removeView(searchGPSIcon);
         } else {
             toolbarLayout.removeView(startIcon);
         }
         state = Utility.IS_WAITING;
         currentPath = new Path();
         pathsFound = new ArrayList<>();
-
-        //Polyline definition. Each colour is a different difficulty.
-        //The "easyPath" color is used for a new Path
-        polylines = new PolylineOptions[3];
-        for(int i=0; i < 3; i++) {
-            polylines[i] = new PolylineOptions();
-            polylines[i].width(10);
-            polylines[i].visible(true);
-        }
-        polylines[0].color(R.color.easyPath);
-        polylines[1].color(R.color.mediumPath);
-        polylines[2].color(R.color.hardPath);
+        searchPolylines = new PolylineOptions[0];
 
         //Using LocationServices to use GPS functionalities
         locationProvider = LocationServices.FusedLocationApi;
         googleApiClient = new GoogleApiClient.Builder(this).addApi(LocationServices.API).
                 addConnectionCallbacks(this).addOnConnectionFailedListener(this).build();
+        googleApiClient.connect();
         locationRequest = new LocationRequest();
         locationRequest.setSmallestDisplacement(Utility.MIN_DISTANCE_CHANGE_FOR_UPDATES);
         locationRequest.setInterval(Utility.MIN_TIME_BW_UPDATES);
@@ -204,16 +204,17 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
         //Setting the map
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
-        mMap.getUiSettings().setZoomControlsEnabled(false);
+        mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setCompassEnabled(true);
         mMap.getUiSettings().setRotateGesturesEnabled(false);
-        mMap.getUiSettings().setScrollGesturesEnabled(false);
+        mMap.getUiSettings().setScrollGesturesEnabled(true);
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng clickCoords) {
                 int i = 0;
-                for (PolylineOptions polyline : polylines) {
+                for (PolylineOptions polyline : searchPolylines) {
                     if (PolyUtil.isLocationOnPath(clickCoords, polyline.getPoints(), true, 100)) {
+                        currentPath = pathsFound.get(i);
                         showPath(pathsFound.get(i));
                     }
                     i++;
@@ -259,155 +260,203 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
         if(state == Utility.IS_CREATING) {
 
             currentPath.addCoordinate(location);
-            polylines[0].add(new LatLng(location.getLatitude(), location.getLongitude()));
+            newPolyline.add(new LatLng(location.getLatitude(), location.getLongitude()));
             mMap.clear();
-            mMap.addPolyline(polylines[0]);
+            mMap.addPolyline(newPolyline);
             mMap.addMarker(userMarker.position(new LatLng(location.getLatitude(),
                     location.getLongitude())).title("You"));
-            //DEBUG
-            Toast.makeText(this.getApplicationContext(), "location :" + location.getLatitude() + " , " + location.getLongitude(), Toast.LENGTH_SHORT).show();
 
         } else if (state == Utility.IS_SEARCHING) {
 
             mMap.clear();
+            pathsFound.clear();
             mMap.addMarker(userMarker.position(new LatLng(location.getLatitude(),
                     location.getLongitude())).title("You"));
-            coveredArea = new Area();
+            Area coveredArea = new Area();
             coveredArea.setCenter(location);
             coveredArea.setRadius(1000);
+            searchForPaths(coveredArea);
 
-            if(super.isConnected()) {
-                Gson gson = new GsonBuilder()
-                        .setLenient()
-                        .registerTypeAdapter(Time.class, new JsonDeserializer<Time>() {
 
-                                    private static final String TIME_FORMAT = "HH:mm:ss";
-
-                                    @Override
-                                    public Time deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-                                        try {
-
-                                            String s = json.getAsString();
-                                            SimpleDateFormat sdf = new SimpleDateFormat(TIME_FORMAT, Locale.US);
-                                            sdf.parse(s);
-                                            long ms = sdf.parse(s).getTime();
-                                            Time t = new Time(ms);
-                                            return t;
-                                        } catch (ParseException e) {
-                                        }
-                                        throw new JsonParseException("Unparseable time: \"" + json.getAsString()
-                                                + "\". Supported formats: " + TIME_FORMAT);
-                                    }
-                                }
-                        )
-                        .create();
-                Retrofit retrofit2 = new Retrofit.Builder().baseUrl(Utility.BASE_URL)
-                        .addConverterFactory(GsonConverterFactory.create(gson))
-                        .build();
-                RequestInterface requestInterface2 = retrofit2.create(RequestInterface.class);
-                //Preparing the request
-                ServerRequest request = new ServerRequest();
-                request.setOperation(Utility.REQUEST_OPERATION);
-                request.setArea(coveredArea);
-
-                //Calling the server and processing the response
-                Call<ServerResponse> response = requestInterface2.operation(request);
-                response.enqueue(new Callback<ServerResponse>() {
-
-                    @Override
-                    public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
-
-                        ServerResponse resp = response.body();
-
-                        if (resp.getResult().equals(Utility.SUCCESS)) {
-
-                            Path[] paths = resp.getPaths();
-                            Retrofit retrofit = new Retrofit.Builder().baseUrl(Utility.BASE_URL)
-                                    .addConverterFactory(GsonConverterFactory.create())
-                                    .build();
-                            RequestInterface requestInterface = retrofit.create(RequestInterface.class);
-                            for (int i = 0; i < paths.length; i++) {
-
-                                Path currentPath = paths[i];
-                                pathsFound.add(i, currentPath);
-                                Call<ResponseBody> innerCall = requestInterface.downloadGPX("theWayServer/GPXs/" + currentPath.getGpxName());
-                                try {
-                                    Response currentResp = innerCall.execute();
-                                    if (response.isSuccessful()) {
-
-                                        File currentGpx = createFile((ResponseBody) currentResp.body(), currentPath.getGpxName());
-                                        try {
-
-                                            currentPath.setCoordinates(currentGpx);
-                                            currentPath.setStart();
-
-                                        } catch (Exception ex) {
-                                            Toast.makeText(context, "Error parsing the gpx!", Toast.LENGTH_SHORT).show();
-                                        }
-                                        if(!currentGpx.delete())
-                                            throw new IOException();
-                                    } else {
-                                        throw new IOException();
-                                    }
-
-                                } catch (IOException | NullPointerException ex) {
-                                    Toast.makeText(context, "Can't download the gpx file!", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-
-                        } else {
-                            Toast.makeText(context, "No paths found!", Toast.LENGTH_SHORT).show();
-                        }
-                        if (pathsFound != null) {
-
-                            for (Path path :
-                                    pathsFound) {
-                                int i = 0;
-                                LatLng currentLatLng;
-                                PolylineOptions currentPolyline;
-
-                                currentPolyline = polylines[path.getDifficulty()];
-                                for (Location coordinate : path.getCoordinates()) {
-                                    currentLatLng = new LatLng(coordinate.getLatitude(), coordinate.getLongitude());
-                                    if (i == 0)
-                                        mMap.addMarker(pathMarker.position(currentLatLng));
-                                    currentPolyline.add(currentLatLng);
-                                    i++;
-                                }
-                                mMap.addPolyline(currentPolyline);
-                            }
-                            mMap.addCircle(new CircleOptions().radius(coveredArea.getRadius())
-                                    .center(new LatLng(userLocation.getLatitude(), userLocation.getLongitude())));
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<ServerResponse> call, Throwable t) {
-                        //DEBUG
-                        Log.d(Utility.TAG, Utility.FAILURE);
-                        Log.d(Utility.TAG, t.getMessage());
-                    }
-                });
-            } else {
-                //todo: tirare fuori i percorsi offline
-            }
 
         } else if (state == Utility.IS_TRAVELLING) {
 
             mMap.clear();
+            //Let's remove search icons
+            while(toolbarLayout.getChildCount() > 2)
+                toolbarLayout.removeViewAt(toolbarLayout.getChildCount() -1);
             mMap.addMarker(userMarker.position(new LatLng(location.getLatitude(), location.getLongitude())));
-            PolylineOptions currentPolyline = polylines[currentPath.getDifficulty()];
-            for(Location coordinate : currentPath.getCoordinates()) {
+            PolylineOptions polyline = new PolylineOptions();
+            polyline.color(R.color.colorAccent);
+            polyline.width(10);
+            ArrayList<Location> currentCoordinates = currentPath.getCoordinates();
+            for(Location coordinate : currentCoordinates) {
                 LatLng currentLatLng = new LatLng(coordinate.getLatitude(), coordinate.getLongitude());
-                currentPolyline.add(currentLatLng);
+                polyline.add(currentLatLng);
             }
-            mMap.addPolyline(currentPolyline);
+            mMap.addPolyline(polyline);
             if(!userInside(currentPath, location)) {
                 Snackbar.make(findViewById(R.id.mapLayout), "You're off the path!", Snackbar.LENGTH_LONG).show();
+            } else {
+                //if the user is at the end of the path
+                if((currentPath.getEnd().distanceTo(userLocation))
+                        <= Utility.MAX_DISTANCE_OFF) {
+                    Intent intent = new Intent(this, WayDialogActivity.class);
+                    intent.putExtra("EndOfPath", true);
+                    startActivityForResult(intent, Utility.PATH_INFO);
+                }
             }
         }
     }
 
+
+    /**
+     * This function search for paths inside the coveredArea param,
+     * and populates pathsFound and searchPolylines, printing them on map
+     * @param coveredArea
+     */
+    private void searchForPaths(Area coveredArea) {
+        if(super.isConnected()) {
+            Gson gson = new GsonBuilder()
+                    .setLenient()
+                    .registerTypeAdapter(Time.class, new JsonDeserializer<Time>() {
+
+                                private static final String TIME_FORMAT = "HH:mm:ss";
+
+                                @Override
+                                public Time deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+                                    try {
+
+                                        String s = json.getAsString();
+                                        SimpleDateFormat sdf = new SimpleDateFormat(TIME_FORMAT, Locale.US);
+                                        sdf.parse(s);
+                                        long ms = sdf.parse(s).getTime();
+                                        Time t = new Time(ms);
+                                        return t;
+                                    } catch (ParseException e) {
+                                    }
+                                    throw new JsonParseException("Unparseable time: \"" + json.getAsString()
+                                            + "\". Supported formats: " + TIME_FORMAT);
+                                }
+                            }
+                    )
+                    .create();
+            Retrofit retrofit2 = new Retrofit.Builder().baseUrl(Utility.BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create(gson))
+                    .build();
+            RequestInterface requestInterface2 = retrofit2.create(RequestInterface.class);
+            //Preparing the request
+            ServerRequest request = new ServerRequest();
+            request.setOperation(Utility.REQUEST_OPERATION);
+            request.setArea(coveredArea);
+
+            //Calling the server and processing the response
+            Call<ServerResponse> response = requestInterface2.operation(request);
+            response.enqueue(new Callback<ServerResponse>() {
+
+                @Override
+                public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
+
+                    ServerResponse resp = response.body();
+                    if (resp.getResult().equals(Utility.SUCCESS)) {
+
+                        Path[] paths = resp.getPaths();
+                        Retrofit retrofit = new Retrofit.Builder().baseUrl(Utility.BASE_URL)
+                                .addConverterFactory(GsonConverterFactory.create())
+                                .build();
+                        RequestInterface requestInterface = retrofit.create(RequestInterface.class);
+                        for (int i = 0; i < paths.length; i++) {
+
+                            Path currentPath = paths[i];
+                            pathsFound.add(i, currentPath);
+                            Call<ResponseBody> innerCall = requestInterface.downloadGPX("theWayServer/GPXs/" + currentPath.getGpxName());
+                            try {
+                                Response currentResp = innerCall.execute();
+                                if (currentResp.isSuccessful()) {
+
+                                    File currentGpx = createFile((ResponseBody) currentResp.body(), currentPath.getGpxName());
+                                    try {
+
+                                        currentPath.setCoordinates(currentGpx);
+                                        currentPath.setStart();
+
+                                    } catch (Exception ex) {
+                                        Toast.makeText(context, "Error parsing the gpx!", Toast.LENGTH_SHORT).show();
+                                    }
+                                    if (!currentGpx.delete())
+                                        throw new IOException();
+                                } else {
+                                    throw new IOException();
+                                }
+
+                            } catch (IOException | NullPointerException ex) {
+                                Toast.makeText(context, "Can't download the gpx file!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ServerResponse> call, Throwable t) {
+                    Toast.makeText(context, t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        //Retrieving offline paths
+        File dir;
+        ArrayList<File> gpxs = new ArrayList<File>();
+        try {
+            if (Utility.isExternalStorageWritable()) {
+                dir = Utility.getFileStorageDir(context.getExternalFilesDir(null), "GPXs");
+                gpxs.addAll(Arrays.asList(dir.listFiles()));
+            }
+            dir = Utility.getFileStorageDir(context.getFilesDir(), "GPXs");
+            gpxs.addAll(Arrays.asList(dir.listFiles()));
+        } catch (IOException ex) {
+
+        }
+        for(File gpx : gpxs) {
+            if(gpx.getName().endsWith(".gpx")) {
+                Path path = new Path();
+                try {
+                    path.setCoordinates(gpx);
+                    if(!pathsFound.contains(path))
+                        pathsFound.add(path);
+                } catch (ParserConfigurationException | IOException |
+                        SAXException ex) {
+
+                }
+            }
+        }
+        if (pathsFound.size() != 0) {
+
+            searchPolylines = new PolylineOptions[pathsFound.size()];
+            int index = 0;
+            for (Path path :
+                    pathsFound) {
+                int innerIndex = 0;
+                LatLng currentLatLng;
+                searchPolylines[index] = new PolylineOptions();
+                PolylineOptions currentPolyline = searchPolylines[index];
+                currentPolyline.color(R.color.colorAccent);
+                currentPolyline.width(10);
+                for (Location coordinate : path.getCoordinates()) {
+                    currentLatLng = new LatLng(coordinate.getLatitude(), coordinate.getLongitude());
+                    if (innerIndex == 0)
+                        mMap.addMarker(pathMarker.position(currentLatLng));
+                    currentPolyline.add(currentLatLng);
+                    innerIndex++;
+                }
+                mMap.addPolyline(currentPolyline);
+                index++;
+            }
+            mMap.addCircle(new CircleOptions().radius(coveredArea.getRadius())
+                    .center(new LatLng(coveredArea.getCenter().getLatitude(), coveredArea.getCenter().getLongitude())));
+        } else {
+            Toast.makeText(context, "No paths found!", Toast.LENGTH_SHORT).show();
+        }
+    }
 
 
 
@@ -488,7 +537,6 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
     public void onConnectionSuspended(int i) {
 
         locationProvider.removeLocationUpdates(googleApiClient, this);
-
     }
 
     @Override
@@ -520,6 +568,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
             if(resultCode == RESULT_OK) {
                 currentPath = data.getParcelableExtra("Path");
                 state = Utility.IS_TRAVELLING;
+            } else if (resultCode == Utility.DELETED) {
+                requestLocationUpdates();
+            } else if (resultCode == Utility.FINISHED) {
+                Utility.goToActivity(this, WelcomeActivity.class, true);
             }
     }
 
@@ -527,18 +579,8 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
     protected void onResume() {
         super.onResume();
         if (state == Utility.IS_TRAVELLING) {
-            Intent intent = new Intent(this, WayDialogActivity.class);
-            intent.putExtra("EndOfPath", true);
-            try {
-                Location end = currentPath.getEnd();
-                locationManager.addProximityAlert(end.getLatitude(), end.getLongitude(),
-                        Utility.MIN_DISTANCE_CHANGE_FOR_UPDATES, -1,
-                        PendingIntent.getActivity(context, Utility.FINISHED, intent, PendingIntent.FLAG_ONE_SHOT));
-            } catch (SecurityException ex) {
-                Toast.makeText(this.getApplicationContext(), ex.getMessage(), Toast.LENGTH_SHORT).show();
-            }
             mMap.clear();
-            PolylineOptions currentPolyline = polylines[currentPath.getDifficulty()];
+            PolylineOptions currentPolyline = new PolylineOptions();
             for(Location coordinate : currentPath.getCoordinates()) {
                 LatLng currentLatLng = new LatLng(coordinate.getLatitude(), coordinate.getLongitude());
                 currentPolyline.add(currentLatLng);
@@ -551,15 +593,56 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
     }
 
     @Override
+    protected void onDestroy() {
+        locationProvider.removeLocationUpdates(googleApiClient, this);
+        googleApiClient.disconnect();
+        super.onDestroy();
+    }
+
+    @Override
     public void onBackPressed() {
-        finish();
+
+        switch (state) {
+
+            case Utility.IS_WAITING:
+                finish();
+                break;
+
+            case Utility.IS_SEARCHING:
+                toolbarLayout.addView(searchGPSIcon);
+                mMap.clear();
+                pathsFound.clear();
+                state = Utility.IS_WAITING;
+                requestLocationUpdates();
+                break;
+
+            case Utility.IS_CREATING:
+                startIcon.setImageResource(R.drawable.play);
+                mMap.clear();
+                currentPath = new Path();
+                state = Utility.IS_WAITING;
+                requestLocationUpdates();
+                break;
+
+            case Utility.IS_TRAVELLING:
+                toolbarLayout.addView(searchIcon);
+                toolbarLayout.addView(searchGPSIcon);
+                mMap.clear();
+                state = Utility.IS_WAITING;
+                currentPath = new Path();
+                requestLocationUpdates();
+        }
+
     }
 
     @Override
     public void onClick(View view) {
 
         super.onClick(view);
-        if (view.getId() == R.id.play_PNG) {
+        int viewId = view.getId();
+        switch (viewId) {
+
+            case R.id.play_PNG:
                 if(state == Utility.IS_WAITING) {
                     //Let's start creating
                     //There is no GPS, the function returns and a error message appears
@@ -568,11 +651,12 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
                         return;
                     }
                     state = Utility.IS_CREATING;
-
-                    //All it's needed for connection is done
-                    googleApiClient.connect();
+                    newPolyline = new PolylineOptions();
+                    newPolyline.color(R.color.colorAccent);
+                    newPolyline.width(10);
                     startIcon.setImageResource(R.drawable.stop);
                     start = new Date();
+                    requestLocationUpdates();
 
                 } else {
 
@@ -582,7 +666,6 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
                         return;
                     }
                     state = Utility.IS_WAITING;
-                    googleApiClient.disconnect();
                     startIcon.setImageResource(R.drawable.play);
                     end = new Date();
                     currentPath.setTime(start, end);
@@ -590,19 +673,38 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
                     intent.putExtra("path", currentPath);
                     startActivity(intent);
                 }
-            } else if (view.getId() == R.id.search_PNG) {
+                break;
+
+            case R.id.search_PNG:
                 if(state == Utility.IS_WAITING) {
-                    //Let's start creating
+                    //Let's start searching
                     //There is no GPS, the function returns and a error message appears
                     if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                         Toast.makeText(this.getApplicationContext(), "You need your GPS enabled to search for paths around you!", Toast.LENGTH_SHORT).show();
                         return;
                     }
+                    toolbarLayout.removeView(searchGPSIcon);
                     state = Utility.IS_SEARCHING;
-                    googleApiClient.connect();
+                    requestLocationUpdates();
                 }
-            }
+                break;
+
+            case R.id.search_gps_PNG:
+                if(state == Utility.IS_WAITING) {
+
+                    LatLng targetLatLng = mMap.getCameraPosition().target;
+                    Location targetLocation = new Location("");
+                    targetLocation.setLatitude(targetLatLng.latitude);
+                    targetLocation.setLongitude(targetLatLng.longitude);
+                    Area coveredArea = new Area();
+                    coveredArea.setCenter(targetLocation);
+                    coveredArea.setRadius(1000);
+                    searchForPaths(coveredArea);
+                }
+                break;
+
         }
+    }
 
     /**
      * This method check if the user is inside the path chosen to travel
@@ -610,41 +712,23 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
      * @param userLocation, as the user's location
      * @return true if the user is inside the path, false otherwise
      */
-        private boolean userInside(Path path, Location userLocation) {
+    private boolean userInside(Path path, Location userLocation) {
 
-            ArrayList<Location> coordinates = path.getCoordinates();
-            boolean inside = false;
-            for(int i=0; i < coordinates.size()-1 && !inside; i++) {
+        ArrayList<Location> coordinates = path.getCoordinates();
+        boolean inside = false;
+        for(int i=0; i < coordinates.size()-1 && !inside; i++) {
 
-                if(getH(coordinates.get(i), coordinates.get(i+1), userLocation)
-                        <= Utility.MAX_DISTANCE_OFF) {
-                    inside = true;
-                }
-
+            if(userLocation.distanceTo(coordinates.get(i))
+                    <= Utility.MAX_DISTANCE_OFF) {
+                inside = true;
             }
-            return inside;
 
         }
+        return inside;
 
-    /**
-     * LA DOCUMENTAZIONE LA LASCIO A TE DANIE TODO:FARE DOC
-     * @param A
-     * @param B
-     * @param X
-     * @return
-     */
-        private double getH(Location A, Location B, Location X) {
-            //X is the userLocation
-            float AB = A.distanceTo(B);
-            float AX = A.distanceTo(X);
-            float BX = B.distanceTo(X);
+    }
 
-            //sP is the semiPerimeter
-            float sP = (AB+AX+BX)/2;
-            double Area = Math.sqrt(sP*(sP - AB)*(sP - AX)*(sP - BX));
-            double h = 2*Area/AB;
-            return h;
-        }
+
 
 
 
