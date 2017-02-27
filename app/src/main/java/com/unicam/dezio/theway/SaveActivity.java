@@ -23,6 +23,7 @@ import com.google.gson.GsonBuilder;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -104,7 +105,16 @@ public class SaveActivity extends AppCompatActivity {
                 //FATAL ERROR
                 Utility.goToActivity(this, MainActivity.class, true);
             }
-            timeTextView.setText(pathToSave.getTime().toString());
+            //timeTextView.setText(pathToSave.getTime().toString());
+            timeTextView.setText(
+                String.format("%d hour, %d min, %d sec",
+                        TimeUnit.MILLISECONDS.toHours(pathToSave.getTime().getTime()),
+                        TimeUnit.MILLISECONDS.toMinutes(pathToSave.getTime().getTime()) -
+                        TimeUnit.HOURS.toSeconds(TimeUnit.MILLISECONDS.toHours(pathToSave.getTime().getTime())),
+                        TimeUnit.MILLISECONDS.toSeconds(pathToSave.getTime().getTime()) -
+                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(pathToSave.getTime().getTime()))
+                )
+            );
             context = this.getApplicationContext();
 
         } else {

@@ -95,7 +95,7 @@ public class WayDialogActivity extends AppCompatActivity {
             //todo: vedere se i secondi funzionano e in caso trovare un metodo più consono
             String timeText = "Time: NULL";
             if(selectedPath.getTime() != null)
-                timeText = "Time: " + selectedPath.getTime().getTime() + " seconds";
+                timeText = "Time: " + selectedPath.getTime().toString();
             timeTextView.setText(timeText);
 
             String vehicleUsed = "Vehicle used: NULL";

@@ -20,11 +20,14 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.google.java.contract.*;
 
 
 /**
  That class store the information about a particular path.
  **/
+/* @Invariant({"difficulty >= 0 && difficulty <= 2",
+            "valutation >= 0 and valutation <= 5"}) */
 public class Path implements Parcelable {
 
     /** ArrayList of coordinates representing the path **/
@@ -304,7 +307,8 @@ public class Path implements Parcelable {
         if (end != null)
             if(start != null)
                 if(end.getTime() > start.getTime())
-                    time = (end.getTime() - start.getTime()) * 60000;
+                    //time = (end.getTime() - start.getTime()) * 60000;
+                    time = (end.getTime() - start.getTime());
                 else
                     throw new IllegalArgumentException("the time of end must be higher then start.");
             else

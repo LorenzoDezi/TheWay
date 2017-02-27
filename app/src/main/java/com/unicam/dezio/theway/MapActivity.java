@@ -76,7 +76,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * This is the map activity, where the user is actually tracked and the main tasks of the application
  * are performed. This activity has different states, each of them indicating a particular mode of
- * operation. You can create a path, search for a path online/offline in a particular area, and
+ * operation. You can create a path, ic_search_gps for a path online/offline in a particular area, and
  * actually travel a path
  */
 public class MapActivity extends BaseActivity implements OnMapReadyCallback,
@@ -282,7 +282,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
         } else if (state == Utility.IS_TRAVELLING) {
 
             mMap.clear();
-            //Let's remove search icons
+            //Let's remove ic_search_gps icons
             while(toolbarLayout.getChildCount() > 2)
                 toolbarLayout.removeViewAt(toolbarLayout.getChildCount() -1);
             mMap.addMarker(userMarker.position(new LatLng(location.getLatitude(), location.getLongitude())));
@@ -311,7 +311,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
 
 
     /**
-     * This function search for paths inside the coveredArea param,
+     * This function ic_search_gps for paths inside the coveredArea param,
      * and populates pathsFound and searchPolylines, printing them on map
      * @param coveredArea
      */
@@ -414,7 +414,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
             dir = Utility.getFileStorageDir(context.getFilesDir(), "GPXs");
             gpxs.addAll(Arrays.asList(dir.listFiles()));
         } catch (IOException ex) {
-
+            Toast.makeText(context, ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
         for(File gpx : gpxs) {
             if(gpx.getName().endsWith(".gpx")) {
@@ -425,7 +425,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
                         pathsFound.add(path);
                 } catch (ParserConfigurationException | IOException |
                         SAXException ex) {
-
+                    Toast.makeText(context, ex.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -567,6 +567,8 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
         if(requestCode == Utility.PATH_INFO)
             if(resultCode == RESULT_OK) {
                 currentPath = data.getParcelableExtra("Path");
+                toolbarLayout.removeView(searchIcon);
+                toolbarLayout.removeView(searchGPSIcon);
                 state = Utility.IS_TRAVELLING;
             } else if (resultCode == Utility.DELETED) {
                 requestLocationUpdates();
@@ -586,7 +588,8 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
                 currentPolyline.add(currentLatLng);
             }
             mMap.addPolyline(currentPolyline);
-            mMap.addMarker(userMarker.position(new LatLng(userLocation.getLatitude(), userLocation.getLongitude())));
+            if(userLocation != null)
+                mMap.addMarker(userMarker.position(new LatLng(userLocation.getLatitude(), userLocation.getLongitude())));
             requestLocationUpdates();
 
         }
@@ -680,7 +683,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
                     //Let's start searching
                     //There is no GPS, the function returns and a error message appears
                     if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-                        Toast.makeText(this.getApplicationContext(), "You need your GPS enabled to search for paths around you!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this.getApplicationContext(), "You need your GPS enabled to ic_search_gps for paths around you!", Toast.LENGTH_SHORT).show();
                         return;
                     }
                     toolbarLayout.removeView(searchGPSIcon);
