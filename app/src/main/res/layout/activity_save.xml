@@ -185,22 +185,6 @@
                 android:id="@+id/online_button"
                 />
 
-            a
-
-            <RatingBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/valutation_rating"
-                style="?android:attr/ratingBarStyleSmall"
-                android:numStars="5"
-                android:stepSize="1"
-                android:rating="1"
-                android:isIndicator="false"
-                android:paddingTop="5dp"
-                android:paddingBottom="10dp"
-                android:layout_above="@+id/difficulty_text"
-                android:layout_toLeftOf="@+id/online_button"
-                android:layout_toStartOf="@+id/online_button" />
 
             <Spinner
                 android:layout_width="wrap_content"
@@ -232,16 +216,6 @@
                 android:layout_alignEnd="@+id/review_text"
                 android:id="@+id/length_text" />
 
-            <TextView
-                android:text="TextView"
-                style="@style/textTextViewTheme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/length"
-                android:layout_below="@+id/personal_time"
-                android:layout_alignLeft="@+id/valutation_rating"
-                android:layout_alignStart="@+id/valutation_rating" />
-
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -253,6 +227,31 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignRight="@+id/bike_check"
                 android:layout_alignEnd="@+id/bike_check" />
+
+            <TextView
+                android:text="TextView"
+                style="@style/textTextViewTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/length"
+                android:layout_below="@+id/personal_time"
+                android:layout_alignLeft="@+id/valutation_rating"
+                android:layout_alignStart="@+id/valutation_rating" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/valutation_rating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="1"
+                android:isIndicator="false"
+                android:paddingTop="5dp"
+                android:paddingBottom="10dp"
+                android:layout_above="@+id/difficulty_text"
+                android:layout_toRightOf="@+id/personal_time"
+                android:layout_toEndOf="@+id/personal_time" />
 
 
         </RelativeLayout>
