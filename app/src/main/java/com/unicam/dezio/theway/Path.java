@@ -20,14 +20,13 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.google.java.contract.*;
+
+import junit.framework.Assert;
 
 
 /**
  That class store the information about a particular path.
  **/
-/* @Invariant({"difficulty >= 0 && difficulty <= 2",
-            "valutation >= 0 and valutation <= 5"}) */
 public class Path implements Parcelable {
 
     /** ArrayList of coordinates representing the path **/
@@ -141,7 +140,7 @@ public class Path implements Parcelable {
      * @throws IllegalArgumentException
      */
     public void setDifficulty(int difficulty) throws IllegalArgumentException {
-        //The difficulty must be between 1 and 5
+
         if (difficulty >= 0 && difficulty <= 2)
             this.difficulty = difficulty;
         else
@@ -470,19 +469,4 @@ public class Path implements Parcelable {
 
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Path path = (Path) o;
-
-        return gpxName != null ? gpxName.equals(path.gpxName) : path.gpxName == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        return gpxName != null ? gpxName.hashCode() : 0;
-    }
 }

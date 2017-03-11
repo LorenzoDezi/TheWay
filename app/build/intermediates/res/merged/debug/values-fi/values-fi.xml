@@ -57,7 +57,7 @@
     <string msgid="3804878371876790270" name="cast_tracks_chooser_dialog_ok">"OK"</string>
     <string msgid="2454147715032376208" name="cast_tracks_chooser_dialog_subtitles">"Tekstitykset"</string>
     <string msgid="2913461521603516868" name="cast_unmute">"Poista mykistys"</string>
-    <string name="com_facebook_device_auth_instructions">Siirry osoitteeseen &lt;b>facebook.com/device&lt;/b> älypuhelimella tai tietokoneella ja anna seuraava koodi:</string>
+    <string name="com_facebook_device_auth_instructions">Siirry osoitteeseen &lt;b>facebook.com/device&lt;/b> ja kirjoita oheinen koodi sivulle.</string>
     <string name="com_facebook_image_download_unknown_error">Odottamaton virhe kuvan palvelimesta lataamisen aikana.</string>
     <string name="com_facebook_internet_permission_error_message">WebView-kirjautuminen edellyttää INTERNET-käyttöoikeutta</string>
     <string name="com_facebook_internet_permission_error_title">AndroidManifest-virhe</string>
@@ -74,6 +74,10 @@
     <string name="com_facebook_loginview_logged_in_using_facebook">Sisäänkirjautunut Facebookin avulla</string>
     <string name="com_facebook_send_button_text">Lähetä</string>
     <string name="com_facebook_share_button_text">Jaa</string>
+    <string name="com_facebook_smart_device_instructions">Pääset liittämään käyttäjätilisi avaamalla Facebook-sovelluksen mobiililaitteellasi ja tarkistamalla ilmoitukset.</string>
+    <string name="com_facebook_smart_device_instructions_or">- TAI -</string>
+    <string name="com_facebook_smart_login_confirmation_cancel">Etkö tämä ole sinä?</string>
+    <string name="com_facebook_smart_login_confirmation_title">Vahvista sisäänkirjautuminen</string>
     <string name="com_facebook_tooltip_default">Sinä voit valita, mitä tietoja jaat sovelluksille.</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Ota käyttöön"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> ei toimi, ellet ota Google Play Palveluita käyttöön."</string>

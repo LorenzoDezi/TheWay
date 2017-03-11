@@ -1,4 +1,4 @@
-#Mon Feb 27 15:49:48 CET 2017
+#Sat Mar 11 09:33:51 CET 2017
 base.0=/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_7b0f8e71cf129eac067fba6aae8ca7bbefa53a2d
 renamed.1=classes.dex
 renamed.0=classes2.dex

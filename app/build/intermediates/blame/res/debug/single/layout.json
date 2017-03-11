@@ -29,7 +29,7 @@
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/com_facebook_activity_layout.xml",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/layout/com_facebook_activity_layout.xml"
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/layout/com_facebook_activity_layout.xml"
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/design_text_input_password_icon.xml",
@@ -49,7 +49,7 @@
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/messenger_button_send_white_round.xml",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/layout/messenger_button_send_white_round.xml"
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/layout/messenger_button_send_white_round.xml"
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
@@ -93,7 +93,7 @@
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/messenger_button_send_blue_round.xml",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/layout/messenger_button_send_blue_round.xml"
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/layout/messenger_button_send_blue_round.xml"
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
@@ -129,7 +129,7 @@
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/messenger_button_send_white_large.xml",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/layout/messenger_button_send_white_large.xml"
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/layout/messenger_button_send_white_large.xml"
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_header_item_layout.xml",
@@ -161,15 +161,15 @@
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/com_facebook_login_fragment.xml",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/layout/com_facebook_login_fragment.xml"
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/layout/com_facebook_login_fragment.xml"
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/messenger_button_send_blue_small.xml",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/layout/messenger_button_send_blue_small.xml"
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/layout/messenger_button_send_blue_small.xml"
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/com_facebook_smart_device_dialog_fragment.xml",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/layout/com_facebook_smart_device_dialog_fragment.xml"
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/layout/com_facebook_smart_device_dialog_fragment.xml"
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/notification_action.xml",
@@ -189,7 +189,7 @@
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/messenger_button_send_blue_large.xml",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/layout/messenger_button_send_blue_large.xml"
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/layout/messenger_button_send_blue_large.xml"
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
@@ -217,7 +217,7 @@
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/com_facebook_tooltip_bubble.xml",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/layout/com_facebook_tooltip_bubble.xml"
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/layout/com_facebook_tooltip_bubble.xml"
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/notification_media_action.xml",
@@ -365,7 +365,7 @@
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/messenger_button_send_white_small.xml",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/layout/messenger_button_send_white_small.xml"
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/layout/messenger_button_send_white_small.xml"
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/place_autocomplete_progress.xml",
@@ -381,6 +381,6 @@
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/layout/com_facebook_device_auth_dialog_fragment.xml",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/layout/com_facebook_device_auth_dialog_fragment.xml"
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/layout/com_facebook_device_auth_dialog_fragment.xml"
     }
 ]

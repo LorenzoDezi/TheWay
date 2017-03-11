@@ -65,6 +65,7 @@ public class SaveActivity extends AppCompatActivity {
     private RatingBar ratingBar;
     private RelativeLayout mainLayout;
     private SharedPreferences pref;
+    private TextView lengthTextView;
     private TextView timeTextView;
 
     @Override
@@ -97,6 +98,7 @@ public class SaveActivity extends AppCompatActivity {
             ratingBar = (RatingBar) findViewById(R.id.valutation_rating);
             mainLayout = (RelativeLayout) findViewById(R.id.save_layout);
             timeTextView = (TextView) findViewById(R.id.personal_time);
+            lengthTextView = (TextView) findViewById(R.id.length);
 
             //Retrieving the path to be saved from the intent
             Intent intent = getIntent();
@@ -116,6 +118,8 @@ public class SaveActivity extends AppCompatActivity {
                 )
             );
             context = this.getApplicationContext();
+            pathToSave.setLength();
+            lengthTextView.setText(pathToSave.getLenght() + " meters");
 
         } else {
 
@@ -178,7 +182,6 @@ public class SaveActivity extends AppCompatActivity {
             pathToSave.setStart();
             pathToSave.setDescription(descriptionString);
             pathToSave.setDifficulty(difficulty);
-            pathToSave.setLength();
             pathToSave.setValutation(rating);
             pathToSave.setUsedVehicle(vehicleUsed);
             pathToSave.setUsableVehicle(vehicles);
@@ -200,6 +203,7 @@ public class SaveActivity extends AppCompatActivity {
     private void storePathOnline()  {
 
         if(currentGPXFile != null) {
+
 
             pathToSave.setGpxName(currentGPXFile.getName());
             Retrofit retrofit = new Retrofit.Builder().baseUrl(Utility.BASE_URL)

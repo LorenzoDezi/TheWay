@@ -57,7 +57,7 @@
     <string msgid="3804878371876790270" name="cast_tracks_chooser_dialog_ok">"OK"</string>
     <string msgid="2454147715032376208" name="cast_tracks_chooser_dialog_subtitles">"字幕"</string>
     <string msgid="2913461521603516868" name="cast_unmute">"ミュートを解除"</string>
-    <string name="com_facebook_device_auth_instructions">スマートフォンまたはコンピュータから&lt;b>facebook.com/device&lt;/b>にアクセスし、次のコードを入力してください。</string>
+    <string name="com_facebook_device_auth_instructions">&lt;b>facebook.com/device&lt;/b>にアクセスし、上に表示されているコードを入力してください。</string>
     <string name="com_facebook_image_download_unknown_error">画像のダウンロード中に予期しないエラーが発生しました。</string>
     <string name="com_facebook_internet_permission_error_message">WebViewログインにはINTERNET権限が必要です</string>
     <string name="com_facebook_internet_permission_error_title">AndroidManifestエラー</string>
@@ -74,6 +74,10 @@
     <string name="com_facebook_loginview_logged_in_using_facebook">Facebookを使用してログイン中</string>
     <string name="com_facebook_send_button_text">送信</string>
     <string name="com_facebook_share_button_text">シェア</string>
+    <string name="com_facebook_smart_device_instructions">アカウントを接続するには、お使いのモバイル機器でFacebookアプリを開き、通知をご確認ください。</string>
+    <string name="com_facebook_smart_device_instructions_or">- または -</string>
+    <string name="com_facebook_smart_login_confirmation_cancel">別のユーザーとしてログイン</string>
+    <string name="com_facebook_smart_login_confirmation_title">ログインの確認</string>
     <string name="com_facebook_tooltip_default">アプリと共有する情報をコントロールできます。</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"有効にする"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g>の実行には、Google Play開発者サービスの有効化が必要です。"</string>

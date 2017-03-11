@@ -1090,17 +1090,17 @@
                     "startLine": 59,
                     "startColumn": 4,
                     "startOffset": 6021,
-                    "endColumn": 169,
-                    "endOffset": 6186
+                    "endColumn": 153,
+                    "endOffset": 6170
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
                         "startOffset": 55,
-                        "endColumn": 169,
-                        "endOffset": 220
+                        "endColumn": 153,
+                        "endOffset": 204
                     }
                 }
             },
@@ -1108,18 +1108,18 @@
                 "to": {
                     "startLine": 60,
                     "startColumn": 4,
-                    "startOffset": 6191,
+                    "startOffset": 6175,
                     "endColumn": 124,
-                    "endOffset": 6311
+                    "endOffset": 6295
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 225,
+                        "startOffset": 209,
                         "endColumn": 124,
-                        "endOffset": 345
+                        "endOffset": 329
                     }
                 }
             },
@@ -1127,18 +1127,18 @@
                 "to": {
                     "startLine": 61,
                     "startColumn": 4,
-                    "startOffset": 6316,
+                    "startOffset": 6300,
                     "endColumn": 141,
-                    "endOffset": 6453
+                    "endOffset": 6437
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 350,
+                        "startOffset": 334,
                         "endColumn": 141,
-                        "endOffset": 487
+                        "endOffset": 471
                     }
                 }
             },
@@ -1146,18 +1146,18 @@
                 "to": {
                     "startLine": 62,
                     "startColumn": 4,
-                    "startOffset": 6458,
+                    "startOffset": 6442,
                     "endColumn": 97,
-                    "endOffset": 6551
+                    "endOffset": 6535
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 492,
+                        "startOffset": 476,
                         "endColumn": 97,
-                        "endOffset": 585
+                        "endOffset": 569
                     }
                 }
             },
@@ -1165,18 +1165,18 @@
                 "to": {
                     "startLine": 63,
                     "startColumn": 4,
-                    "startOffset": 6556,
+                    "startOffset": 6540,
                     "endColumn": 69,
-                    "endOffset": 6621
+                    "endOffset": 6605
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 590,
+                        "startOffset": 574,
                         "endColumn": 69,
-                        "endOffset": 655
+                        "endOffset": 639
                     }
                 }
             },
@@ -1184,18 +1184,18 @@
                 "to": {
                     "startLine": 64,
                     "startColumn": 4,
-                    "startOffset": 6626,
+                    "startOffset": 6610,
                     "endColumn": 71,
-                    "endOffset": 6693
+                    "endOffset": 6677
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 660,
+                        "startOffset": 644,
                         "endColumn": 71,
-                        "endOffset": 727
+                        "endOffset": 711
                     }
                 }
             },
@@ -1203,18 +1203,18 @@
                 "to": {
                     "startLine": 65,
                     "startColumn": 4,
-                    "startOffset": 6698,
+                    "startOffset": 6682,
                     "endColumn": 60,
-                    "endOffset": 6754
+                    "endOffset": 6738
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 732,
+                        "startOffset": 716,
                         "endColumn": 60,
-                        "endOffset": 788
+                        "endOffset": 772
                     }
                 }
             },
@@ -1222,18 +1222,18 @@
                 "to": {
                     "startLine": 66,
                     "startColumn": 4,
-                    "startOffset": 6759,
+                    "startOffset": 6743,
                     "endColumn": 75,
-                    "endOffset": 6830
+                    "endOffset": 6814
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 793,
+                        "startOffset": 777,
                         "endColumn": 75,
-                        "endOffset": 864
+                        "endOffset": 848
                     }
                 }
             },
@@ -1241,18 +1241,18 @@
                 "to": {
                     "startLine": 67,
                     "startColumn": 4,
-                    "startOffset": 6835,
+                    "startOffset": 6819,
                     "endColumn": 75,
-                    "endOffset": 6906
+                    "endOffset": 6890
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 869,
+                        "startOffset": 853,
                         "endColumn": 75,
-                        "endOffset": 940
+                        "endOffset": 924
                     }
                 }
             },
@@ -1260,18 +1260,18 @@
                 "to": {
                     "startLine": 68,
                     "startColumn": 4,
-                    "startOffset": 6911,
+                    "startOffset": 6895,
                     "endColumn": 95,
-                    "endOffset": 7002
+                    "endOffset": 6986
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 945,
+                        "startOffset": 929,
                         "endColumn": 95,
-                        "endOffset": 1036
+                        "endOffset": 1020
                     }
                 }
             },
@@ -1279,18 +1279,18 @@
                 "to": {
                     "startLine": 69,
                     "startColumn": 4,
-                    "startOffset": 7007,
+                    "startOffset": 6991,
                     "endColumn": 107,
-                    "endOffset": 7110
+                    "endOffset": 7094
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 1041,
+                        "startOffset": 1025,
                         "endColumn": 107,
-                        "endOffset": 1144
+                        "endOffset": 1128
                     }
                 }
             },
@@ -1298,18 +1298,18 @@
                 "to": {
                     "startLine": 70,
                     "startColumn": 4,
-                    "startOffset": 7115,
+                    "startOffset": 7099,
                     "endColumn": 77,
-                    "endOffset": 7188
+                    "endOffset": 7172
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 1149,
+                        "startOffset": 1133,
                         "endColumn": 77,
-                        "endOffset": 1222
+                        "endOffset": 1206
                     }
                 }
             },
@@ -1317,18 +1317,18 @@
                 "to": {
                     "startLine": 71,
                     "startColumn": 4,
-                    "startOffset": 7193,
+                    "startOffset": 7177,
                     "endColumn": 77,
-                    "endOffset": 7266
+                    "endOffset": 7250
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 1227,
+                        "startOffset": 1211,
                         "endColumn": 77,
-                        "endOffset": 1300
+                        "endOffset": 1284
                     }
                 }
             },
@@ -1336,18 +1336,18 @@
                 "to": {
                     "startLine": 72,
                     "startColumn": 4,
-                    "startOffset": 7271,
+                    "startOffset": 7255,
                     "endColumn": 91,
-                    "endOffset": 7358
+                    "endOffset": 7342
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 1305,
+                        "startOffset": 1289,
                         "endColumn": 91,
-                        "endOffset": 1392
+                        "endOffset": 1376
                     }
                 }
             },
@@ -1355,18 +1355,18 @@
                 "to": {
                     "startLine": 73,
                     "startColumn": 4,
-                    "startOffset": 7363,
+                    "startOffset": 7347,
                     "endColumn": 106,
-                    "endOffset": 7465
+                    "endOffset": 7449
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 1397,
+                        "startOffset": 1381,
                         "endColumn": 106,
-                        "endOffset": 1499
+                        "endOffset": 1483
                     }
                 }
             },
@@ -1374,18 +1374,18 @@
                 "to": {
                     "startLine": 74,
                     "startColumn": 4,
-                    "startOffset": 7470,
+                    "startOffset": 7454,
                     "endColumn": 65,
-                    "endOffset": 7531
+                    "endOffset": 7515
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 1504,
+                        "startOffset": 1488,
                         "endColumn": 65,
-                        "endOffset": 1565
+                        "endOffset": 1549
                     }
                 }
             },
@@ -1393,18 +1393,18 @@
                 "to": {
                     "startLine": 75,
                     "startColumn": 4,
-                    "startOffset": 7536,
+                    "startOffset": 7520,
                     "endColumn": 66,
-                    "endOffset": 7598
+                    "endOffset": 7582
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 1570,
+                        "startOffset": 1554,
                         "endColumn": 66,
-                        "endOffset": 1632
+                        "endOffset": 1616
                     }
                 }
             },
@@ -1412,18 +1412,18 @@
                 "to": {
                     "startLine": 76,
                     "startColumn": 4,
-                    "startOffset": 7603,
-                    "endColumn": 144,
-                    "endOffset": 7743
+                    "startOffset": 7587,
+                    "endColumn": 175,
+                    "endOffset": 7758
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 1637,
-                        "endColumn": 144,
-                        "endOffset": 1777
+                        "startOffset": 1621,
+                        "endColumn": 175,
+                        "endOffset": 1792
                     }
                 }
             },
@@ -1431,9 +1431,85 @@
                 "to": {
                     "startLine": 77,
                     "startColumn": 4,
-                    "startOffset": 7748,
+                    "startOffset": 7763,
+                    "endColumn": 80,
+                    "endOffset": 7839
+                },
+                "from": {
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1797,
+                        "endColumn": 80,
+                        "endOffset": 1873
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 78,
+                    "startColumn": 4,
+                    "startOffset": 7844,
+                    "endColumn": 84,
+                    "endOffset": 7924
+                },
+                "from": {
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1878,
+                        "endColumn": 84,
+                        "endOffset": 1958
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 79,
+                    "startColumn": 4,
+                    "startOffset": 7929,
+                    "endColumn": 96,
+                    "endOffset": 8021
+                },
+                "from": {
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1963,
+                        "endColumn": 96,
+                        "endOffset": 2055
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 80,
+                    "startColumn": 4,
+                    "startOffset": 8026,
+                    "endColumn": 144,
+                    "endOffset": 8166
+                },
+                "from": {
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 2060,
+                        "endColumn": 144,
+                        "endOffset": 2200
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 81,
+                    "startColumn": 4,
+                    "startOffset": 8171,
                     "endColumn": 108,
-                    "endOffset": 7852
+                    "endOffset": 8275
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/values-tl/values.xml",
@@ -1448,11 +1524,11 @@
             },
             {
                 "to": {
-                    "startLine": 78,
+                    "startLine": 82,
                     "startColumn": 4,
-                    "startOffset": 7857,
+                    "startOffset": 8280,
                     "endColumn": 207,
-                    "endOffset": 8060
+                    "endOffset": 8483
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/values-tl/values.xml",
@@ -1467,11 +1543,11 @@
             },
             {
                 "to": {
-                    "startLine": 79,
+                    "startLine": 83,
                     "startColumn": 4,
-                    "startOffset": 8065,
+                    "startOffset": 8488,
                     "endColumn": 139,
-                    "endOffset": 8200
+                    "endOffset": 8623
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/values-tl/values.xml",
@@ -1486,11 +1562,11 @@
             },
             {
                 "to": {
-                    "startLine": 80,
+                    "startLine": 84,
                     "startColumn": 4,
-                    "startOffset": 8205,
+                    "startOffset": 8628,
                     "endColumn": 110,
-                    "endOffset": 8311
+                    "endOffset": 8734
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/values-tl/values.xml",
@@ -1505,11 +1581,11 @@
             },
             {
                 "to": {
-                    "startLine": 81,
+                    "startLine": 85,
                     "startColumn": 4,
-                    "startOffset": 8316,
+                    "startOffset": 8739,
                     "endColumn": 216,
-                    "endOffset": 8528
+                    "endOffset": 8951
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/values-tl/values.xml",
@@ -1524,11 +1600,11 @@
             },
             {
                 "to": {
-                    "startLine": 82,
+                    "startLine": 86,
                     "startColumn": 4,
-                    "startOffset": 8533,
+                    "startOffset": 8956,
                     "endColumn": 137,
-                    "endOffset": 8666
+                    "endOffset": 9089
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/values-tl/values.xml",
@@ -1543,11 +1619,11 @@
             },
             {
                 "to": {
-                    "startLine": 83,
+                    "startLine": 87,
                     "startColumn": 4,
-                    "startOffset": 8671,
+                    "startOffset": 9094,
                     "endColumn": 141,
-                    "endOffset": 8808
+                    "endOffset": 9231
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/values-tl/values.xml",
@@ -1562,11 +1638,11 @@
             },
             {
                 "to": {
-                    "startLine": 84,
+                    "startLine": 88,
                     "startColumn": 4,
-                    "startOffset": 8813,
+                    "startOffset": 9236,
                     "endColumn": 204,
-                    "endOffset": 9013
+                    "endOffset": 9436
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.8.0/res/values-tl/values.xml",
@@ -1581,11 +1657,11 @@
             },
             {
                 "to": {
-                    "startLine": 85,
+                    "startLine": 89,
                     "startColumn": 4,
-                    "startOffset": 9018,
+                    "startOffset": 9441,
                     "endColumn": 237,
-                    "endOffset": 9251
+                    "endOffset": 9674
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/values-tl/values.xml",
@@ -1600,11 +1676,11 @@
             },
             {
                 "to": {
-                    "startLine": 86,
+                    "startLine": 90,
                     "startColumn": 4,
-                    "startOffset": 9256,
+                    "startOffset": 9679,
                     "endColumn": 108,
-                    "endOffset": 9360
+                    "endOffset": 9783
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/values-tl/values.xml",
@@ -1619,11 +1695,11 @@
             },
             {
                 "to": {
-                    "startLine": 87,
+                    "startLine": 91,
                     "startColumn": 4,
-                    "startOffset": 9365,
+                    "startOffset": 9788,
                     "endColumn": 208,
-                    "endOffset": 9569
+                    "endOffset": 9992
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/values-tl/values.xml",
@@ -1638,11 +1714,11 @@
             },
             {
                 "to": {
-                    "startLine": 88,
+                    "startLine": 92,
                     "startColumn": 4,
-                    "startOffset": 9574,
+                    "startOffset": 9997,
                     "endColumn": 139,
-                    "endOffset": 9709
+                    "endOffset": 10132
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/values-tl/values.xml",
@@ -1657,11 +1733,11 @@
             },
             {
                 "to": {
-                    "startLine": 89,
+                    "startLine": 93,
                     "startColumn": 4,
-                    "startOffset": 9714,
+                    "startOffset": 10137,
                     "endColumn": 220,
-                    "endOffset": 9930
+                    "endOffset": 10353
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/values-tl/values.xml",
@@ -1676,11 +1752,11 @@
             },
             {
                 "to": {
-                    "startLine": 90,
+                    "startLine": 94,
                     "startColumn": 4,
-                    "startOffset": 9935,
+                    "startOffset": 10358,
                     "endColumn": 208,
-                    "endOffset": 10139
+                    "endOffset": 10562
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/values-tl/values.xml",
@@ -1695,11 +1771,11 @@
             },
             {
                 "to": {
-                    "startLine": 91,
+                    "startLine": 95,
                     "startColumn": 4,
-                    "startOffset": 10144,
+                    "startOffset": 10567,
                     "endColumn": 97,
-                    "endOffset": 10237
+                    "endOffset": 10660
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/values-tl/values.xml",
@@ -1714,11 +1790,11 @@
             },
             {
                 "to": {
-                    "startLine": 92,
+                    "startLine": 96,
                     "startColumn": 4,
-                    "startOffset": 10242,
+                    "startOffset": 10665,
                     "endColumn": 95,
-                    "endOffset": 10333
+                    "endOffset": 10756
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/values-tl/values.xml",
@@ -1733,11 +1809,11 @@
             },
             {
                 "to": {
-                    "startLine": 93,
+                    "startLine": 97,
                     "startColumn": 4,
-                    "startOffset": 10338,
+                    "startOffset": 10761,
                     "endColumn": 109,
-                    "endOffset": 10443
+                    "endOffset": 10866
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/values-tl/values.xml",
@@ -1752,11 +1828,11 @@
             },
             {
                 "to": {
-                    "startLine": 94,
+                    "startLine": 98,
                     "startColumn": 4,
-                    "startOffset": 10448,
+                    "startOffset": 10871,
                     "endColumn": 134,
-                    "endOffset": 10578
+                    "endOffset": 11001
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.8.0/res/values-tl/values.xml",
@@ -1771,11 +1847,11 @@
             },
             {
                 "to": {
-                    "startLine": 95,
+                    "startLine": 99,
                     "startColumn": 4,
-                    "startOffset": 10583,
+                    "startOffset": 11006,
                     "endColumn": 113,
-                    "endOffset": 10692
+                    "endOffset": 11115
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.8.0/res/values-tl/values.xml",
@@ -1790,11 +1866,11 @@
             },
             {
                 "to": {
-                    "startLine": 96,
+                    "startLine": 100,
                     "startColumn": 4,
-                    "startOffset": 10697,
+                    "startOffset": 11120,
                     "endColumn": 101,
-                    "endOffset": 10794
+                    "endOffset": 11217
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.8.0/res/values-tl/values.xml",
@@ -1809,11 +1885,11 @@
             },
             {
                 "to": {
-                    "startLine": 97,
+                    "startLine": 101,
                     "startColumn": 4,
-                    "startOffset": 10799,
+                    "startOffset": 11222,
                     "endColumn": 105,
-                    "endOffset": 10900
+                    "endOffset": 11323
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.8.0/res/values-tl/values.xml",
@@ -1828,11 +1904,11 @@
             },
             {
                 "to": {
-                    "startLine": 98,
+                    "startLine": 102,
                     "startColumn": 4,
-                    "startOffset": 10905,
+                    "startOffset": 11328,
                     "endColumn": 95,
-                    "endOffset": 10996
+                    "endOffset": 11419
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.8.0/res/values-tl/values.xml",
@@ -1847,11 +1923,11 @@
             },
             {
                 "to": {
-                    "startLine": 99,
+                    "startLine": 103,
                     "startColumn": 4,
-                    "startOffset": 11001,
+                    "startOffset": 11424,
                     "endColumn": 103,
-                    "endOffset": 11100
+                    "endOffset": 11523
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.8.0/res/values-tl/values.xml",
@@ -1866,11 +1942,11 @@
             },
             {
                 "to": {
-                    "startLine": 100,
+                    "startLine": 104,
                     "startColumn": 4,
-                    "startOffset": 11105,
+                    "startOffset": 11528,
                     "endColumn": 75,
-                    "endOffset": 11176
+                    "endOffset": 11599
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.8.0/res/values-tl/values.xml",
@@ -1885,30 +1961,30 @@
             },
             {
                 "to": {
-                    "startLine": 101,
+                    "startLine": 105,
                     "startColumn": 4,
-                    "startOffset": 11181,
+                    "startOffset": 11604,
                     "endColumn": 62,
-                    "endOffset": 11239
+                    "endOffset": 11662
                 },
                 "from": {
-                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-tl/values-tl.xml",
+                    "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/res/values-tl/values-tl.xml",
                     "position": {
-                        "startLine": 20,
+                        "startLine": 24,
                         "startColumn": 4,
-                        "startOffset": 1782,
+                        "startOffset": 2205,
                         "endColumn": 62,
-                        "endOffset": 1840
+                        "endOffset": 2263
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 102,
+                    "startLine": 106,
                     "startColumn": 4,
-                    "startOffset": 11244,
+                    "startOffset": 11667,
                     "endColumn": 104,
-                    "endOffset": 11344
+                    "endOffset": 11767
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-tl/values-tl.xml",
@@ -1923,11 +1999,11 @@
             },
             {
                 "to": {
-                    "startLine": 103,
+                    "startLine": 107,
                     "startColumn": 4,
-                    "startOffset": 11349,
+                    "startOffset": 11772,
                     "endColumn": 103,
-                    "endOffset": 11448
+                    "endOffset": 11871
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-tl/values-tl.xml",
@@ -1942,11 +2018,11 @@
             },
             {
                 "to": {
-                    "startLine": 104,
+                    "startLine": 108,
                     "startColumn": 4,
-                    "startOffset": 11453,
+                    "startOffset": 11876,
                     "endColumn": 83,
-                    "endOffset": 11532
+                    "endOffset": 11955
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-tl/values-tl.xml",
@@ -1961,11 +2037,11 @@
             },
             {
                 "to": {
-                    "startLine": 105,
+                    "startLine": 109,
                     "startColumn": 4,
-                    "startOffset": 11537,
+                    "startOffset": 11960,
                     "endColumn": 91,
-                    "endOffset": 11624
+                    "endOffset": 12047
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-tl/values-tl.xml",
@@ -1980,11 +2056,11 @@
             },
             {
                 "to": {
-                    "startLine": 106,
+                    "startLine": 110,
                     "startColumn": 4,
-                    "startOffset": 11629,
+                    "startOffset": 12052,
                     "endColumn": 107,
-                    "endOffset": 11732
+                    "endOffset": 12155
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-tl/values-tl.xml",
@@ -1999,11 +2075,11 @@
             },
             {
                 "to": {
-                    "startLine": 107,
+                    "startLine": 111,
                     "startColumn": 4,
-                    "startOffset": 11737,
+                    "startOffset": 12160,
                     "endColumn": 95,
-                    "endOffset": 11828
+                    "endOffset": 12251
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-tl/values-tl.xml",
@@ -2018,11 +2094,11 @@
             },
             {
                 "to": {
-                    "startLine": 108,
+                    "startLine": 112,
                     "startColumn": 4,
-                    "startOffset": 11833,
+                    "startOffset": 12256,
                     "endColumn": 97,
-                    "endOffset": 11926
+                    "endOffset": 12349
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-tl/values-tl.xml",
@@ -2037,11 +2113,11 @@
             },
             {
                 "to": {
-                    "startLine": 109,
+                    "startLine": 113,
                     "startColumn": 4,
-                    "startOffset": 11931,
+                    "startOffset": 12354,
                     "endColumn": 94,
-                    "endOffset": 12021
+                    "endOffset": 12444
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-tl/values-tl.xml",
@@ -2056,11 +2132,11 @@
             },
             {
                 "to": {
-                    "startLine": 110,
+                    "startLine": 114,
                     "startColumn": 4,
-                    "startOffset": 12026,
+                    "startOffset": 12449,
                     "endColumn": 94,
-                    "endOffset": 12116
+                    "endOffset": 12539
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-tl/values-tl.xml",
@@ -2075,11 +2151,11 @@
             },
             {
                 "to": {
-                    "startLine": 111,
+                    "startLine": 115,
                     "startColumn": 4,
-                    "startOffset": 12121,
+                    "startOffset": 12544,
                     "endColumn": 121,
-                    "endOffset": 12238
+                    "endOffset": 12661
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-tl/values-tl.xml",
@@ -2094,11 +2170,11 @@
             },
             {
                 "to": {
-                    "startLine": 112,
+                    "startLine": 116,
                     "startColumn": 4,
-                    "startOffset": 12243,
+                    "startOffset": 12666,
                     "endColumn": 111,
-                    "endOffset": 12350
+                    "endOffset": 12773
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-tl/values-tl.xml",
@@ -2113,11 +2189,11 @@
             },
             {
                 "to": {
-                    "startLine": 113,
+                    "startLine": 117,
                     "startColumn": 4,
-                    "startOffset": 12355,
+                    "startOffset": 12778,
                     "endColumn": 85,
-                    "endOffset": 12436
+                    "endOffset": 12859
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-tl/values-tl.xml",
@@ -2132,11 +2208,11 @@
             },
             {
                 "to": {
-                    "startLine": 114,
+                    "startLine": 118,
                     "startColumn": 4,
-                    "startOffset": 12441,
+                    "startOffset": 12864,
                     "endColumn": 82,
-                    "endOffset": 12519
+                    "endOffset": 12942
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-tl/values-tl.xml",
@@ -2151,11 +2227,11 @@
             },
             {
                 "to": {
-                    "startLine": 115,
+                    "startLine": 119,
                     "startColumn": 4,
-                    "startOffset": 12524,
+                    "startOffset": 12947,
                     "endColumn": 98,
-                    "endOffset": 12618
+                    "endOffset": 13041
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-tl/values-tl.xml",
@@ -2170,11 +2246,11 @@
             },
             {
                 "to": {
-                    "startLine": 116,
+                    "startLine": 120,
                     "startColumn": 4,
-                    "startOffset": 12623,
+                    "startOffset": 13046,
                     "endColumn": 85,
-                    "endOffset": 12704
+                    "endOffset": 13127
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-tl/values-tl.xml",
@@ -2189,11 +2265,11 @@
             },
             {
                 "to": {
-                    "startLine": 117,
+                    "startLine": 121,
                     "startColumn": 4,
-                    "startOffset": 12709,
+                    "startOffset": 13132,
                     "endColumn": 96,
-                    "endOffset": 12801
+                    "endOffset": 13224
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-tl/values-tl.xml",
@@ -2208,11 +2284,11 @@
             },
             {
                 "to": {
-                    "startLine": 118,
+                    "startLine": 122,
                     "startColumn": 4,
-                    "startOffset": 12806,
+                    "startOffset": 13229,
                     "endColumn": 112,
-                    "endOffset": 12914
+                    "endOffset": 13337
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.8.0/res/values-tl/values.xml",
@@ -2227,11 +2303,11 @@
             },
             {
                 "to": {
-                    "startLine": 119,
+                    "startLine": 123,
                     "startColumn": 4,
-                    "startOffset": 12919,
+                    "startOffset": 13342,
                     "endColumn": 97,
-                    "endOffset": 13012
+                    "endOffset": 13435
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.8.0/res/values-tl/values.xml",
@@ -2246,11 +2322,11 @@
             },
             {
                 "to": {
-                    "startLine": 120,
+                    "startLine": 124,
                     "startColumn": 4,
-                    "startOffset": 13017,
+                    "startOffset": 13440,
                     "endColumn": 83,
-                    "endOffset": 13096
+                    "endOffset": 13519
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/values-tl/values-tl.xml",
@@ -2265,11 +2341,11 @@
             },
             {
                 "to": {
-                    "startLine": 121,
+                    "startLine": 125,
                     "startColumn": 4,
-                    "startOffset": 13101,
+                    "startOffset": 13524,
                     "endColumn": 100,
-                    "endOffset": 13197
+                    "endOffset": 13620
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/values-tl/values-tl.xml",
@@ -2284,11 +2360,11 @@
             },
             {
                 "to": {
-                    "startLine": 122,
+                    "startLine": 126,
                     "startColumn": 4,
-                    "startOffset": 13202,
+                    "startOffset": 13625,
                     "endColumn": 141,
-                    "endOffset": 13339
+                    "endOffset": 13762
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.8.0/res/values-tl/values.xml",
@@ -2303,11 +2379,11 @@
             },
             {
                 "to": {
-                    "startLine": 123,
+                    "startLine": 127,
                     "startColumn": 4,
-                    "startOffset": 13344,
+                    "startOffset": 13767,
                     "endColumn": 96,
-                    "endOffset": 13436
+                    "endOffset": 13859
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.8.0/res/values-tl/values.xml",
@@ -2322,11 +2398,11 @@
             },
             {
                 "to": {
-                    "startLine": 124,
+                    "startLine": 128,
                     "startColumn": 4,
-                    "startOffset": 13441,
+                    "startOffset": 13864,
                     "endColumn": 111,
-                    "endOffset": 13548
+                    "endOffset": 13971
                 },
                 "from": {
                     "file": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.8.0/res/values-tl/values.xml",

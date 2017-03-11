@@ -451,8 +451,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
                 mMap.addPolyline(currentPolyline);
                 index++;
             }
-            mMap.addCircle(new CircleOptions().radius(coveredArea.getRadius())
-                    .center(new LatLng(coveredArea.getCenter().getLatitude(), coveredArea.getCenter().getLongitude())));
+
         } else {
             Toast.makeText(context, "No paths found!", Toast.LENGTH_SHORT).show();
         }

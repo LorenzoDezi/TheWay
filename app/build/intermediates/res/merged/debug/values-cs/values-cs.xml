@@ -57,7 +57,7 @@
     <string msgid="3804878371876790270" name="cast_tracks_chooser_dialog_ok">"OK"</string>
     <string msgid="2454147715032376208" name="cast_tracks_chooser_dialog_subtitles">"Titulky"</string>
     <string msgid="2913461521603516868" name="cast_unmute">"Zapnout zvuk"</string>
-    <string name="com_facebook_device_auth_instructions">Přejděte ze smartphonu nebo počítače na &lt;b>facebook.com/device&lt;/b> a zadejte tento kód:</string>
+    <string name="com_facebook_device_auth_instructions">Navštivte &lt;b>facebook.com/device&lt;/b> a zadejte nahoře uvedený kód.</string>
     <string name="com_facebook_image_download_unknown_error">Při stahování obrázku došlo k nečekané chybě.</string>
     <string name="com_facebook_internet_permission_error_message">Webové přihlášení vyžaduje oprávnění použít INTERNET</string>
     <string name="com_facebook_internet_permission_error_title">Chyba AndroidManifest</string>
@@ -74,6 +74,10 @@
     <string name="com_facebook_loginview_logged_in_using_facebook">Přihlášen(a) přes Facebook</string>
     <string name="com_facebook_send_button_text">Odeslat</string>
     <string name="com_facebook_share_button_text">Sdílet</string>
+    <string name="com_facebook_smart_device_instructions">Účet si můžete připojit tak, že si na mobilním zařízení spustíte aplikaci Facebook a podíváte se do upozornění.</string>
+    <string name="com_facebook_smart_device_instructions_or">- NEBO -</string>
+    <string name="com_facebook_smart_login_confirmation_cancel">Nejste to vy?</string>
+    <string name="com_facebook_smart_login_confirmation_title">Potvrdit přihlášení</string>
     <string name="com_facebook_tooltip_default">Je jen na vás, které informace chcete s aplikacemi sdílet.</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Povolit"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"Ke spuštění aplikace <ns1:g id="APP_NAME">%1$s</ns1:g> je třeba aktivovat služby Google Play."</string>

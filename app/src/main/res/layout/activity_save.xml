@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:orientation="vertical">
+    android:layout_width="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -161,7 +161,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
                 android:layout_below="@id/time_text"
                 android:layout_alignLeft="@id/time_text"
                 android:layout_alignStart="@id/time_text"
@@ -175,7 +175,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
                 android:layout_below="@id/personal_time"
                 android:layout_alignRight="@id/feet_check"
                 android:layout_alignEnd="@id/feet_check"
@@ -185,19 +185,8 @@
                 android:id="@+id/online_button"
                 />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginTop="90dp"
-                android:layout_below="@id/time_text"
-                android:layout_centerHorizontal="true"
-                android:text="Get back!"
-                android:onClick="getBack"
-                style="@style/textButtonTheme"
-                android:id="@+id/back_button"
-                />
-a
+            a
+
             <RatingBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -232,6 +221,38 @@ a
                 android:layout_above="@+id/description_area"
                 android:layout_alignLeft="@+id/description_area"
                 android:layout_alignStart="@+id/description_area" />
+
+            <TextView
+                android:text="Length"
+                style="@style/textTextViewTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/time_text"
+                android:layout_alignRight="@+id/review_text"
+                android:layout_alignEnd="@+id/review_text"
+                android:id="@+id/length_text" />
+
+            <TextView
+                android:text="TextView"
+                style="@style/textTextViewTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/length"
+                android:layout_below="@+id/personal_time"
+                android:layout_alignLeft="@+id/valutation_rating"
+                android:layout_alignStart="@+id/valutation_rating" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Get back!"
+                android:onClick="getBack"
+                style="@style/textButtonTheme"
+                android:id="@+id/back_button"
+                android:layout_alignParentBottom="true"
+                android:layout_alignRight="@+id/bike_check"
+                android:layout_alignEnd="@+id/bike_check" />
 
 
         </RelativeLayout>
