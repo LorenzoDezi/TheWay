@@ -26,8 +26,8 @@ class Utility {
     static final String TAG = "TheWay";
 
     //Utility used in server communications
-    static final String BASE_URL = "http://192.168.1.46/";
-    //static final String BASE_URL = "http://10.0.11.243/";
+    //static final String BASE_URL = "http://192.168.1.46/";
+    static final String BASE_URL = "http://10.0.12.193/";
     static final String REGISTER_OPERATION = "register";
     static final String LOGIN_OPERATION = "login";
     static final String CHECK_OPERATION = "check_user";

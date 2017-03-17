@@ -177,10 +177,10 @@ public class Path implements Parcelable {
      * sets the length of the path, it has a little margin error of some
      * meters
      */
-    public void setLength() {
+    public void setLength() throws Exception {
 
-        if(coordinates == null)
-            throw new NullPointerException("You must first set coordinates, and then you can set" +
+        if(coordinates == null || coordinates.isEmpty())
+            throw new Exception("You must first set coordinates, and then you can set" +
                     "the lenght!");
 
         int length = 0;
@@ -226,12 +226,22 @@ public class Path implements Parcelable {
      * @param usedVehicle as the used vehicle
      * @throws IllegalArgumentException
      */
-    public void setUsedVehicle(Vehicle usedVehicle) throws IllegalArgumentException {
+    public void setUsedVehicle(Vehicle usedVehicle) throws Exception {
         //the used possibleVehicles must be specified
-        if (usedVehicle != null)
-            this.usedVehicle = usedVehicle;
+        Boolean b = false;
+        Vehicle[] usableVehicles = getUsableVehicle();
+        if(usableVehicles != null)
+            for(Vehicle v : usableVehicles)
+                b = v == usedVehicle;
         else
-            throw new IllegalArgumentException("the used possibleVehicles must be specified.");
+            b = true;
+        if(b)
+            if (usedVehicle != null)
+                this.usedVehicle = usedVehicle;
+            else
+                throw new IllegalArgumentException("The used vehicle must not be null");
+        else
+            throw new Exception("The used vehicle must be specified into the usable vehicles");
     }
 
     /**
@@ -247,21 +257,27 @@ public class Path implements Parcelable {
     }
 
     /**
-     * sets the vehicles that can be used to travel this path
+     * sets the vehicles that can be used to travel this path.
      * @param usableVehicle as an array of vehicles
      * @throws IllegalArgumentException
      */
-    public void setUsableVehicle(Vehicle[] usableVehicle) throws IllegalArgumentException {
+    public void setUsableVehicle(Vehicle[] usableVehicle) throws Exception {
         //The list of the usable possibleVehicles must be specified
-        //In the list of the usable possibleVehicles, there must be the possibleVehicles used
-        if (usableVehicle != null && usableVehicle.length >= 1 && usableVehicle.length <= Vehicle.values().length){
+        //In the list of the usable possibleVehicles, there must be vehicle used
+        if (usableVehicle != null
+                && usableVehicle.length >= 1
+                && usableVehicle.length <= Vehicle.values().length) {
             boolean b = false;
-            for (int i = 0; i < usableVehicle.length && !b; i++)
-                b = usableVehicle[i] == usedVehicle;
-            if (b)
-                possibleVehicles = Arrays.copyOf(usableVehicle,usableVehicle.length);
+            if(usedVehicle != null)
+                for (int i = 0; i < usableVehicle.length && !b; i++)
+                    b = usableVehicle[i] == usedVehicle;
             else
-                throw new IllegalArgumentException("insert the possibleVehicles used in the list of usable vehicles");
+                b = true;
+                if (b)
+                    possibleVehicles = Arrays.copyOf(usableVehicle, usableVehicle.length);
+                else
+                    throw new IllegalArgumentException("insert the vehicle used to walk the path" +
+                            " in the list of usable vehicles");
         }
         else
             throw new IllegalArgumentException("Specify the vehicles that are usable.");
@@ -275,6 +291,12 @@ public class Path implements Parcelable {
         return description;
     }
 
+
+    /**
+     * Set the path description
+     * @param description
+     * @throws IllegalArgumentException
+     */
     public void setDescription(String description) throws IllegalArgumentException {
         //The description can be empty, but not null
         //The description can not exceed 256 characters
@@ -340,9 +362,9 @@ public class Path implements Parcelable {
      * It sets the first coordinate of the path, the
      * start point.
      */
-    public void setStart() {
-        if(coordinates == null)
-            throw new NullPointerException("You must first set the coordinates to retrieve" +
+    public void setStart() throws Exception {
+        if(coordinates == null || coordinates.isEmpty())
+            throw new Exception("You must first set the coordinates to retrieve" +
                     "the start point");
         this.start = this.coordinates.get(0);
     }

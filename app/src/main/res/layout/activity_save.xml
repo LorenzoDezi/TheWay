@@ -111,18 +111,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:text="@string/bike_string"
-                android:id="@+id/bike_check"
-                android:layout_below="@id/description_area"
-                android:layout_alignLeft="@id/description_area"
-                android:layout_alignStart="@id/description_area"
-                 />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="5dp"
+                style="@style/textTextViewTheme"
                 android:paddingBottom="5dp"
                 android:text="@string/feet_string"
                 android:id="@+id/feet_check"
@@ -186,26 +175,6 @@
                 />
 
 
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/difficulty_spinner"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:layout_above="@+id/vehicle_used_text"
-                android:layout_alignLeft="@+id/vehicle_spinner"
-                android:layout_alignStart="@+id/vehicle_spinner" />
-
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/vehicle_spinner"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:layout_above="@+id/description_area"
-                android:layout_alignLeft="@+id/description_area"
-                android:layout_alignStart="@+id/description_area" />
-
             <TextView
                 android:text="Length"
                 style="@style/textTextViewTheme"
@@ -228,6 +197,18 @@
                 android:layout_alignRight="@+id/bike_check"
                 android:layout_alignEnd="@+id/bike_check" />
 
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                style="@style/textTextViewTheme"
+                android:text="@string/bike_string"
+                android:id="@+id/bike_check"
+                android:layout_below="@+id/description_area"
+                android:layout_toRightOf="@+id/possible_vehicle_text"
+                android:layout_toEndOf="@+id/possible_vehicle_text" />
+
             <TextView
                 android:text="TextView"
                 style="@style/textTextViewTheme"
@@ -235,8 +216,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/length"
                 android:layout_below="@+id/personal_time"
-                android:layout_alignLeft="@+id/valutation_rating"
-                android:layout_alignStart="@+id/valutation_rating" />
+                android:layout_alignLeft="@+id/personal_time"
+                android:layout_alignStart="@+id/personal_time" />
 
             <RatingBar
                 android:layout_width="wrap_content"
@@ -250,8 +231,30 @@
                 android:paddingTop="5dp"
                 android:paddingBottom="10dp"
                 android:layout_above="@+id/difficulty_text"
-                android:layout_toRightOf="@+id/personal_time"
-                android:layout_toEndOf="@+id/personal_time" />
+                android:layout_alignRight="@+id/length"
+                android:layout_alignEnd="@+id/length" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/difficulty_spinner"
+                style="@style/textTextViewTheme"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_above="@+id/vehicle_used_text"
+                android:layout_alignLeft="@+id/valutation_rating"
+                android:layout_alignStart="@+id/valutation_rating" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/vehicle_spinner"
+                style="@style/textTextViewTheme"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_above="@+id/description_area"
+                android:layout_alignLeft="@+id/difficulty_spinner"
+                android:layout_alignStart="@+id/difficulty_spinner" />
 
 
         </RelativeLayout>

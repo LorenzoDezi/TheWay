@@ -16,6 +16,7 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -118,8 +119,14 @@ public class SaveActivity extends AppCompatActivity {
                 )
             );
             context = this.getApplicationContext();
-            pathToSave.setLength();
-            lengthTextView.setText(pathToSave.getLenght() + " meters");
+            try {
+                pathToSave.setLength();
+                lengthTextView.setText(pathToSave.getLenght() + " meters");
+            } catch (Exception ex) {
+                Toast.makeText(this.getApplicationContext(),
+                        "FATAL ERROR" + ex.getMessage(),
+                        Toast.LENGTH_LONG).show();
+            }
 
         } else {
 
@@ -186,7 +193,7 @@ public class SaveActivity extends AppCompatActivity {
             pathToSave.setUsedVehicle(vehicleUsed);
             pathToSave.setUsableVehicle(vehicles);
 
-        } catch (IllegalArgumentException ex) {
+        } catch (Exception ex) {
             Snackbar.make(findViewById(R.id.save_layout), ex.getMessage(), Snackbar.LENGTH_LONG).show();
             return;
         }

@@ -92,7 +92,6 @@ public class WayDialogActivity extends AppCompatActivity {
             String lengthText = "Lenght: " + selectedPath.getLength() + " meters";
             lengthTextView.setText(lengthText);
 
-            //todo: vedere se i secondi funzionano e in caso trovare un metodo più consono
             String timeText = "Time: NULL";
             if(selectedPath.getTime() != null)
                 timeText = "Time: " + selectedPath.getTime().toString();
