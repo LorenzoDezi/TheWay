@@ -21,10 +21,26 @@ public class ServerResponse {
     }
 
     /**
+     * Sets the result of the response
+     * @param result
+     */
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    /**
      * @return the message of the response
      */
     public String getMessage() {
         return message;
+    }
+
+    /**
+     * Sets the message of the response
+     * @param message
+     */
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     /**
@@ -33,8 +49,24 @@ public class ServerResponse {
     public User getUser() { return user; }
 
     /**
+     * Sets the user of the response
+     * @param user
+     */
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    /**
      * @return the paths associated with the requests they can be NULL
      */
     public Path[] getPaths() { return paths; }
+
+    /**
+     * Sets the paths for the response
+     * @param paths
+     */
+    public void setPaths(Path[] paths) {
+        this.paths = paths;
+    }
 
 }

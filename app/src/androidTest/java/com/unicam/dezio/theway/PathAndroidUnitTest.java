@@ -29,7 +29,7 @@ public class PathAndroidUnitTest {
     }
 
     @Test
-    public void setLengthTest() throws Exception {
+    public void setLengthTest() {
 
         ArrayList<Location> coordinates = new ArrayList<>();
         Location loc1 = new Location("");
@@ -45,7 +45,7 @@ public class PathAndroidUnitTest {
 
     }
 
-    @Test
+    @Test(expected = IllegalStateException.class)
     public void setLengthBadTest() throws Exception {
 
         path.setLength();

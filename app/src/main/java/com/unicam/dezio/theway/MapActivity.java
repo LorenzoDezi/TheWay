@@ -61,6 +61,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.IllegalFormatConversionException;
 import java.util.List;
 import java.util.Locale;
 
@@ -82,10 +83,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MapActivity extends BaseActivity implements OnMapReadyCallback,
         ActivityCompat.OnRequestPermissionsResultCallback,
         LocationListener, GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener
-{
+        GoogleApiClient.OnConnectionFailedListener {
 
-    /** flag used to know the activity modality **/
+    /**
+     * flag used to know the activity modality
+     **/
     private int state;
 
     //Date objects used to register time employed to perform a path
@@ -121,7 +123,6 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
 
     //user's location
     private Location userLocation;
-
 
 
     @Override
@@ -232,15 +233,15 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
     public void onRequestPermissionsResult(int requestCode, String permissions[],
                                            int[] grantResults) {
 
-        if(requestCode == Utility.MY_PERMISSIONS_REQUEST_LOCATION) {
+        if (requestCode == Utility.MY_PERMISSIONS_REQUEST_LOCATION) {
             if (grantResults.length > 0
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                Toast.makeText(this.getApplicationContext(),"Permission granted!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this.getApplicationContext(), "Permission granted!", Toast.LENGTH_SHORT).show();
 
             } else {
 
-                Toast.makeText(this.getApplicationContext(), "Permission denied! You can't do nothing!" , Toast.LENGTH_SHORT).show();
+                Toast.makeText(this.getApplicationContext(), "Permission denied! You can't do nothing!", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -254,10 +255,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
 
         userLocation = location;
         CameraUpdate update = CameraUpdateFactory.newCameraPosition(new CameraPosition(new LatLng(location.getLatitude(), location.getLongitude()), 15,
-                0,0));
+                0, 0));
         mMap.animateCamera(update);
 
-        if(state == Utility.IS_CREATING) {
+        if (state == Utility.IS_CREATING) {
 
             currentPath.addCoordinate(location);
             newPolyline.add(new LatLng(location.getLatitude(), location.getLongitude()));
@@ -278,28 +279,27 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
             searchForPaths(coveredArea);
 
 
-
         } else if (state == Utility.IS_TRAVELLING) {
 
             mMap.clear();
             //Let's remove ic_search_gps icons
-            while(toolbarLayout.getChildCount() > 2)
-                toolbarLayout.removeViewAt(toolbarLayout.getChildCount() -1);
+            while (toolbarLayout.getChildCount() > 2)
+                toolbarLayout.removeViewAt(toolbarLayout.getChildCount() - 1);
             mMap.addMarker(userMarker.position(new LatLng(location.getLatitude(), location.getLongitude())));
             PolylineOptions polyline = new PolylineOptions();
             polyline.color(R.color.colorAccent);
             polyline.width(10);
             ArrayList<Location> currentCoordinates = currentPath.getCoordinates();
-            for(Location coordinate : currentCoordinates) {
+            for (Location coordinate : currentCoordinates) {
                 LatLng currentLatLng = new LatLng(coordinate.getLatitude(), coordinate.getLongitude());
                 polyline.add(currentLatLng);
             }
             mMap.addPolyline(polyline);
-            if(!userInside(currentPath, location)) {
+            if (!userInside(currentPath, location)) {
                 Snackbar.make(findViewById(R.id.mapLayout), "You're off the path!", Snackbar.LENGTH_LONG).show();
             } else {
                 //if the user is at the end of the path
-                if((currentPath.getEnd().distanceTo(userLocation))
+                if ((currentPath.getEnd().distanceTo(userLocation))
                         <= Utility.MAX_DISTANCE_OFF) {
                     Intent intent = new Intent(this, WayDialogActivity.class);
                     intent.putExtra("EndOfPath", true);
@@ -313,10 +313,13 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
     /**
      * This function ic_search_gps for paths inside the coveredArea param,
      * and populates pathsFound and searchPolylines, printing them on map
+     *
      * @param coveredArea
      */
     private void searchForPaths(Area coveredArea) {
-        if(super.isConnected()) {
+
+        pathsFound.clear();
+        if (super.isConnected()) {
             Gson gson = new GsonBuilder()
                     .setLenient()
                     .registerTypeAdapter(Time.class, new JsonDeserializer<Time>() {
@@ -351,16 +354,13 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
             request.setArea(coveredArea);
 
             //Calling the server and processing the response
-            Call<ServerResponse> response = requestInterface2.operation(request);
-            response.enqueue(new Callback<ServerResponse>() {
-
-                @Override
-                public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
-
-                    ServerResponse resp = response.body();
-                    if (resp.getResult().equals(Utility.SUCCESS)) {
-
-                        Path[] paths = resp.getPaths();
+            Call<ServerResponse> call = requestInterface2.operation(request);
+            try {
+                Response response = call.execute();
+                if (response.isSuccessful()) {
+                    ServerResponse respBody = (ServerResponse) response.body();
+                    if (respBody.getResult().equals(Utility.SUCCESS)) {
+                        Path[] paths = respBody.getPaths();
                         Retrofit retrofit = new Retrofit.Builder().baseUrl(Utility.BASE_URL)
                                 .addConverterFactory(GsonConverterFactory.create())
                                 .build();
@@ -381,47 +381,64 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
                                         currentPath.setStart();
 
                                     } catch (Exception ex) {
-                                        Toast.makeText(context, "Error parsing the gpx!", Toast.LENGTH_SHORT).show();
+                                        throw ex;
                                     }
                                     if (!currentGpx.delete())
-                                        throw new IOException();
+                                        throw new IOException("");
                                 } else {
                                     throw new IOException();
                                 }
 
-                            } catch (IOException | NullPointerException ex) {
-                                Toast.makeText(context, "Can't download the gpx file!", Toast.LENGTH_SHORT).show();
+                            } catch (IOException | NullPointerException | ParserConfigurationException
+                                    |SAXException ex) {
+                                Toast.makeText(context, "Can't download the gpx file, caused by"
+                                        + ex.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
+                    } else {
+                        throw new IOException(respBody.getMessage());
                     }
+                } else {
+                    throw new IOException("Error reaching the server, message: "
+                            + response.message() + ", code: " + response.code()
+                            );
                 }
-
-                @Override
-                public void onFailure(Call<ServerResponse> call, Throwable t) {
-                    Toast.makeText(context, t.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
+            } catch (IOException exception) {
+                Toast.makeText(context, exception.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         }
-
         //Retrieving offline paths
         File dir;
         ArrayList<File> gpxs = new ArrayList<File>();
-        try {
+        try
+
+        {
             if (Utility.isExternalStorageWritable()) {
                 dir = Utility.getFileStorageDir(context.getExternalFilesDir(null), "GPXs");
                 gpxs.addAll(Arrays.asList(dir.listFiles()));
             }
             dir = Utility.getFileStorageDir(context.getFilesDir(), "GPXs");
             gpxs.addAll(Arrays.asList(dir.listFiles()));
-        } catch (IOException ex) {
+        }
+
+        catch(
+                IOException ex
+                )
+
+        {
             Toast.makeText(context, ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        for(File gpx : gpxs) {
-            if(gpx.getName().endsWith(".gpx")) {
+
+        for(
+                File gpx
+                :gpxs)
+
+        {
+            if (gpx.getName().endsWith(".gpx")) {
                 Path path = new Path();
                 try {
                     path.setCoordinates(gpx);
-                    if(!pathsFound.contains(path))
+                    if (!pathsFound.contains(path))
                         pathsFound.add(path);
                 } catch (ParserConfigurationException | IOException |
                         SAXException ex) {
@@ -429,8 +446,11 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
                 }
             }
         }
-        if (pathsFound.size() != 0) {
 
+        if(pathsFound.size()!=0)
+
+        {
+            mMap.clear();
             searchPolylines = new PolylineOptions[pathsFound.size()];
             int index = 0;
             for (Path path :
@@ -452,17 +472,21 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
                 index++;
             }
 
-        } else {
+        }
+
+        else
+
+        {
             Toast.makeText(context, "No paths found!", Toast.LENGTH_SHORT).show();
         }
-    }
 
+    }
 
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
 
-        if(state != Utility.IS_WAITING) {
+        if (state != Utility.IS_WAITING) {
             requestLocationUpdates();
         }
 
@@ -472,6 +496,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
     /**
      * Creates a file and returns its pointer, used both
      * in offline and online saving
+     *
      * @param body
      * @param filename
      */
@@ -484,14 +509,14 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
 
             File mainDirectory;
             //Priority is saving to the external storage
-            if(Utility.isExternalStorageWritable()) {
+            if (Utility.isExternalStorageWritable()) {
                 mainDirectory = Utility.getFileStorageDir(context.getExternalFilesDir(null), "GPXs");
             } else {
                 mainDirectory = Utility.getFileStorageDir(context.getFilesDir(), "GPXs");
             }
             GPXFile = new File(mainDirectory, filename);
             //Creating phisically the gpx file
-            if(GPXFile.createNewFile()) {
+            if (GPXFile.createNewFile()) {
                 writer = new FileOutputStream(GPXFile);
                 writer.write(body.bytes());
                 writer.close();
@@ -510,7 +535,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
     /**
      * It request location updates using the Google client, but first check if the permission are
      * enabled by the user, otherwise it requests them
-     * **/
+     **/
     private void requestLocationUpdates() {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -529,7 +554,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
 
         }
         locationProvider.requestLocationUpdates(googleApiClient,
-                locationRequest,  this);
+                locationRequest, this);
     }
 
     @Override
@@ -549,6 +574,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
      * It start the {@link WayDialogActivity} showing informations about the path selected.
      * the result will be handled by this activity, and if the user has started the path, than
      * the state of the activity is changed
+     *
      * @param path
      */
     public void showPath(Path path) {
@@ -563,8 +589,8 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == Utility.PATH_INFO)
-            if(resultCode == RESULT_OK) {
+        if (requestCode == Utility.PATH_INFO)
+            if (resultCode == RESULT_OK) {
                 currentPath = data.getParcelableExtra("Path");
                 toolbarLayout.removeView(searchIcon);
                 toolbarLayout.removeView(searchGPSIcon);
@@ -582,12 +608,12 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
         if (state == Utility.IS_TRAVELLING) {
             mMap.clear();
             PolylineOptions currentPolyline = new PolylineOptions();
-            for(Location coordinate : currentPath.getCoordinates()) {
+            for (Location coordinate : currentPath.getCoordinates()) {
                 LatLng currentLatLng = new LatLng(coordinate.getLatitude(), coordinate.getLongitude());
                 currentPolyline.add(currentLatLng);
             }
             mMap.addPolyline(currentPolyline);
-            if(userLocation != null)
+            if (userLocation != null)
                 mMap.addMarker(userMarker.position(new LatLng(userLocation.getLatitude(), userLocation.getLongitude())));
             requestLocationUpdates();
 
@@ -645,10 +671,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
         switch (viewId) {
 
             case R.id.play_PNG:
-                if(state == Utility.IS_WAITING) {
+                if (state == Utility.IS_WAITING) {
                     //Let's start creating
                     //There is no GPS, the function returns and a error message appears
-                    if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                    if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                         Toast.makeText(this.getApplicationContext(), "You need your GPS enabled to start a path!", Toast.LENGTH_SHORT).show();
                         return;
                     }
@@ -663,7 +689,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
                 } else {
 
                     //We stop creating and we pass to the path-definition activity
-                    if(currentPath.getCoordinates().size() < 2) {
+                    if (currentPath.getCoordinates().size() < 2) {
                         Toast.makeText(this.getApplicationContext(), "Your path is too short!", Toast.LENGTH_SHORT).show();
                         return;
                     }
@@ -678,10 +704,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
                 break;
 
             case R.id.search_PNG:
-                if(state == Utility.IS_WAITING) {
+                if (state == Utility.IS_WAITING) {
                     //Let's start searching
                     //There is no GPS, the function returns and a error message appears
-                    if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                    if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                         Toast.makeText(this.getApplicationContext(), "You need your GPS enabled to ic_search_gps for paths around you!", Toast.LENGTH_SHORT).show();
                         return;
                     }
@@ -692,7 +718,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
                 break;
 
             case R.id.search_gps_PNG:
-                if(state == Utility.IS_WAITING) {
+                if (state == Utility.IS_WAITING) {
 
                     LatLng targetLatLng = mMap.getCameraPosition().target;
                     Location targetLocation = new Location("");
@@ -710,7 +736,8 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
 
     /**
      * This method check if the user is inside the path chosen to travel
-     * @param path, as the path travelled
+     *
+     * @param path,         as the path travelled
      * @param userLocation, as the user's location
      * @return true if the user is inside the path, false otherwise
      */
@@ -718,9 +745,9 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
 
         ArrayList<Location> coordinates = path.getCoordinates();
         boolean inside = false;
-        for(int i=0; i < coordinates.size()-1 && !inside; i++) {
+        for (int i = 0; i < coordinates.size() - 1 && !inside; i++) {
 
-            if(userLocation.distanceTo(coordinates.get(i))
+            if (userLocation.distanceTo(coordinates.get(i))
                     <= Utility.MAX_DISTANCE_OFF) {
                 inside = true;
             }
@@ -729,9 +756,6 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback,
         return inside;
 
     }
-
-
-
 
 
 }

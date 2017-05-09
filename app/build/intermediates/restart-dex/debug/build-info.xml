@@ -5,7 +5,7 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="19464988584915"
+    timestamp="412799522807"
     token="4455078928021233926"
     verifier="FULL_BUILD_REQUESTED" >
 
@@ -17,17 +17,17 @@
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="721" />
+        duration="0" />
     <task
         name="verifier"
-        duration="2" />
+        duration="0" />
 
     <artifact
         location="/home/dezio/AndroidStudioProjects/TheWay/app/build/outputs/apk/app-debug.apk"
         type="MAIN" />
 
     <build
-        timestamp="19464988584915"
+        timestamp="2329646814397"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/dezio/AndroidStudioProjects/TheWay/app/build/outputs/apk/app-debug.apk"

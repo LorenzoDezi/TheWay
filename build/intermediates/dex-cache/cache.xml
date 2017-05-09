@@ -66,6 +66,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.22.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0d94c39080a309d1887f50ef68cc96dfe4bc9d01">
+        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.android-facebook-android-sdk-4.22.0_2882bf8f806932270d6c7f745076e3e0fbf5de1a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.8.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -79,7 +88,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="fcd255b41482c1a27f2d844d2acfcc31a874fe72">
+        sha1="60ae724b5099a9d01d2909552946424cfc2c2086">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_7b0f8e71cf129eac067fba6aae8ca7bbefa53a2d/classes.dex" />
     </item>
     <item
@@ -597,15 +606,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="cb2ef781533c3f11c4e80341cbaebad275c66586">
-        <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.android-facebook-android-sdk-4.20.0_95066c8c94dde0e3d28d5e83122a6e765ea67060/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/exploded-aar/com.android.support/multidex/1.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -655,7 +655,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="a3a324f966eb89670b2a97ca0c8db9e0f0ef834e">
+        sha1="6e97452054e3784816ef1d435c520ddaf9bdef82">
         <dex dex="/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ac292589e6384ff18c201c16cf93d2cd690013a7/classes.dex" />
     </item>
     <item

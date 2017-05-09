@@ -20,7 +20,8 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class PathUnitTest {
+public class
+PathUnitTest {
 
     private Path path;
 
@@ -50,7 +51,7 @@ public class PathUnitTest {
 
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setBadDescriptionTest() throws Exception {
 
         char[] chars = "abcdefghijklmnopqrstuvwxyz".toCharArray();
@@ -62,7 +63,6 @@ public class PathUnitTest {
         }
         String description = sb.toString();
         path.setDescription(description);
-        assertTrue(path.getDescription().equals(description));
 
     }
 
@@ -70,12 +70,12 @@ public class PathUnitTest {
     public void setTimeTest() throws Exception {
         Date start = new Date();
         Date end = new Date(start.getTime() + 10);
-        long timeExpected = end.getTime() - start.getTime();
+        long timeExpected = (end.getTime() - start.getTime());
         path.setTime(start, end);
         assertEquals(timeExpected, path.getTime().getTime());
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setBadTimeTest() throws Exception {
 
         Date start = new Date();
@@ -95,12 +95,11 @@ public class PathUnitTest {
 
     }
 
-    @Test
+    @Test(expected =  IllegalArgumentException.class)
     public void setBadValutationTest() throws Exception {
 
         int badValutation = 6;
         path.setValutation(badValutation);
-        assertEquals(badValutation, path.getValutation());
 
     }
 
@@ -113,7 +112,7 @@ public class PathUnitTest {
 
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setBadUsedVehicleTest() throws Exception {
 
         Vehicle[] usableVehicle = new Vehicle[1];
@@ -137,7 +136,8 @@ public class PathUnitTest {
 
     }
 
-    @Test
+
+    @Test(expected = IllegalStateException.class)
     public void setBadStartTest() throws Exception {
 
         path.setStart();
@@ -156,13 +156,12 @@ public class PathUnitTest {
 
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setBadCoordinatesTest() throws Exception {
 
         ArrayList<Location> coordinates = new ArrayList<>();
         coordinates.add(new Location(""));
         path.setCoordinates(coordinates);
-        assertEquals(coordinates, path.getCoordinates());
 
     }
 
@@ -178,15 +177,13 @@ public class PathUnitTest {
 
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setBadUsableVehiclesTest() throws Exception {
 
         Vehicle[] usableVehicle = new Vehicle[1];
         usableVehicle[0] = Vehicle.Feet;
         path.setUsedVehicle(Vehicle.Bike);
         path.setUsableVehicle(usableVehicle);
-        assertTrue(Arrays.equals(usableVehicle,(path.getUsableVehicle())));
-
     }
 
     @Test
@@ -197,16 +194,14 @@ public class PathUnitTest {
 
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void setBadDifficultyTest() throws Exception {
 
         path.setDifficulty(4);
-        assertEquals(4, path.getDifficulty());
-
     }
 
 
 
 
 
-    }
+}

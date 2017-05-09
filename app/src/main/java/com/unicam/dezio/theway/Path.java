@@ -84,8 +84,10 @@ public class Path implements Parcelable {
     /**
      * private constructor used to reconstruct a parceled path
      * **/
-    private Path(Parcel source) {
+    private Path(Parcel source) throws NullPointerException {
 
+        if(source == null)
+            throw new NullPointerException("FATAL ERROR: source null!");
         Bundle bundle = source.readBundle();
         difficulty = bundle.getInt("difficulty");
         valutation = bundle.getInt("valutation");
@@ -120,8 +122,14 @@ public class Path implements Parcelable {
      * It sets the name of the gpx file associated with the path in the server
      * @param gpxName as the name of the gpx file
      */
-    public void setGpxName(String gpxName)  {
-        this.gpxName = gpxName;
+    public void setGpxName(String gpxName) throws NullPointerException, IllegalArgumentException  {
+
+        if(gpxName != null)
+            throw new NullPointerException("Argument null!");
+        if(gpxName.endsWith(".gpx"))
+            this.gpxName = gpxName;
+        else
+            throw new IllegalArgumentException("the format of the file must be gpx!");
     }
 
 
@@ -177,10 +185,10 @@ public class Path implements Parcelable {
      * sets the length of the path, it has a little margin error of some
      * meters
      */
-    public void setLength() throws Exception {
+    public void setLength() throws IllegalStateException {
 
         if(coordinates == null || coordinates.isEmpty())
-            throw new Exception("You must first set coordinates, and then you can set" +
+            throw new IllegalStateException("You must first set coordinates, and then you can set" +
                     "the lenght!");
 
         int length = 0;
@@ -226,7 +234,7 @@ public class Path implements Parcelable {
      * @param usedVehicle as the used vehicle
      * @throws IllegalArgumentException
      */
-    public void setUsedVehicle(Vehicle usedVehicle) throws Exception {
+    public void setUsedVehicle(Vehicle usedVehicle) throws IllegalArgumentException {
         //the used possibleVehicles must be specified
         Boolean b = false;
         Vehicle[] usableVehicles = getUsableVehicle();
@@ -241,7 +249,7 @@ public class Path implements Parcelable {
             else
                 throw new IllegalArgumentException("The used vehicle must not be null");
         else
-            throw new Exception("The used vehicle must be specified into the usable vehicles");
+            throw new IllegalArgumentException("The used vehicle must be specified into the usable vehicles");
     }
 
     /**
@@ -261,7 +269,7 @@ public class Path implements Parcelable {
      * @param usableVehicle as an array of vehicles
      * @throws IllegalArgumentException
      */
-    public void setUsableVehicle(Vehicle[] usableVehicle) throws Exception {
+    public void setUsableVehicle(Vehicle[] usableVehicle) throws IllegalArgumentException {
         //The list of the usable possibleVehicles must be specified
         //In the list of the usable possibleVehicles, there must be vehicle used
         if (usableVehicle != null
@@ -328,7 +336,6 @@ public class Path implements Parcelable {
         if (end != null)
             if(start != null)
                 if(end.getTime() > start.getTime())
-                    //time = (end.getTime() - start.getTime()) * 60000;
                     time = (end.getTime() - start.getTime());
                 else
                     throw new IllegalArgumentException("the time of end must be higher then start.");
@@ -362,9 +369,9 @@ public class Path implements Parcelable {
      * It sets the first coordinate of the path, the
      * start point.
      */
-    public void setStart() throws Exception {
+    public void setStart() throws IllegalStateException {
         if(coordinates == null || coordinates.isEmpty())
-            throw new Exception("You must first set the coordinates to retrieve" +
+            throw new IllegalStateException("You must first set the coordinates to retrieve" +
                     "the start point");
         this.start = this.coordinates.get(0);
     }
