@@ -6,14 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import com.facebook.AccessToken;
+import com.facebook.login.LoginManager;
+
+
 
 /**
  * This activity is the logged-in screen. It's a simple welcome text with two buttons,
  * that will help the user to select the proper action.
  */
 public class WelcomeActivity extends BaseActivity {
-
-
 
     private SharedPreferences pref;
 
@@ -50,7 +52,10 @@ public class WelcomeActivity extends BaseActivity {
      * the main activity
      */
     private void logOut() {
-
+        //if the user logged in with facebook
+        if(AccessToken.getCurrentAccessToken() != null) {
+            LoginManager.getInstance().logOut();
+        }
         SharedPreferences.Editor editor = pref.edit();
         editor.clear();
         editor.apply();

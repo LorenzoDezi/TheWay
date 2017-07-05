@@ -13,17 +13,31 @@ import retrofit2.http.Url;
 
 /**
  * Created by dezio on 22/11/16.
+ * This interface is used by retrofit2 API to make requests to
+ * the server. Its methods specifies different kinds of requests
  */
 
 public interface RequestInterface {
 
+    /**
+     *This method sends the standard request to the server, request's different
+     * properties change the kind of operation.
+     */
     @POST("theWayServer/")
     Call<ServerResponse> operation(@Body ServerRequest request);
 
+    /**
+     *This method is used to upload files to the server, in particular
+     * gpxs related to the path.
+     */
     @Multipart
     @POST("theWayServer/upload.php/")
     Call<ResponseBody> upload(@Part("description") RequestBody description,
                               @Part MultipartBody.Part file);
+
+    /**
+     *This method is used to download gpxs from the server.
+     */
     @GET
     Call<ResponseBody> downloadGPX(@Url String fileUrl);
 

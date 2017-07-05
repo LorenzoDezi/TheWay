@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_search_gps.png",
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-hdpi/ic_search_gps.png"
+    },
+    {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_connectivity_true.png",
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-hdpi/ic_connectivity_true.png"
     },
@@ -8,12 +12,12 @@
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-hdpi/ic_action_name.png"
     },
     {
-        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_gps_true.png",
-        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-hdpi/ic_gps_true.png"
-    },
-    {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_connectivity_false.png",
         "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-hdpi/ic_connectivity_false.png"
+    },
+    {
+        "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_gps_true.png",
+        "source": "/home/dezio/AndroidStudioProjects/TheWay/app/src/main/res/drawable-hdpi/ic_gps_true.png"
     },
     {
         "merged": "/home/dezio/AndroidStudioProjects/TheWay/app/build/intermediates/res/merged/debug/drawable-hdpi/stop.png",

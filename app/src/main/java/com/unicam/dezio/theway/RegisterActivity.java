@@ -1,8 +1,10 @@
 package com.unicam.dezio.theway;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.StrictMode;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import okhttp3.internal.Util;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,10 +40,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         //checking the fatal case in which the user is logged
         pref = getSharedPreferences(Utility.TAG, Context.MODE_PRIVATE);
         if(pref.getBoolean(Utility.IS_LOGGED_IN, false)) {
-            goToWelcome();
+            Utility.goToActivity(this, WelcomeActivity.class, true);
         } else {
-
             //setting the layout
+            //Used to permit the single-thread retrieving of paths. Considering the small size of the area
+            //and various tests, it doesn't impact on performance
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_register);
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -50,29 +57,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             editTextPwd = (EditText) findViewById(R.id.editTextPwd);
             editTextRePwd = (EditText) findViewById(R.id.editTextRePwd);
             buttonRegister = (Button) findViewById(R.id.buttonRegister);
-            buttonRegisterFB = (Button) findViewById(R.id.buttonRegisterFB);
             buttonRegister.setOnClickListener(this);
-            buttonRegisterFB.setOnClickListener(this);
-
         }
     }
 
     @Override
     protected void onResume() {
         if (pref.getBoolean(Utility.IS_LOGGED_IN, false)) {
-            goToWelcome();
+            Utility.goToActivity(this, WelcomeActivity.class, true);
         } else {
             super.onResume();
         }
-    }
-
-
-    /**
-     * Sends the user to the welcome activity as a logged user ({@link WelcomeActivity})
-     */
-    private void goToWelcome() {
-        Intent intent = new Intent(this, WelcomeActivity.class);
-        startActivity(intent);
     }
 
 
@@ -87,7 +82,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 String repwd = editTextRePwd.getText().toString();
                 if(!username.isEmpty() && !email.isEmpty() && !pwd.isEmpty()) {
                     if(pwd.equals(repwd)) {
-                        registerProcess(username, email, pwd);
+                        if(Utility.registerProcess(username, email, pwd, this)) {
+                            SharedPreferences.Editor editor = pref.edit();
+                            editor.putBoolean(Utility.IS_LOGGED_IN, true);
+                            editor.putString(Utility.EMAIL, email);
+                            editor.putString(Utility.USERNAME, username);
+                            editor.apply();
+                            Utility.goToActivity(this, WelcomeActivity.class, true);
+                        } else
+                            Snackbar.make(findViewById(R.id.registerLayout),"Problem with the server, try again", Snackbar.LENGTH_LONG).show();
                     } else {
                         Snackbar.make(findViewById(R.id.registerLayout),"Fields are empty", Snackbar.LENGTH_LONG).show();
                     }
@@ -98,55 +101,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 break;
 
             }
-            case R.id.buttonRegisterFB:
-                break;
+
+
         }
     }
 
-    /**
-     * This method register a user, starting the communication with the server
-     * @param username
-     * @param mail
-     * @param pwd as the password
-     */
-    private void registerProcess(String username, String mail, String pwd) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Utility.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        RequestInterface requestInterface = retrofit.create(RequestInterface.class);
-        final User user = new User();
-        user.setUsername(username);
-        user.setEmail(mail);
-        user.setPassword(pwd);
-        ServerRequest request = new ServerRequest();
-        request.setOperation(Utility.REGISTER_OPERATION);
-        request.setUser(user);
-        Call<ServerResponse> response = requestInterface.operation(request);
-        response.enqueue(new Callback<ServerResponse>() {
 
-            @Override
-            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
-
-                ServerResponse resp = response.body();
-                Snackbar.make(findViewById(R.id.registerLayout), resp.getMessage(), Snackbar.LENGTH_LONG).show();
-                if(resp.getResult().equals(Utility.SUCCESS)) {
-                    SharedPreferences.Editor editor = pref.edit();
-                    editor.putBoolean(Utility.IS_LOGGED_IN, true);
-                    editor.putString(Utility.EMAIL, user.getEmail());
-                    editor.putString(Utility.USERNAME, user.getUsername());
-                    editor.apply();
-                    goToWelcome();
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<ServerResponse> call, Throwable t) {
-
-                Snackbar.make(findViewById(R.id.registerLayout), t.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
-
-            }
-        });
-    }
 }

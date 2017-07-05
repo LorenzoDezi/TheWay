@@ -21,6 +21,8 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import junit.framework.Assert;
+
 
 /**
  That class store the information about a particular path.
@@ -48,6 +50,11 @@ public class Path implements Parcelable {
     /** the gpxName of the path, used to retrieve the corresponding
      * gpx file in the database/sd card **/
     private String gpxName;
+
+    /**
+     * the name of the user who created it
+     */
+    private String author;
 
     /** the time employed to complete the path **/
     private Time time;
@@ -77,8 +84,10 @@ public class Path implements Parcelable {
     /**
      * private constructor used to reconstruct a parceled path
      * **/
-    private Path(Parcel source) {
+    private Path(Parcel source) throws NullPointerException {
 
+        if(source == null)
+            throw new NullPointerException("FATAL ERROR: source null!");
         Bundle bundle = source.readBundle();
         difficulty = bundle.getInt("difficulty");
         valutation = bundle.getInt("valutation");
@@ -90,6 +99,7 @@ public class Path implements Parcelable {
         possibleVehicles = (Vehicle[]) bundle.getSerializable("possibleVehicles");
         coordinates = bundle.getParcelableArrayList("coordinates");
         description = bundle.getString("description");
+        author = bundle.getString("author");
 
     }
 
@@ -112,8 +122,14 @@ public class Path implements Parcelable {
      * It sets the name of the gpx file associated with the path in the server
      * @param gpxName as the name of the gpx file
      */
-    public void setGpxName(String gpxName)  {
-        this.gpxName = gpxName;
+    public void setGpxName(String gpxName) throws NullPointerException, IllegalArgumentException  {
+
+        if(gpxName != null)
+            throw new NullPointerException("Argument null!");
+        if(gpxName.endsWith(".gpx"))
+            this.gpxName = gpxName;
+        else
+            throw new IllegalArgumentException("the format of the file must be gpx!");
     }
 
 
@@ -132,7 +148,7 @@ public class Path implements Parcelable {
      * @throws IllegalArgumentException
      */
     public void setDifficulty(int difficulty) throws IllegalArgumentException {
-        //The difficulty must be between 1 and 5
+
         if (difficulty >= 0 && difficulty <= 2)
             this.difficulty = difficulty;
         else
@@ -150,13 +166,29 @@ public class Path implements Parcelable {
     }
 
     /**
+     * @return the author's name
+     */
+    public String getAuthor() {
+        return author;
+    }
+
+    /**
+     * Sets the author's name
+     * @param author as the author's name
+     */
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+
+    /**
      * sets the length of the path, it has a little margin error of some
      * meters
      */
-    public void setLength() {
+    public void setLength() throws IllegalStateException {
 
-        if(coordinates == null)
-            throw new NullPointerException("You must first set coordinates, and then you can set" +
+        if(coordinates == null || coordinates.isEmpty())
+            throw new IllegalStateException("You must first set coordinates, and then you can set" +
                     "the lenght!");
 
         int length = 0;
@@ -204,10 +236,20 @@ public class Path implements Parcelable {
      */
     public void setUsedVehicle(Vehicle usedVehicle) throws IllegalArgumentException {
         //the used possibleVehicles must be specified
-        if (usedVehicle != null)
-            this.usedVehicle = usedVehicle;
+        Boolean b = false;
+        Vehicle[] usableVehicles = getUsableVehicle();
+        if(usableVehicles != null)
+            for(Vehicle v : usableVehicles)
+                b = v == usedVehicle;
         else
-            throw new IllegalArgumentException("the used possibleVehicles must be specified.");
+            b = true;
+        if(b)
+            if (usedVehicle != null)
+                this.usedVehicle = usedVehicle;
+            else
+                throw new IllegalArgumentException("The used vehicle must not be null");
+        else
+            throw new IllegalArgumentException("The used vehicle must be specified into the usable vehicles");
     }
 
     /**
@@ -216,25 +258,34 @@ public class Path implements Parcelable {
      @return UsableVehicle
      **/
     public Vehicle[] getUsableVehicle(){
-        return Arrays.copyOf(possibleVehicles, possibleVehicles.length);
+        if(possibleVehicles != null)
+            return Arrays.copyOf(possibleVehicles, possibleVehicles.length);
+        else
+            return null;
     }
 
     /**
-     * sets the vehicles that can be used to travel this path
+     * sets the vehicles that can be used to travel this path.
      * @param usableVehicle as an array of vehicles
      * @throws IllegalArgumentException
      */
     public void setUsableVehicle(Vehicle[] usableVehicle) throws IllegalArgumentException {
         //The list of the usable possibleVehicles must be specified
-        //In the list of the usable possibleVehicles, there must be the possibleVehicles used
-        if (usableVehicle != null && usableVehicle.length >= 1 && usableVehicle.length <= Vehicle.values().length){
+        //In the list of the usable possibleVehicles, there must be vehicle used
+        if (usableVehicle != null
+                && usableVehicle.length >= 1
+                && usableVehicle.length <= Vehicle.values().length) {
             boolean b = false;
-            for (int i = 0; i < usableVehicle.length && !b; i++)
-                b = usableVehicle[i] == usedVehicle;
-            if (b)
-                possibleVehicles = Arrays.copyOf(usableVehicle,usableVehicle.length);
+            if(usedVehicle != null)
+                for (int i = 0; i < usableVehicle.length && !b; i++)
+                    b = usableVehicle[i] == usedVehicle;
             else
-                throw new IllegalArgumentException("insert the possibleVehicles used in the list of usable vehicles");
+                b = true;
+                if (b)
+                    possibleVehicles = Arrays.copyOf(usableVehicle, usableVehicle.length);
+                else
+                    throw new IllegalArgumentException("insert the vehicle used to walk the path" +
+                            " in the list of usable vehicles");
         }
         else
             throw new IllegalArgumentException("Specify the vehicles that are usable.");
@@ -248,6 +299,12 @@ public class Path implements Parcelable {
         return description;
     }
 
+
+    /**
+     * Set the path description
+     * @param description
+     * @throws IllegalArgumentException
+     */
     public void setDescription(String description) throws IllegalArgumentException {
         //The description can be empty, but not null
         //The description can not exceed 256 characters
@@ -279,7 +336,7 @@ public class Path implements Parcelable {
         if (end != null)
             if(start != null)
                 if(end.getTime() > start.getTime())
-                    time = (end.getTime() - start.getTime()) * 60000;
+                    time = (end.getTime() - start.getTime());
                 else
                     throw new IllegalArgumentException("the time of end must be higher then start.");
             else
@@ -312,9 +369,9 @@ public class Path implements Parcelable {
      * It sets the first coordinate of the path, the
      * start point.
      */
-    public void setStart() {
-        if(coordinates == null)
-            throw new NullPointerException("You must first set the coordinates to retrieve" +
+    public void setStart() throws IllegalStateException {
+        if(coordinates == null || coordinates.isEmpty())
+            throw new IllegalStateException("You must first set the coordinates to retrieve" +
                     "the start point");
         this.start = this.coordinates.get(0);
     }
@@ -363,7 +420,7 @@ public class Path implements Parcelable {
 
         if (gpx == null)
             throw new IllegalArgumentException("specify the file gpx.");
-        coordinates = new ArrayList<>();
+        this.coordinates = new ArrayList<>();
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(gpx);
@@ -378,8 +435,9 @@ public class Path implements Parcelable {
             Location coordinate = new Location(LocationManager.GPS_PROVIDER);
             coordinate.setLatitude(lat);
             coordinate.setLongitude(lon);
-            coordinates.add(coordinate);
+            this.coordinates.add(coordinate);
         }
+        this.gpxName = gpx.getName();
     }
 
     /**
@@ -397,7 +455,8 @@ public class Path implements Parcelable {
      @return GPX
      **/
     public String getGPXString() {
-        String container = "<?xml  version='1.0'?><gpx xmlns='http://www.topografix.com/GPX/1/1' version='1.1' creator='TheWay'><rte>%s</rte></gpx>";
+        String container = "<?xml  version='1.0'?><gpx xmlns='http://www.topografix.com/GPX/1/1'" +
+                " version='1.1' creator='TheWay'><rte>%s</rte></gpx>";
         String body = "";
         String append = "<rtept lat='%s' lon='%s' />";
         for(Location coor : coordinates){
@@ -433,6 +492,7 @@ public class Path implements Parcelable {
         bundle.putSerializable("time", time);
         bundle.putParcelable("start", start);
         bundle.putSerializable("gpxName", gpxName);
+        bundle.putString("author", author);
         bundle.putParcelableArrayList("coordinates", coordinates);
         dest.writeBundle(bundle);
 

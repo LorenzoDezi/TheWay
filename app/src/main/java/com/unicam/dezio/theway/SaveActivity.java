@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -15,6 +16,7 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -22,6 +24,7 @@ import com.google.gson.GsonBuilder;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -63,6 +66,7 @@ public class SaveActivity extends AppCompatActivity {
     private RatingBar ratingBar;
     private RelativeLayout mainLayout;
     private SharedPreferences pref;
+    private TextView lengthTextView;
     private TextView timeTextView;
 
     @Override
@@ -95,6 +99,7 @@ public class SaveActivity extends AppCompatActivity {
             ratingBar = (RatingBar) findViewById(R.id.valutation_rating);
             mainLayout = (RelativeLayout) findViewById(R.id.save_layout);
             timeTextView = (TextView) findViewById(R.id.personal_time);
+            lengthTextView = (TextView) findViewById(R.id.length);
 
             //Retrieving the path to be saved from the intent
             Intent intent = getIntent();
@@ -103,8 +108,25 @@ public class SaveActivity extends AppCompatActivity {
                 //FATAL ERROR
                 Utility.goToActivity(this, MainActivity.class, true);
             }
-            timeTextView.setText(pathToSave.getTime().toString());
+            //timeTextView.setText(pathToSave.getTime().toString());
+            timeTextView.setText(
+                String.format("%d hour, %d min, %d sec",
+                        TimeUnit.MILLISECONDS.toHours(pathToSave.getTime().getTime()),
+                        TimeUnit.MILLISECONDS.toMinutes(pathToSave.getTime().getTime()) -
+                        TimeUnit.HOURS.toSeconds(TimeUnit.MILLISECONDS.toHours(pathToSave.getTime().getTime())),
+                        TimeUnit.MILLISECONDS.toSeconds(pathToSave.getTime().getTime()) -
+                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(pathToSave.getTime().getTime()))
+                )
+            );
             context = this.getApplicationContext();
+            try {
+                pathToSave.setLength();
+                lengthTextView.setText(pathToSave.getLenght() + " meters");
+            } catch (Exception ex) {
+                Toast.makeText(this.getApplicationContext(),
+                        "FATAL ERROR" + ex.getMessage(),
+                        Toast.LENGTH_LONG).show();
+            }
 
         } else {
 
@@ -167,12 +189,11 @@ public class SaveActivity extends AppCompatActivity {
             pathToSave.setStart();
             pathToSave.setDescription(descriptionString);
             pathToSave.setDifficulty(difficulty);
-            pathToSave.setLength();
             pathToSave.setValutation(rating);
             pathToSave.setUsedVehicle(vehicleUsed);
             pathToSave.setUsableVehicle(vehicles);
 
-        } catch (IllegalArgumentException ex) {
+        } catch (Exception ex) {
             Snackbar.make(findViewById(R.id.save_layout), ex.getMessage(), Snackbar.LENGTH_LONG).show();
             return;
         }
@@ -189,6 +210,7 @@ public class SaveActivity extends AppCompatActivity {
     private void storePathOnline()  {
 
         if(currentGPXFile != null) {
+
 
             pathToSave.setGpxName(currentGPXFile.getName());
             Retrofit retrofit = new Retrofit.Builder().baseUrl(Utility.BASE_URL)
@@ -218,7 +240,6 @@ public class SaveActivity extends AppCompatActivity {
                 public void onResponse(Call<ResponseBody> call,
                                        Response<ResponseBody> response) {
 
-                    //DEBUG
                     try {
                         String Result = response.body().string();
                         if (Result.equals("OK")) {

@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">TheWay</string>
     <string name="log_in">LOG IN!</string>
     <string name="not_registered">Not Registered?</string>
@@ -8,7 +9,7 @@
     <string name="find_a_route">" FIND A ROUTE "</string>
     <string name="start_your_route">" START YOUR ROUTE "</string>
     <string name="welcome"><![CDATA[Welcome \n <username>!]]></string>
-    <string name="facebook_app_id">827196277384061</string>
+    <string name="facebook_app_id">712534625571412</string>
     <string name="log_out">LOG OUT</string>
     <string name="title_activity_map">Map</string>
     <string name="bike_string">Bike</string>

@@ -48,15 +48,6 @@
         android:layout_toRightOf="@+id/userTextView"
         android:layout_toEndOf="@+id/userTextView" />
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="62dp"
-        android:id="@+id/progressRegister"
-        android:visibility="invisible" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -138,22 +129,9 @@
         android:text="@string/register"
         style="@style/textButtonTheme"
         android:id="@+id/buttonRegister"
-        android:layout_alignBottom="@+id/buttonRegisterFB"
+        android:layout_below="@+id/editTextRePwd"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="57dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-
-        android:text="Enter with Facebook!"
-        style="@style/textButtonTheme"
-
-        android:id="@+id/buttonRegisterFB"
-        android:layout_marginBottom="58dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="107dp" />
 
 
 </RelativeLayout>

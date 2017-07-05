@@ -8,6 +8,6 @@ package com.unicam.dezio.theway;
 
 public enum Vehicle {
 
-    Bike, Feet;
+    Bike, Feet
 
 }

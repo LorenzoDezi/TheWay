@@ -32,7 +32,7 @@
         android:required="true" />
 
     <application
-        android:name="io.ticofab.androidgpxparser.parser.application.ParserApplication"
+        android:name="com.unicam.dezio.theway.StarterClass"
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
